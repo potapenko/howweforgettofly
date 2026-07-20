@@ -212,4 +212,63 @@ describe("AI pathway illustrated acts", () => {
     ).toBeInTheDocument();
     expect(within(section).getByRole("heading", { name: heading })).toBeVisible();
   });
+
+  it.each([
+    {
+      entry: "/#adult",
+      pairs: [
+        ["Money", "Care"],
+        ["Craft", "Work"],
+        ["AI", "Rest"],
+      ],
+      bodies: [
+        "Reliable income may be necessary now.",
+        "Choices affect people who depend on us.",
+        "A form may require repetition and skills not yet learned.",
+        "Some tasks belong to an accepted or currently unavoidable agreement.",
+        "A tool can make some versions faster.",
+        "Capacity can be low and recovery necessary.",
+      ],
+    },
+    {
+      entry: "/ru#adult",
+      pairs: [
+        ["Деньги", "Забота"],
+        ["Ремесло", "Работа"],
+        ["ИИ", "Отдых"],
+      ],
+      bodies: [
+        "Стабильный доход может быть необходим прямо сейчас.",
+        "Наш выбор затрагивает людей, которые от нас зависят.",
+        "Форма может потребовать повторения и навыков, которым ещё предстоит научиться.",
+        "Некоторые задачи входят в принятое или пока неизбежное соглашение.",
+        "Инструмент может ускорить создание некоторых версий.",
+        "Сил может быть мало, а восстановление — необходимо.",
+      ],
+    },
+  ])("fills every A-01 paper tag from the exact $entry Ground cards", ({
+    entry,
+    pairs,
+    bodies,
+  }) => {
+    const { container } = renderPathway("adult", entry);
+    const support = container.querySelector<HTMLElement>(
+      '[data-story-mechanism="ground-or-gravity"] .parallax-story__editorial-supports',
+    )!;
+    const prose = document.getElementById("adults-ground-gravity")!;
+    const panels = Array.from(
+      support.querySelectorAll<HTMLElement>("[data-story-editorial-panel]"),
+    );
+
+    expect(support).toHaveAttribute("aria-hidden", "true");
+    expect(panels).toHaveLength(3);
+    pairs.forEach((pair, index) => {
+      pair.forEach((title) => expect(panels[index]).toHaveTextContent(title));
+    });
+    bodies.forEach((body) => {
+      expect(support).not.toHaveTextContent(body);
+      expect(prose).toHaveTextContent(body);
+    });
+    expect(support).not.toHaveTextContent(/Gravity says|Инерция говорит/);
+  });
 });

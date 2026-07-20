@@ -73,6 +73,11 @@ reports, screenshots, logs, and browser output uncommitted.
 Run the local server yourself and open the preview in the in-app browser. Do not
 give the user server-start instructions when you can run it.
 
+Every user-visible UI or visual change must be exercised in a real browser.
+Use either the in-app Browser or Computer Use, and include Safari or Chrome in
+the final browser matrix. Terminal tests and headless-only checks are supporting
+evidence, never a substitute for this browser pass.
+
 Before making substantial visual changes, use the Product Design plugin's
 `get-context` skill when the visual source is unclear or no longer matches the
 current goal. When the user gives durable prototype-specific design feedback,

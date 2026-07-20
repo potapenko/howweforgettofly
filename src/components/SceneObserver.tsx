@@ -10,6 +10,7 @@ import {
   ParallaxStage,
   storyForMechanism,
   storySupportsLocale,
+  type EditorialPanel,
 } from "../story";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLocale } from "../i18n/LocaleContext";
@@ -23,6 +24,8 @@ interface SceneObserverProps extends HTMLAttributes<HTMLElement> {
   as?: "section" | "article" | "div";
   /** Stable id for the readable section released after the illustrated act. */
   contentId?: string;
+  /** Presentational repeats of existing localized labels on authored paper tags. */
+  editorialPanels?: readonly EditorialPanel[];
 }
 
 /**
@@ -38,6 +41,7 @@ export function SceneObserver({
   as: Component = "section",
   className,
   contentId,
+  editorialPanels,
   id,
   tabIndex,
   ...props
@@ -110,6 +114,7 @@ export function SceneObserver({
             title: scene.title,
             thesis: scene.plainMeaning,
           }}
+          editorialPanels={editorialPanels}
           focusAfterSkipRef={inlineStory ? undefined : contentRef}
           inline={inlineStory}
           onSkip={inlineStory ? undefined : activate}

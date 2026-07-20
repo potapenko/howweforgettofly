@@ -186,6 +186,32 @@ describe("ParallaxStage", () => {
     expect(view.container.querySelector(".parallax-story__progress")).toBeNull();
   });
 
+  it("locks printed copy to whichever paper layer carries it", () => {
+    const view = render(
+      <ParallaxStage
+        editorialCopy={{
+          title: "Ground is not Gravity",
+          thesis: "Ground supports the attempt and gives it limits.",
+        }}
+        story={{
+          ...story,
+          mechanism: "candidate-map",
+          editorialCopyLayout: "paper-left",
+          editorialCopyLayerId: "boat",
+        }}
+      />,
+    );
+    const printedPaper = view.container.querySelector(
+      '[data-story-layer="boat"]',
+    );
+
+    expect(printedPaper).toHaveAttribute("data-ambient-enabled", "false");
+    expect(printedPaper).toHaveAttribute(
+      "data-story-editorial-surface-lock",
+      "true",
+    );
+  });
+
   it("prints localized scene copy and beat narration on the reserved editorial leaf", () => {
     const view = render(
       <ParallaxStage
@@ -247,6 +273,124 @@ describe("ParallaxStage", () => {
     ).toHaveTextContent("Land");
   });
 
+  it("prints three exact Ground-condition pairs on the remaining A-01 tags", () => {
+    const editorialPanels = [
+      {
+        labels: ["Money", "Care"],
+      },
+      {
+        labels: ["Craft", "Work"],
+      },
+      {
+        labels: ["AI", "Rest"],
+      },
+    ];
+    const view = render(
+      <ParallaxStage
+        editorialCopy={{
+          title: "Ground is not Gravity",
+          thesis: "Ground supports the attempt and gives it limits.",
+        }}
+        editorialPanels={editorialPanels}
+        reducedMotion
+        story={{
+          ...story,
+          mechanism: "ground-or-gravity",
+          editorialCopyLayout: "sky-left",
+        }}
+      />,
+    );
+    const support = view.container.querySelector(
+      ".parallax-story__editorial-supports",
+    );
+    const panels = support?.querySelectorAll(
+      "[data-story-editorial-panel]",
+    );
+
+    expect(support).toHaveAttribute("aria-hidden", "true");
+    expect(panels).toHaveLength(3);
+    expect(
+      support?.querySelectorAll(".parallax-story__editorial-support-label"),
+    ).toHaveLength(6);
+    editorialPanels.flatMap(({ labels }) => labels).forEach((label) => {
+      expect(support).toHaveTextContent(label);
+    });
+  });
+
+  it.each([
+    [
+      "Name the mode honestly",
+      "honest-mode-rail",
+      ["Name the mode", "honestly"],
+    ],
+    [
+      "Честно назвать режим",
+      "honest-mode-rail",
+      ["Честно назвать", "режим"],
+    ],
+    ["Ground is not Gravity", "ground-or-gravity", ["Ground is not", "Gravity"]],
+    ["Земля — не Инерция", "ground-or-gravity", ["Земля —", "не Инерция"]],
+    [
+      "A map that pretended to be the Sky",
+      "candidate-map",
+      ["A map that pretended", "to be the Sky"],
+    ],
+    [
+      "Карта, которая притворилась небом",
+      "candidate-map",
+      ["Карта, которая", "притворилась небом"],
+    ],
+    ["Return from simulation", "return-threshold", ["Return from", "simulation"]],
+    [
+      "Возвращение из симуляции",
+      "return-threshold",
+      ["Возвращение", "из симуляции"],
+    ],
+    [
+      "One sheet, ten honest doorways",
+      "equal-lenses",
+      ["One sheet, ten", "honest doorways"],
+    ],
+    [
+      "Один лист, десять честных входов",
+      "equal-lenses",
+      ["Один лист, десять", "честных входов"],
+    ],
+    ["The Sky Remains Open", "open-horizon", ["The Sky", "Remains Open"]],
+    [
+      "Небо остаётся открытым",
+      "open-horizon",
+      ["Небо остаётся", "открытым"],
+    ],
+  ] as const)(
+    "gives %s an authored two-line phrase break",
+    (titleCopy, mechanism, expected) => {
+      const view = render(
+        <ParallaxStage
+          editorialCopy={{
+            title: titleCopy,
+            thesis: "A question is not open if only yes can survive.",
+          }}
+          reducedMotion
+          story={{
+            ...story,
+            mechanism,
+            editorialCopyLayout: "sky-left",
+          }}
+        />,
+      );
+      const title = view.container.querySelector(
+        ".parallax-story__editorial-title",
+      );
+      const lines = title?.querySelectorAll("[data-story-title-line]");
+
+      expect(title).toHaveTextContent(titleCopy);
+      expect(Array.from(lines ?? []).map((line) => line.textContent)).toEqual(
+        expected,
+      );
+    },
+  );
+
   it("keeps ambient handoff at beat zero and removes narration transitions in Quiet view", () => {
     const css = readFileSync(
       join(process.cwd(), "src/story/parallax-stage.css"),
@@ -264,11 +408,84 @@ describe("ParallaxStage", () => {
     );
     for (const mechanism of [
       "adoption-folds",
+      "candidate-map",
+      "return-threshold",
       "honest-mode-rail",
       "ground-or-gravity",
+      "equal-lenses",
+      "open-horizon",
     ]) {
       expect(css).toContain(`data-story-mechanism="${mechanism}"`);
     }
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-heading\s*\{[^}]*position:\s*absolute;[^}]*width:\s*34%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-copy--sky-left\s*\{[^}]*container-type:\s*inline-size;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*max-width:\s*15ch;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\[data-story-title-line\]\s*\{[^}]*display:\s*block;[^}]*white-space:\s*nowrap;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*position:\s*absolute;[^}]*top:\s*74\.5%;[^}]*width:\s*49%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__beat--editorial span\s*\{[^}]*max-width:\s*min\(52ch,\s*26cqw\);/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-copy--sky-left\s*\{[^}]*container-type:\s*inline-size;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22\.42%;[^}]*left:\s*9\.81%;[^}]*width:\s*10\.29%;[^}]*height:\s*9\.56%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-thesis\s*\{[^}]*top:\s*30\.39%;[^}]*left:\s*24\.1%;[^}]*width:\s*8\.79%;[^}]*height:\s*11\.69%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*34\.75%;[^}]*left:\s*38\.76%;[^}]*width:\s*9\.57%;[^}]*height:\s*11\.69%;[^}]*padding:\s*0;[^}]*border:\s*0;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__editorial-support:nth-child\(1\)\s*\{[^}]*top:\s*32\.41%;[^}]*left:\s*54\.61%;[^}]*width:\s*9\.33%;[^}]*height:\s*11\.69%;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__editorial-support:nth-child\(2\)\s*\{[^}]*top:\s*29\.76%;[^}]*left:\s*69\.02%;[^}]*width:\s*6\.52%;[^}]*height:\s*10\.63%;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__editorial-support:nth-child\(3\)\s*\{[^}]*top:\s*20\.72%;[^}]*left:\s*80\.56%;[^}]*width:\s*9\.21%;[^}]*height:\s*11\.69%;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__editorial-support:nth-child\(2\)[\s\S]*\.parallax-story__editorial-support-label\s*\{[^}]*font-size:\s*clamp\(0\.55rem,\s*0\.78cqw,\s*0\.84rem\);/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*20\.5%;[^}]*left:\s*8\.8%;[^}]*width:\s*22%;[^}]*height:\s*14%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*49\.5%;[^}]*left:\s*8\.8%;[^}]*width:\s*18%;[^}]*height:\s*16%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*28\.5%;[^}]*left:\s*18\.5%;[^}]*width:\s*28%;[^}]*height:\s*14%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*55\.5%;[^}]*left:\s*18\.5%;[^}]*width:\s*25\.5%;[^}]*height:\s*13\.5%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22%;[^}]*left:\s*7\.2%;[^}]*width:\s*35\.5%;[^}]*height:\s*12\.2%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*63%;[^}]*left:\s*72%;[^}]*width:\s*18\.5%;[^}]*height:\s*11\.5%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*10%;[^}]*left:\s*28%;[^}]*width:\s*21%;[^}]*height:\s*11\.8%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*35%;[^}]*left:\s*20\.5%;[^}]*width:\s*18%;[^}]*height:\s*10%;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__beat--editorial\s*\{[^}]*transition:\s*none;/,
+    );
     expect(css).toMatch(
       /@media \(max-width: 900px\)[\s\S]*\.scene-story-chapter[\s\S]*\.parallax-story\[data-layout="inline"\][\s\S]*\.parallax-story__visual\s*\{[^}]*width:\s*100vw;[^}]*transform:\s*none\s*!important;/,
     );

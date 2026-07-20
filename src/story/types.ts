@@ -48,6 +48,11 @@ export type StoryBeatCopy = Readonly<
 /** Copy is keyed by stable beat id so localization cannot alter motion data. */
 export type StoryBeatLocalePack = Readonly<Record<string, StoryBeatCopy>>;
 
+/** Presentational copy printed onto one physical paper panel in a story. */
+export interface EditorialPanel {
+  labels: readonly string[];
+}
+
 /** A poster-first, image-layered interpretation of an existing scene. */
 export interface RasterStory {
   mechanism: MechanismId;
@@ -102,6 +107,8 @@ export interface ParallaxStageProps {
     title: string;
     thesis: string;
   }>;
+  /** Exact localized labels repeated decoratively on additional paper panels. */
+  editorialPanels?: readonly EditorialPanel[];
   /** Render beat narration as an optional overlay without announcing image layers. */
   showNarration?: boolean;
   /** Disables scroll and pointer movement after a scene has intentionally settled. */

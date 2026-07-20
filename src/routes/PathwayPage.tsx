@@ -3,6 +3,7 @@ import {
   pathways,
   windRoles,
   type CardDeck,
+  type EditorialCard,
   type PathwayDefinition,
   type PathwayId,
   type WindRole,
@@ -13,6 +14,14 @@ import {
   pathwayScenePlacementsFor,
 } from "../content/pages";
 import { useLocale } from "../i18n/LocaleContext";
+
+function groundConditionPanels(cards: readonly EditorialCard[] | undefined) {
+  if (cards?.length !== 6) return undefined;
+
+  return [0, 2, 4].map((start) => ({
+    labels: cards.slice(start, start + 2).map(({ title }) => title),
+  }));
+}
 
 function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: "en" | "ru" }) {
   return (
@@ -209,6 +218,10 @@ export function PathwayPage({
               releaseIntoSectionId === section.id &&
               pathway.sections[index - 1]?.id === afterSectionId,
           );
+          const editorialPanels =
+            placement?.scene.mechanism === "ground-or-gravity"
+              ? groundConditionPanels(section.cards)
+              : undefined;
 
           if (placement) {
             return (
@@ -218,6 +231,7 @@ export function PathwayPage({
                 className={className}
                 contentId={domId}
                 data-pathway-section={section.id}
+                editorialPanels={editorialPanels}
                 key={section.id}
                 scene={placement.scene}
               >

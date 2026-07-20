@@ -249,8 +249,20 @@ describe("raster story registry", () => {
       storyRegistry["open-horizon"].beats.at(-1)?.narration,
     ).toBe("We have not forgotten how to fly. The Sky is still here.");
     expect(storyRegistry["equal-lenses"].editorialNarrationLayout).toBe(
-      "card",
+      "integrated",
     );
+    expect({
+      "candidate-map": storyRegistry["candidate-map"].editorialCopyLayerId,
+      "return-threshold":
+        storyRegistry["return-threshold"].editorialCopyLayerId,
+      "equal-lenses": storyRegistry["equal-lenses"].editorialCopyLayerId,
+      "open-horizon": storyRegistry["open-horizon"].editorialCopyLayerId,
+    }).toEqual({
+      "candidate-map": "candidate-map-background",
+      "return-threshold": "return-threshold-primary",
+      "equal-lenses": "equal-lenses-background",
+      "open-horizon": "open-horizon-background",
+    });
     expect(storyRegistry["ground-or-gravity"].editorialCopyLayerId).toBe(
       "ground-or-gravity-primary",
     );

@@ -265,6 +265,7 @@ const adoptionFolds: RasterStory = {
 const candidateMap: RasterStory = {
   mechanism: "candidate-map",
   editorialCopyLayout: "paper-left",
+  editorialCopyLayerId: "candidate-map-background",
   poster: "/scenes/AI03.webp",
   posterMobileSrc: "/scenes/AI03-960.webp",
   posterSrcSet: "/scenes/AI03-960.webp 960w, /scenes/AI03.webp 1672w",
@@ -355,6 +356,7 @@ const candidateMap: RasterStory = {
 const returnThreshold: RasterStory = {
   mechanism: "return-threshold",
   editorialCopyLayout: "vellum-left",
+  editorialCopyLayerId: "return-threshold-primary",
   poster: "/scenes/AI04.webp",
   posterMobileSrc: "/scenes/AI04-960.webp",
   posterSrcSet: "/scenes/AI04-960.webp 960w, /scenes/AI04.webp 1672w",
@@ -602,7 +604,8 @@ const groundOrGravity: RasterStory = {
 const equalLenses: RasterStory = {
   mechanism: "equal-lenses",
   editorialCopyLayout: "paper-left",
-  editorialNarrationLayout: "card",
+  editorialCopyLayerId: "equal-lenses-background",
+  editorialNarrationLayout: "integrated",
   poster: "/scenes/ATLAS01.webp",
   posterMobileSrc: "/scenes/ATLAS01-960.webp",
   posterSrcSet:
@@ -684,6 +687,7 @@ const equalLenses: RasterStory = {
 const openHorizon: RasterStory = {
   mechanism: "open-horizon",
   editorialCopyLayout: "horizon-left",
+  editorialCopyLayerId: "open-horizon-background",
   poster: "/scenes/FINAL01.webp",
   posterMobileSrc: "/scenes/FINAL01-960.webp",
   posterSrcSet:

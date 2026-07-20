@@ -145,26 +145,69 @@ the raster.
 | Scene | Editorial field | Beat narration |
 | --- | --- | --- |
 | `AI-02` | opaque upper-left paper panel | integrated into the panel |
-| `AI-03` | `paper-left` | integrated into the field |
-| `AI-04` | `vellum-left` | integrated into the field |
-| `P-01` | clear central sky | integrated into the clear sky field |
-| `A-01` | three hanging paper tags | distributed across the tags and coupled to the primary layer |
-| `ATLAS-01` | `paper-left` | separate lower-right card; the mechanisms occupy the lower left leaf |
-| `FINAL-01` | `horizon-left` | integrated into the field |
+| `AI-03` | three separate reading zones on the left paper leaf | integrated into a compact lower paper zone |
+| `AI-04` | three separate reading zones on the front face of the vellum screen | integrated into a slightly more opaque lower vellum band |
+| `P-01` | broad central sky for title and thesis | printed on the lower sentence strip |
+| `A-01` | all six hanging paper tags: title, thesis, current beat, and three paired Ground-condition blocks | one complete text role per tag, coupled to the primary layer |
+| `ATLAS-01` | upper-left paper leaf | printed on the lower-right paper tab; the mechanisms occupy the lower left leaf |
+| `FINAL-01` | split blue horizon field left of the spine | integrated into a separate lower-left horizon zone |
 
 The title and thesis visible on the illustration are a presentational duplicate
 of the full semantic heading and prose that follow the scene. The duplicate is
 therefore hidden from the accessibility tree; narration remains live semantic
 HTML. Every scene carries title, thesis, and current beat copy inside the
-illustrated spread; `ATLAS-01` is the deliberate exception in placement only,
-keeping its beat in a separate lower-right card. At `900px` and below the
+illustrated spread. `P-01` deliberately separates those roles: its two-line
+title and thesis occupy the broad central sky, while the active beat is printed
+on the lower sentence strip so it never floats above or privileges one of the
+three mechanisms. `ATLAS-01` is the other deliberate placement exception,
+keeping its beat on the physical lower-right paper tab instead of in a
+viewport-relative card. At `900px` and below the
 duplicate editorial layer is hidden entirely, because the full-width inline
 illustration is immediately followed by the normal-flow accessible text. This
 prevents tiny overlaid type without removing meaning.
 
+The four later mixed text-and-image scenes use measured, mechanism-specific
+desktop zones rather than the generic `paper-left`, `vellum-left`, or
+`horizon-left` flow. Percentages are relative to the complete `1672 × 941`
+artboard and remain unchanged when the artboard is scaled:
+
+| Scene | Title `left / top / width / height` | Thesis `left / top / width / height` | Current beat `left / top / width / height` |
+| --- | --- | --- | --- |
+| `AI-03` | `8.8 / 20.5 / 22 / 14` | `8.8 / 36.5 / 20.5 / 9` | `8.8 / 49.5 / 18 / 16` |
+| `AI-04` | `18.5 / 28.5 / 28 / 14` | `18.5 / 43.5 / 27 / 9.5` | `18.5 / 55.5 / 25.5 / 13.5` |
+| `ATLAS-01` | `7.2 / 22 / 35.5 / 12.2` | `7.2 / 34.8 / 35.5 / 5.3` | `72 / 63 / 18.5 / 11.5` |
+| `FINAL-01` | `28 / 10 / 21 / 11.8` | `28 / 22.4 / 21 / 4` | `20.5 / 35 / 18 / 10` |
+
+Their titles use authored two-line breaks in both editions so browser text
+balancing cannot reintroduce arbitrary three-line headings:
+
+| Scene | EN | RU |
+| --- | --- | --- |
+| `AI-03` | `A map that pretended` / `to be the Sky` | `Карта, которая` / `притворилась небом` |
+| `AI-04` | `Return from` / `simulation` | `Возвращение` / `из симуляции` |
+| `ATLAS-01` | `One sheet, ten` / `honest doorways` | `Один лист, десять` / `честных входов` |
+| `FINAL-01` | `The Sky` / `Remains Open` | `Небо остаётся` / `открытым` |
+
+The title and thesis remain a presentational duplicate hidden from the
+accessibility tree. Each current beat remains semantic HTML, and only the
+active beat may be visibly opaque. The title, thesis, and beat zones must not
+share one implicit vertical flow, because their physical paper carriers do not
+share one rectangle.
+
 The `A-01` editorial wrapper follows the same authored scroll and pointer
-transform as `ground-or-gravity-primary`. Its three text fragments therefore
-remain printed on the moving hanging tags rather than floating above them.
+transform as `ground-or-gravity-primary`. Its six text fragments therefore
+remain printed on the moving hanging tags rather than floating above them. The
+title belongs wholly inside the first broad rounded tag, the thesis inside the
+second angular tag, and the current beat inside the third cloud-shaped tag.
+The remaining three tags repeat the six exact Ground-condition titles that
+follow the scene, paired without rewriting: Money + Care on the fourth round
+tag, Craft + Work on the fifth angular tag, and AI + Rest on the sixth
+cloud-shaped tag. Their `body` and longer Gravity `detail` stay in the
+normal-flow prose below; they must not be miniaturized into decorative
+microcopy. Every role keeps a deliberate inner inset and artboard-relative type
+scale so no line escapes its paper surface at supported desktop aspect ratios.
+The `A-01` title resolves in exactly two authored lines in both editions, and
+no hanging tag is left as an unexplained empty text plane.
 
 ### 2.7. Implemented reading-position and browser contract
 

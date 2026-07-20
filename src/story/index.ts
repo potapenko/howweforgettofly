@@ -5,6 +5,7 @@ export {
   storySupportsLocale,
 } from "./storyRegistry";
 export type {
+  EditorialPanel,
   ParallaxStageProps,
   RasterLayer,
   RasterStory,

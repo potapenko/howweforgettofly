@@ -179,6 +179,66 @@ function currentBeatIndex(beats: readonly StoryBeat[], progress: number) {
   return index;
 }
 
+function authoredTitleLines(title: string, mechanism: string) {
+  const explicitBreaks: Readonly<
+    Record<string, Readonly<Record<string, readonly [string, string]>>>
+  > = {
+    "candidate-map": {
+      "A map that pretended to be the Sky": [
+        "A map that pretended",
+        "to be the Sky",
+      ],
+      "Карта, которая притворилась небом": [
+        "Карта, которая",
+        "притворилась небом",
+      ],
+    },
+    "return-threshold": {
+      "Return from simulation": ["Return from", "simulation"],
+      "Возвращение из симуляции": ["Возвращение", "из симуляции"],
+    },
+    "equal-lenses": {
+      "One sheet, ten honest doorways": ["One sheet, ten", "honest doorways"],
+      "Один лист, десять честных входов": [
+        "Один лист, десять",
+        "честных входов",
+      ],
+    },
+    "open-horizon": {
+      "The Sky Remains Open": ["The Sky", "Remains Open"],
+      "Небо остаётся открытым": ["Небо остаётся", "открытым"],
+    },
+  };
+  const explicit = explicitBreaks[mechanism]?.[title];
+  if (explicit) {
+    return (
+      <>
+        <span data-story-title-line>{explicit[0]}</span>{" "}
+        <span data-story-title-line>{explicit[1]}</span>
+      </>
+    );
+  }
+
+  if (
+    mechanism !== "honest-mode-rail" &&
+    mechanism !== "ground-or-gravity"
+  ) {
+    return title;
+  }
+  const groundNegation = title.indexOf(" не ");
+  const breakAt =
+    mechanism === "ground-or-gravity" && groundNegation > 0
+      ? groundNegation
+      : title.lastIndexOf(" ");
+  if (breakAt <= 0 || breakAt === title.length - 1) return title;
+  return (
+    <>
+      <span data-story-title-line>{title.slice(0, breakAt)}</span>{" "}
+      <span data-story-title-line>{title.slice(breakAt + 1)}</span>
+    </>
+  );
+}
+
 function imageSource(image: HTMLImageElement) {
   return image.currentSrc || image.src;
 }
@@ -218,6 +278,7 @@ export function ParallaxStage({
   style,
   children,
   editorialCopy,
+  editorialPanels,
   showNarration = true,
   settled = false,
   reducedMotion,
@@ -709,6 +770,8 @@ export function ParallaxStage({
             {layersHydrated
               ? story.layers.map((layer, index) => {
                   const ambientMotion = ambientMotions.get(layer.id)!;
+                  const locksPrintedEditorialSurface =
+                    layer.id === story.editorialCopyLayerId;
                   return (
                     <span
                       className="parallax-story__layer-pose"
@@ -733,7 +796,13 @@ export function ParallaxStage({
                           className={["parallax-story__layer", layer.className]
                             .filter(Boolean)
                             .join(" ")}
-                          data-ambient-enabled={String(ambientMotion.enabled)}
+                          data-ambient-enabled={String(
+                            ambientMotion.enabled &&
+                              !locksPrintedEditorialSurface,
+                          )}
+                          data-story-editorial-surface-lock={
+                            locksPrintedEditorialSurface ? "true" : undefined
+                          }
                           data-story-layer={layer.id}
                           decoding="async"
                           draggable="false"
@@ -779,7 +848,10 @@ export function ParallaxStage({
                 className="parallax-story__editorial-heading"
               >
                 <p className="parallax-story__editorial-title">
-                  {resolvedEditorialCopy.title}
+                  {authoredTitleLines(
+                    resolvedEditorialCopy.title,
+                    story.mechanism,
+                  )}
                 </p>
                 <p className="parallax-story__editorial-thesis">
                   {resolvedEditorialCopy.thesis}
@@ -801,6 +873,30 @@ export function ParallaxStage({
                       {beat.label ? <strong>{beat.label}</strong> : null}
                       {beat.narration ? <span>{beat.narration}</span> : null}
                     </article>
+                  ))}
+                </div>
+              ) : null}
+              {story.mechanism === "ground-or-gravity" &&
+              editorialPanels?.length ? (
+                <div
+                  aria-hidden="true"
+                  className="parallax-story__editorial-supports"
+                >
+                  {editorialPanels.map((panel, panelIndex) => (
+                    <div
+                      className="parallax-story__editorial-support"
+                      data-story-editorial-panel={panelIndex + 1}
+                      key={panelIndex}
+                    >
+                      {panel.labels.map((label, labelIndex) => (
+                        <strong
+                          className="parallax-story__editorial-support-label"
+                          key={`${label}-${labelIndex}`}
+                        >
+                          {label}
+                        </strong>
+                      ))}
+                    </div>
                   ))}
                 </div>
               ) : null}

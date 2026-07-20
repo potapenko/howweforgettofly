@@ -331,7 +331,7 @@
  * These three books do not share the same quiet leaf even though all three
  * use the blue-sky edition. Keep each text block on a real authored surface:
  * AI-02 gets a broad paper note above the incoming planes, P-01 is printed in
- * the clear central sky, and A-01 sits inside the first hanging paper form.
+ * the clear central sky, and A-01 uses its first three hanging paper forms.
  */
 .parallax-story[data-story-mechanism="adoption-folds"]
   .parallax-story__editorial-copy--sky-left {
@@ -351,15 +351,80 @@
 
 .parallax-story[data-story-mechanism="honest-mode-rail"]
   .parallax-story__editorial-copy--sky-left {
-  top: 8.5%;
-  left: 42.2%;
-  width: 22.5%;
+  inset: 0;
+  display: block;
+  width: auto;
+  container-type: inline-size;
+  text-shadow: none;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__editorial-heading {
+  position: absolute;
+  top: 10.5%;
+  left: 37.4%;
+  width: 34%;
+  gap: clamp(0.35rem, 1.1cqw, 1.2rem);
+  text-shadow:
+    0 1px 0 rgb(255 255 255 / 92%),
+    0 0 1.4rem rgb(255 255 255 / 76%);
 }
 
 .parallax-story[data-story-mechanism="honest-mode-rail"]
   .parallax-story__editorial-title {
-  max-width: 10ch;
-  font-size: clamp(1.5rem, 2.45vw, 3.15rem);
+  max-width: 15ch;
+  font-size: clamp(1.25rem, 3.1cqw, 4.05rem);
+  line-height: 0.92;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__editorial-title
+  [data-story-title-line] {
+  display: block;
+  white-space: nowrap;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__editorial-title::after {
+  width: clamp(1.5rem, 4cqw, 4.5rem);
+  margin-top: clamp(0.45rem, 1.2cqw, 1.2rem);
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__editorial-thesis {
+  max-width: 35ch;
+  font-size: clamp(0.76rem, 1.18cqw, 1.28rem);
+  line-height: 1.2;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__editorial-narration {
+  position: absolute;
+  top: 74.5%;
+  left: 21.2%;
+  width: 49%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__beat--editorial {
+  gap: clamp(0.18rem, 0.28cqw, 0.32rem);
+  width: 100%;
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__beat--editorial strong {
+  font-size: clamp(0.66rem, 0.82cqw, 0.84rem);
+}
+
+.parallax-story[data-story-mechanism="honest-mode-rail"]
+  .parallax-story__beat--editorial span {
+  max-width: min(52ch, 26cqw);
+  font-size: clamp(0.74rem, 0.94cqw, 1rem);
+  line-height: 1.24;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
@@ -367,6 +432,7 @@
   inset: 0;
   display: block;
   width: auto;
+  container-type: inline-size;
   text-shadow: none;
 }
 
@@ -378,50 +444,402 @@
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__editorial-title {
   position: absolute;
-  top: 17%;
-  left: 8%;
-  width: 13.5%;
+  top: 22.42%;
+  left: 9.81%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  width: 10.29%;
+  height: 9.56%;
   max-width: none;
-  font-size: clamp(1.3rem, 2.05vw, 2.65rem);
+  font-size: clamp(0.88rem, 1.62cqw, 1.75rem);
+  line-height: 0.92;
+  text-align: center;
+  text-wrap: nowrap;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-title
+  [data-story-title-line] {
+  display: block;
+  white-space: nowrap;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__editorial-thesis {
   position: absolute;
-  top: 27.5%;
-  left: 23.6%;
-  width: 12.8%;
+  top: 30.39%;
+  left: 24.1%;
+  display: flex;
+  align-items: center;
+  width: 8.79%;
+  height: 11.69%;
   max-width: none;
-  font-size: clamp(0.7rem, 0.94vw, 1.05rem);
-  line-height: 1.16;
+  font-size: clamp(0.46rem, 0.78cqw, 0.84rem);
+  line-height: 1.15;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__editorial-narration {
   position: absolute;
-  top: 29.5%;
-  left: 38.2%;
-  width: 12.5%;
+  top: 34.75%;
+  left: 38.76%;
+  display: flex;
+  align-items: center;
+  width: 9.57%;
+  height: 11.69%;
   min-height: 0;
   margin: 0;
-  padding-top: clamp(0.35rem, 0.5vw, 0.55rem);
+  padding: 0;
+  border: 0;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__editorial-title::after {
-  width: clamp(1.7rem, 2.8vw, 3rem);
-  margin-top: clamp(0.35rem, 0.55vw, 0.55rem);
+  width: clamp(1.5rem, 3.1cqw, 3.25rem);
+  height: clamp(2px, 0.2cqw, 3px);
+  margin-top: clamp(0.24rem, 0.55cqw, 0.58rem);
+  margin-inline: auto;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__beat--editorial {
+  gap: clamp(0.1rem, 0.22cqw, 0.24rem);
+  width: 100%;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__beat--editorial strong {
-  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
+  font-size: clamp(0.42rem, 0.66cqw, 0.73rem);
+  line-height: 1.05;
 }
 
 .parallax-story[data-story-mechanism="ground-or-gravity"]
   .parallax-story__beat--editorial span {
-  font-size: clamp(0.64rem, 0.8vw, 0.82rem);
+  font-size: clamp(0.44rem, 0.72cqw, 0.78rem);
+  line-height: 1.15;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-supports {
+  display: contents;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support {
+  position: absolute;
+  display: grid;
+  align-content: center;
+  gap: clamp(0.42rem, 0.8cqw, 0.82rem);
+  color: #101116;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support:nth-child(1) {
+  top: 32.41%;
+  left: 54.61%;
+  width: 9.33%;
+  height: 11.69%;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support:nth-child(2) {
+  top: 29.76%;
+  left: 69.02%;
+  gap: clamp(0.34rem, 0.62cqw, 0.64rem);
+  width: 6.52%;
+  height: 10.63%;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support:nth-child(3) {
+  top: 20.72%;
+  left: 80.56%;
+  width: 9.21%;
+  height: 11.69%;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support-label {
+  color: #075ecb;
+  font: 700 clamp(0.58rem, 0.9cqw, 0.95rem)/1 "Space Grotesk", sans-serif;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.parallax-story[data-story-mechanism="ground-or-gravity"]
+  .parallax-story__editorial-support:nth-child(2)
+  .parallax-story__editorial-support-label {
+  font-size: clamp(0.55rem, 0.78cqw, 0.84rem);
+}
+
+/*
+ * The remaining mixed text-and-image spreads have different physical reading
+ * surfaces. Give title, thesis, and active beat independent artboard zones;
+ * the ImageGen layout references are geometry evidence, while the approved
+ * copy stays code-native and localized here.
+ */
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-copy--paper-left,
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-copy--vellum-left,
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-copy--paper-left,
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-copy--horizon-left {
+  inset: 0;
+  display: block;
+  width: auto;
+  container-type: inline-size;
+  text-shadow: none;
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-heading,
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-heading,
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-heading,
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-heading {
+  display: contents;
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-title
+  [data-story-title-line],
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-title
+  [data-story-title-line],
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-title
+  [data-story-title-line],
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-title
+  [data-story-title-line] {
+  display: block;
+  white-space: nowrap;
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-title {
+  position: absolute;
+  top: 20.5%;
+  left: 8.8%;
+  width: 22%;
+  height: 14%;
+  max-width: none;
+  font-size: clamp(1.45rem, 2.55cqw, 2.85rem);
+  line-height: 0.94;
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-thesis {
+  position: absolute;
+  top: 36.5%;
+  left: 8.8%;
+  width: 20.5%;
+  height: 9%;
+  max-width: none;
+  font-size: clamp(0.78rem, 1.08cqw, 1.16rem);
+  line-height: 1.22;
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__editorial-narration {
+  position: absolute;
+  top: 49.5%;
+  left: 8.8%;
+  box-sizing: border-box;
+  width: 18%;
+  height: 16%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(0.55rem, 0.82cqw, 0.86rem)
+    clamp(0.65rem, 0.96cqw, 1rem);
+  border: 1px solid rgb(7 93 204 / 38%);
+  border-left-width: 2px;
+  background: rgb(255 255 255 / 44%);
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__beat--editorial strong {
+  font-size: clamp(0.64rem, 0.76cqw, 0.8rem);
+}
+
+.parallax-story[data-story-mechanism="candidate-map"]
+  .parallax-story__beat--editorial span {
+  font-size: clamp(0.72rem, 0.88cqw, 0.93rem);
+  line-height: 1.25;
+}
+
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-title {
+  position: absolute;
+  top: 28.5%;
+  left: 18.5%;
+  width: 28%;
+  height: 14%;
+  max-width: none;
+  font-size: clamp(1.6rem, 3cqw, 3.35rem);
+  line-height: 0.92;
+}
+
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-thesis {
+  position: absolute;
+  top: 43.5%;
+  left: 18.5%;
+  width: 27%;
+  height: 9.5%;
+  max-width: none;
+  font-size: clamp(0.78rem, 1.08cqw, 1.16rem);
+  line-height: 1.22;
+}
+
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__editorial-narration {
+  position: absolute;
+  top: 55.5%;
+  left: 18.5%;
+  box-sizing: border-box;
+  width: 25.5%;
+  height: 13.5%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(0.55rem, 0.82cqw, 0.86rem)
+    clamp(0.65rem, 0.96cqw, 1rem);
+  border: 1px solid rgb(255 255 255 / 62%);
+  border-radius: clamp(0.35rem, 0.65cqw, 0.7rem);
+  background: rgb(255 255 255 / 42%);
+}
+
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__beat--editorial strong {
+  font-size: clamp(0.64rem, 0.76cqw, 0.8rem);
+}
+
+.parallax-story[data-story-mechanism="return-threshold"]
+  .parallax-story__beat--editorial span {
+  font-size: clamp(0.72rem, 0.88cqw, 0.93rem);
+  line-height: 1.24;
+}
+
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-title {
+  position: absolute;
+  top: 22%;
+  left: 7.2%;
+  width: 35.5%;
+  height: 12.2%;
+  max-width: none;
+  font-size: clamp(1.55rem, 2.72cqw, 3.05rem);
+  line-height: 0.93;
+}
+
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-thesis {
+  position: absolute;
+  top: 34.8%;
+  left: 7.2%;
+  width: 35.5%;
+  height: 5.3%;
+  max-width: none;
+  font-size: clamp(0.76rem, 1.02cqw, 1.08rem);
+  line-height: 1.2;
+}
+
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__editorial-narration {
+  position: absolute;
+  top: 63%;
+  left: 72%;
+  box-sizing: border-box;
+  width: 18.5%;
+  height: 11.5%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(0.45rem, 0.72cqw, 0.76rem)
+    clamp(0.55rem, 0.82cqw, 0.86rem);
+  border: 0;
+  border-left: 2px solid var(--story-blue);
+  background: transparent;
+}
+
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__beat--editorial strong {
+  font-size: clamp(0.62rem, 0.72cqw, 0.76rem);
+}
+
+.parallax-story[data-story-mechanism="equal-lenses"]
+  .parallax-story__beat--editorial span {
+  font-size: clamp(0.7rem, 0.82cqw, 0.87rem);
+  line-height: 1.24;
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-copy--horizon-left {
+  color: #fff;
+  text-shadow: 0 1px 0 rgb(20 46 92 / 26%);
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-title {
+  position: absolute;
+  top: 10%;
+  left: 28%;
+  width: 21%;
+  height: 11.8%;
+  max-width: none;
+  font-size: clamp(1.5rem, 2.75cqw, 3.05rem);
+  line-height: 0.94;
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-title::after {
+  background: rgb(255 255 255 / 84%);
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-thesis {
+  position: absolute;
+  top: 22.4%;
+  left: 28%;
+  width: 21%;
+  height: 4%;
+  max-width: none;
+  color: #fff;
+  font-size: clamp(0.74rem, 0.96cqw, 1rem);
   line-height: 1.18;
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__editorial-narration {
+  position: absolute;
+  top: 35%;
+  left: 20.5%;
+  box-sizing: border-box;
+  width: 18%;
+  height: 10%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(0.45rem, 0.68cqw, 0.72rem) 0 0;
+  border: 0;
+  border-top: 1px solid rgb(255 255 255 / 34%);
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__beat--editorial strong {
+  color: #fff;
+  font-size: clamp(0.62rem, 0.72cqw, 0.76rem);
+}
+
+.parallax-story[data-story-mechanism="open-horizon"]
+  .parallax-story__beat--editorial span {
+  color: #fff;
+  font-size: clamp(0.7rem, 0.84cqw, 0.88rem);
+  line-height: 1.24;
 }
 
 .parallax-story__editorial-copy--horizon-left {
@@ -535,6 +953,7 @@
   background: transparent;
   box-shadow: none;
   transform: translateY(0.35rem);
+  transition: none;
 }
 
 .parallax-story__beat--editorial[data-active="true"] {
