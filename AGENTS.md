@@ -1,9 +1,58 @@
 # Repository Instructions
 
-This checkout is the long-term home of **How We Forget to Fly**. Treat this
-repository, its tests, and the canonical files under `docs/` as authoritative.
-The former prototype checkout is archival input only: do not synchronize files
-back to it and do not add absolute paths that depend on it.
+This checkout is the long-term home of **How We Forget to Fly**. Treat its
+active specs and canonical files under `docs/` as authoritative for intended
+product behavior. Tests are authoritative verification artifacts, not a
+replacement for active specs. The former prototype checkout is archival input
+only: do not synchronize files back to it and do not add absolute paths that
+depend on it.
+
+## Mandatory Spec Gate
+
+Follow [`docs/spec-first-workflow.md`](docs/spec-first-workflow.md). The active
+product contracts and their precedence live in
+[`docs/specs/index.md`](docs/specs/index.md).
+
+For every product feature, observable behavior change, behavioral bug,
+behavioral investigation, product-behavior plan, or refactor with possible
+behavioral impact:
+
+1. Read this file, [`docs/specs/README.md`](docs/specs/README.md), the spec
+   index, and every active spec governing the task.
+2. **Before opening implementation source, tests, runtime evidence, or Git
+   history**, state a visible **Spec Basis** with authoritative spec paths,
+   expected behavior, invariants and edge cases, gaps or conflicts, required
+   spec impact, and whether implementation is authorized.
+3. If the contract is missing or conflicts, create or update its spec first.
+   For a behavior change, the spec edit precedes the first implementation edit.
+4. Only then inspect implementation evidence. Code, tests, runtime output,
+   screenshots, and history establish actual behavior; they do not silently
+   replace intended product behavior.
+
+An explicit brownfield discovery pass is the only exception: record the absent
+or unreliable contract first, inspect the project as evidence, and create
+first-pass specs without changing product implementation. Planning-only and
+investigation-only requests never authorize implementation.
+
+## Optional Browser QA Routing
+
+This browser UI keeps optional browser-QA artifacts under `qa/`. Browser QA is
+verification evidence, not a replacement for the Mandatory Spec Gate or active
+product specs.
+
+If the task is about browser smoke checks, regression runs, or QA reports:
+
+- read `qa/README.md` and `qa/web/AGENTS.run.md`;
+- read the active specs that define the expected behavior before assessing it.
+
+If the task is about creating or updating browser QA cases:
+
+- read `qa/web/AGENTS.cases.md` and `qa/web/create-cases-prompt.md`;
+- read the governing active specs and search existing cases before adding one.
+
+If a task changes user-visible browser behavior, update or add the relevant
+browser-QA artifact when the behavior has a browser case. Keep generated run
+reports, screenshots, logs, and browser output uncommitted.
 
 ## Working agreement
 

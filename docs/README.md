@@ -1,19 +1,24 @@
 # Project document map
 
-The running site and its tests are the behavioral source of truth. These
-documents preserve the intent needed to evolve the work without flattening its
-editorial or visual language.
+For work covered by the Mandatory Spec Gate, active contracts in
+[`specs/`](specs/README.md) define intended product behavior. The running site,
+tests, screenshots, and Git history are evidence of current behavior; they do
+not silently replace a product contract. This map preserves the project inputs
+needed to evolve the work without flattening its editorial or visual language.
 
 ## Authority order
 
-1. `AGENTS.md` — current repository and product invariants.
-2. `product/PUBLIC_SOURCE_COLOPHON_PLAN.md` — approved public source framing.
-3. `visual/reference/popup-game-master.png` and
+1. [`specs/index.md`](specs/index.md) — active product contracts and their
+   precedence for future behavior work.
+2. `AGENTS.md` — repository workflow and enduring product guardrails.
+3. `product/PUBLIC_SOURCE_COLOPHON_PLAN.md` — approved public source framing.
+4. `visual/reference/popup-game-master.png` and
    `visual/scene-expansion/SCENE_SPECS.md` — visual and motion source of truth.
-4. `product/`, `thesis/`, and `universe/` — product shape and poetic canon.
-5. `governance/TRACEABILITY.md` and `source/` — internal provenance and
+5. `product/`, `thesis/`, and `universe/` — product shape and poetic canon;
+   use the spec index where an older document conflicts with current contracts.
+6. `governance/TRACEABILITY.md` and `source/` — internal provenance and
    editorial safeguards.
-6. `reports/` — evidence from completed, named migrations; useful context, not
+7. `reports/` — evidence from completed, named migrations; useful context, not
    a substitute for rerunning the current test and browser gates.
 
 ## Boundaries
