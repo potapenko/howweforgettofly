@@ -1,0 +1,28 @@
+# Dependencies and generated builds
+node_modules/
+dist/
+coverage/
+.vite/
+
+# Local package and browser tooling
+.npm-cache/
+.playwright-cli/
+playwright-report/
+test-results/
+output/
+/reports/
+
+# Environment and machine-local state
+.env
+.env.*
+!.env.example
+*.local
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Temporary files
+*.swp
+*.tmp
+*~

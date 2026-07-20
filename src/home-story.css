@@ -1,0 +1,395 @@
+/* The opening spread is measured against the 1672 x 941 approved artboard. */
+html[data-home-cover-active="true"] .site-header {
+  min-height: 68px;
+  padding-block: 8px;
+  border-bottom-color: rgb(18 100 232 / 18%);
+  background: rgb(255 255 255 / 86%);
+  box-shadow: 0 12px 32px rgb(14 52 90 / 10%);
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+  backdrop-filter: blur(22px) saturate(1.25);
+}
+
+html[data-home-cover-active="true"] #main-content {
+  padding-top: 0;
+}
+
+@media (min-width: 821px) {
+  html[data-home-cover-active="true"]
+    .home-story
+    .parallax-story__visual {
+    translate: 0 clamp(28px, 4svh, 44px);
+  }
+}
+
+.site-header {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease,
+    transform 240ms ease;
+}
+
+.home-page {
+  overflow: clip;
+  background: #f7f5f2;
+}
+
+.home-story {
+  --story-scroll-length: 480svh;
+  --home-artboard-ratio: 1.7768331562;
+  --home-approved-opacity: 1;
+  --home-live-opacity: 0;
+  background: #f7f5f2;
+}
+
+/* Once the real planes are ready, the approved still becomes a loading
+ * fallback and the same composition begins breathing without requiring the
+ * visitor to scroll first. */
+.home-story[data-layers-ready="true"] {
+  --home-approved-opacity: 0;
+  --home-live-opacity: 1;
+}
+
+.home-story .parallax-story__sticky {
+  top: 0;
+  height: 100svh;
+  background:
+    radial-gradient(circle at 50% 42%, #ffffff 0 45%, #f2efeb 100%);
+}
+
+.home-story .parallax-story__visual {
+  width: min(100vw, calc(100svh * var(--home-artboard-ratio)));
+  max-width: none;
+  aspect-ratio: 1672 / 941;
+  overflow: visible;
+  container-type: inline-size;
+}
+
+.home-story .parallax-story__poster,
+.home-story .parallax-story__layer {
+  object-fit: contain !important;
+  transform-origin: center;
+}
+
+/* The approved raster and the live DOM are not pixel-identical. An opacity
+ * crossfade would briefly double every baked label, so Home switches the two
+ * complete states atomically once readiness is confirmed. */
+.home-story .parallax-story__poster,
+.home-story .parallax-story__layers,
+.home-cover-approved-frame,
+.home-cover-copy,
+.home-cover-section,
+.home-cover-tab {
+  transition: none;
+}
+
+.home-story .parallax-story__layer:not(.home-layer--background) {
+  opacity: calc(var(--story-layer-opacity) * var(--home-live-opacity));
+}
+
+.home-story .home-layer--wind {
+  clip-path: inset(0 0 0 31.5%);
+}
+
+.home-story .home-layer--sky-objects {
+  clip-path: inset(0 0 0 48%);
+}
+
+.home-story .home-layer--left-cloud {
+  clip-path: inset(12% 52% 60% 29%);
+}
+
+.home-cover-content,
+.home-cover-copy,
+.home-cover-section,
+.home-cover-tab {
+  position: absolute;
+}
+
+.home-cover-content {
+  inset: 0;
+  color: #111318;
+  pointer-events: none;
+}
+
+/*
+ * The approved still is the literal loading and failure frame. The live DOM
+ * appears only after every raster plane is ready, preventing the poster's
+ * baked-in labels from ever overlapping the accessible copy.
+ */
+.home-cover-approved-frame {
+  position: absolute;
+  z-index: 9;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: var(--home-approved-opacity);
+  pointer-events: none;
+}
+
+.home-cover-copy,
+.home-cover-section,
+.home-cover-tab {
+  opacity: var(--home-live-opacity);
+}
+
+/* Russian copy cannot be baked into the approved English reference frame.
+ * It is therefore readable from first paint over the text-free paper ground,
+ * while the independent paper objects still wait for their normal readiness
+ * handoff. */
+.home-cover-content[data-cover-locale="ru"]
+  :is(.home-cover-copy, .home-cover-section, .home-cover-tab) {
+  opacity: 1;
+}
+
+.home-cover-copy {
+  top: 23.6%;
+  left: 10.95%;
+  z-index: 4;
+  width: 21.4%;
+}
+
+.home-cover-copy h1 {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  color: #111;
+  font-family: var(--display);
+  font-size: 5.15cqw;
+  font-weight: 735;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  transform: translateY(-0.36cqw) scaleX(1.035);
+  transform-origin: left top;
+}
+
+.home-cover-copy h1:focus,
+.home-cover-copy h1:focus-visible {
+  outline: none;
+}
+
+.home-cover-copy h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.home-cover-rule {
+  display: block;
+  width: 3.05cqw;
+  height: max(2px, 0.13cqw);
+  margin-top: 1.05cqw;
+  background: #1264e8;
+  transform: translateY(-0.18cqw);
+}
+
+.home-cover-deck {
+  margin: 0.82cqw 0 0;
+  font-family: var(--display);
+  font-size: 1.25cqw;
+  font-weight: 570;
+  letter-spacing: 0.005em;
+  line-height: 1.15;
+}
+
+.home-cover-nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.45cqw;
+  margin-top: 1.65cqw;
+  pointer-events: auto;
+}
+
+.home-cover-nav a {
+  position: relative;
+  display: inline-flex;
+  min-height: 2.6cqw;
+  align-items: flex-start;
+  padding: 0.2cqw 0 0.72cqw;
+  font-family: var(--display);
+  font-size: 0.78cqw;
+  font-weight: 670;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.home-cover-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: max(2px, 0.15cqw);
+  content: "";
+  background: #1264e8;
+  transform: scaleX(0.72);
+  transform-origin: left;
+  transition: transform 160ms ease;
+}
+
+.home-cover-nav a:hover::after,
+.home-cover-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.home-cover-section {
+  top: 68.2%;
+  left: 9.15%;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 2.1cqw 5.85cqw 0.16cqw 1fr;
+  min-width: 21.6%;
+  align-items: center;
+  column-gap: 0.85cqw;
+}
+
+.home-cover-section-word {
+  color: #1264e8;
+  font-family: var(--display);
+  font-size: 0.68cqw;
+  font-weight: 680;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+.home-cover-section strong {
+  color: #1264e8;
+  font-family: var(--display);
+  font-size: 4.7cqw;
+  font-weight: 680;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.home-cover-section-divider {
+  align-self: stretch;
+  width: max(2px, 0.11cqw);
+  min-height: 4.8cqw;
+  background: rgb(18 100 232 / 62%);
+}
+
+.home-cover-section p {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.82cqw;
+  font-weight: 520;
+  line-height: 1.22;
+}
+
+.home-cover-section b {
+  display: block;
+  margin-bottom: 0.32cqw;
+  color: #1264e8;
+  font-family: var(--display);
+  font-size: 0.76cqw;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-cover-tab {
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  color: white;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.home-cover-tab svg {
+  width: 1.45cqw;
+  height: 1.45cqw;
+  filter: drop-shadow(0 1px 1px rgb(0 50 130 / 25%));
+  transition: transform 160ms ease;
+}
+
+.home-cover-tab:hover svg,
+.home-cover-tab:focus-visible svg {
+  transform: translateX(0.28cqw);
+}
+
+.home-cover-tab-left {
+  top: 44.1%;
+  left: 2.95%;
+  width: 3.4%;
+  height: 9.2%;
+}
+
+.home-cover-tab-right {
+  top: 54.6%;
+  right: 4.75%;
+  width: 3.4%;
+  height: 9.2%;
+}
+
+.home-cover-tab-bottom {
+  bottom: 10.2%;
+  left: 45.2%;
+  width: 7.4%;
+  height: 4.8%;
+}
+
+.home-cover-tab-bottom:hover svg,
+.home-cover-tab-bottom:focus-visible svg {
+  transform: translateY(0.22cqw);
+}
+
+.story-release-anchor {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+  outline: none;
+}
+
+@media (max-aspect-ratio: 1 / 1) {
+  .home-story .parallax-story__visual {
+    width: calc(78svh * var(--home-artboard-ratio));
+    max-width: none;
+    transform: translateX(var(--story-horizontal-pan, 0px));
+    transform-origin: center;
+  }
+
+  .home-story .parallax-story__sticky {
+    justify-items: start;
+  }
+
+  .home-story[data-motion-disabled="true"] .parallax-story__visual {
+    width: max(176vw, calc(58svh * var(--home-artboard-ratio)));
+    transform: none;
+  }
+}
+
+/* The portrait Quiet rule above is intentionally wider on desktop tablets.
+ * Inline phone/tablet stories must still use the full viewport, never 176vw. */
+@media (max-width: 820px) {
+  .home-story[data-layout="inline"] .parallax-story__visual,
+  .home-story[data-layout="inline"][data-motion-disabled="true"]
+    .parallax-story__visual {
+    width: 100vw;
+    max-width: 100%;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-story {
+    min-height: 100svh;
+  }
+}
+
+@media print {
+  .home-story {
+    min-height: auto !important;
+  }
+
+  .home-story .parallax-story__sticky {
+    position: relative;
+    height: auto;
+  }
+}
