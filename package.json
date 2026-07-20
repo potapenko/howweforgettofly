@@ -14,8 +14,7 @@
     "url": "https://github.com/potapenko/howweforgettofly/issues"
   },
   "engines": {
-    "node": ">=22",
-    "npm": ">=10"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
