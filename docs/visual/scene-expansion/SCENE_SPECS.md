@@ -166,17 +166,38 @@ duplicate editorial layer is hidden entirely, because the full-width inline
 illustration is immediately followed by the normal-flow accessible text. This
 prevents tiny overlaid type without removing meaning.
 
-The four later mixed text-and-image scenes use measured, mechanism-specific
-desktop zones rather than the generic `paper-left`, `vellum-left`, or
-`horizon-left` flow. Percentages are relative to the complete `1672 × 941`
-artboard and remain unchanged when the artboard is scaled:
+Every desktop text role is positioned from its physical carrier first: the
+actual page leaf, vellum screen, hanging tag, sentence strip, paper tab, or
+horizon field visible in the master. The carrier rectangle is not the text
+origin. Copy receives a further inner inset of at least `2.5%` horizontally and
+`3%` vertically wherever the carrier geometry allows it. It must also retain a
+`5%` outer-book gutter and a `4.5%` spine gutter unless the carrier itself
+crosses the spine. A title, thesis, or beat that merely overlaps its intended
+graphic surface is a layout failure even when it remains inside the viewport.
+
+The later mixed text-and-image scenes use measured, mechanism-specific desktop
+zones rather than the generic `paper-left`, `vellum-left`, or `horizon-left`
+flow. Percentages are relative to the complete `1672 × 941` artboard and remain
+unchanged when the artboard is scaled:
 
 | Scene | Title `left / top / width / height` | Thesis `left / top / width / height` | Current beat `left / top / width / height` |
 | --- | --- | --- | --- |
-| `AI-03` | `8.8 / 20.5 / 22 / 14` | `8.8 / 36.5 / 20.5 / 9` | `8.8 / 49.5 / 18 / 16` |
-| `AI-04` | `18.5 / 28.5 / 28 / 14` | `18.5 / 43.5 / 27 / 9.5` | `18.5 / 55.5 / 25.5 / 13.5` |
-| `ATLAS-01` | `7.2 / 22 / 35.5 / 12.2` | `7.2 / 34.8 / 35.5 / 5.3` | `72 / 63 / 18.5 / 11.5` |
-| `FINAL-01` | `28 / 10 / 21 / 11.8` | `28 / 22.4 / 21 / 4` | `20.5 / 35 / 18 / 10` |
+| `AI-03` | `10.5 / 23 / 19.5 / 13.5` | `10.5 / 39 / 18.5 / 8.5` | `10.5 / 51 / 16 / 15.5` |
+| `AI-04` | `20.93 / 31.88 / 21.53 / 12.22` | `20.93 / 45.7 / 20.93 / 7.97` | `20.93 / 54.5 / 20.33 / 12.22` |
+| `ATLAS-01` | `10.5 / 22.5 / 29.5 / 11.5` | `10.5 / 35.5 / 29.5 / 4.5` | `73.5 / 64.5 / 15.5 / 10.5` |
+| `FINAL-01` | `28.5 / 12.5 / 17 / 12` | `55 / 20.5 / 14.5 / 8.5` | `22.5 / 38.5 / 16.5 / 11` |
+
+`P-01` follows the same carrier rule even though its roles are split. Its title
+starts below the descending top edge of the central sky rather than touching
+that edge. The lower narration rectangle describes the complete white sentence
+strip (`21.8 / 70.8 / 50 / 14.5`), not the first glyph position; the active
+beat is inset inside that strip on every side. No label or body line may begin
+left of the strip, sit on its outline, or descend through its bottom rule. The
+heading remains static within the background sky field, while the narration
+rectangle must independently inherit the authored full-artboard pose of
+`honest-mode-rail-primary` so translation, scale, rotation, scroll, and pointer
+motion cannot detach the words from the moving strip. Its transform reference
+box is the complete `1672 × 941` artboard, not the smaller text rectangle.
 
 Their titles use authored two-line breaks in both editions so browser text
 balancing cannot reintroduce arbitrary three-line headings:
@@ -194,15 +215,35 @@ active beat may be visibly opaque. The title, thesis, and beat zones must not
 share one implicit vertical flow, because their physical paper carriers do not
 share one rectangle.
 
+`AI-04` uses the measured front vellum face, not the open book page behind it,
+as its only editorial carrier. Its combined safe typography rectangle is
+approximately `20.04 / 30.29 / 23.92 / 37.19`; the three smaller rectangles in
+the table remain inset inside it. At the `1672 × 941` master this preserves at
+least about `30px` from the slanted vellum edge and approximately
+`L56 / T30 / R55 / B35px` around the combined composition. The current beat
+uses a quiet top rule on the existing vellum rather than drawing a second
+rounded paper card over the illustration. Its taller final inset rectangle and
+fluid type/gap/padding must also contain the longest RU and EN beats at the
+supported `901px` sticky boundary; the overlay disappears in the `900px`
+inline composition.
+
 The `A-01` editorial wrapper follows the same authored scroll and pointer
 transform as `ground-or-gravity-primary`. Its six text fragments therefore
 remain printed on the moving hanging tags rather than floating above them. The
 title belongs wholly inside the first broad rounded tag, the thesis inside the
 second angular tag, and the current beat inside the third cloud-shaped tag.
+Their inner text rectangles are respectively `10.29 / 22.21 / 9.57 / 9.14`,
+`24.4 / 30.61 / 8.25 / 10.63`, and `38.4 / 35.07 / 8.25 / 10.63` on the full
+artboard. These are inset reading rectangles, not the outer silhouettes of the
+tags.
 The remaining three tags repeat the six exact Ground-condition titles that
 follow the scene, paired without rewriting: Money + Care on the fourth round
 tag, Craft + Work on the fifth angular tag, and AI + Rest on the sixth
-cloud-shaped tag. Their `body` and longer Gravity `detail` stay in the
+cloud-shaped tag. Their inset rectangles remain
+`54.61 / 32.41 / 9.33 / 11.69`, `69.02 / 29.76 / 6.52 / 10.63`, and
+`80.56 / 20.72 / 9.21 / 11.69`; only the six short labels may use the
+non-wrapping treatment in those small carriers. Their `body` and longer
+Gravity `detail` stay in the
 normal-flow prose below; they must not be miniaturized into decorative
 microcopy. Every role keeps a deliberate inner inset and artboard-relative type
 scale so no line escapes its paper surface at supported desktop aspect ratios.
@@ -212,19 +253,21 @@ no hanging tag is left as an unexplained empty text plane.
 ### 2.7. Implemented reading-position and browser contract
 
 - Locale links use stable `*-illustration` anchors and transfer the exact
-  relative progress within the current scene. Chrome and Safari both preserve
-  the scene and beat across RU/EN changes.
-- Chrome/Playwright has inspected all seven desktop scenes, all seven mobile
-  inline scenes, and the `821px` compact boundary.
-- Safari Computer Use has inspected `AI-02`, `AI-03`, `AI-04`, `P-01`,
-  `A-01`, `ATLAS-01`, and `FINAL-01`. No border or editorial collision remains;
-  `A-01` copy stays aligned through scroll.
-- The in-app Browser was attempted with the local server already live, but its
-  security policy blocked the local URL. This is a tool boundary rather than
-  an application failure; Chrome and Safari provide the live acceptance
-  evidence.
+  relative progress within the current scene. The in-app Browser and Safari
+  both preserve the scene and beat across RU/EN changes.
+- The in-app Browser has inspected `P-01`, `A-01`, `AI-03`, `AI-04`,
+  `ATLAS-01`, and `FINAL-01` in both editions at the desktop artboard, plus the
+  `901px` sticky / `900px` inline boundary and the `768px` inline composition.
+  The fresh `P-01` mid-scroll check records an identical computed transform and
+  full-artboard rectangle for `honest-mode-rail-primary` and its narration
+  carrier; every active beat remains inside the sentence strip. No application
+  errors or warnings appear in the Browser console.
+- Safari Computer Use has inspected the same six mixed text-and-image scenes
+  in both editions on the fresh runtime. `P-01` copy stays attached to its
+  moving sentence strip through beat changes, all six `A-01` tags are filled,
+  and no carrier-border or editorial collision remains.
 - The final combined automated regression gate is complete: `19/19` test
-  files and `127/127` tests, TypeScript typecheck, production build, and
+  files and `144/144` tests, TypeScript typecheck, production build, and
   `git diff --check` all pass.
 
 ---

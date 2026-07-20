@@ -210,6 +210,36 @@ describe("ParallaxStage", () => {
       "data-story-editorial-surface-lock",
       "true",
     );
+
+    view.rerender(
+      <ParallaxStage
+        editorialCopy={{
+          title: "Name the mode honestly",
+          thesis: "A question is not open if only yes can survive.",
+        }}
+        story={{
+          ...story,
+          mechanism: "honest-mode-rail",
+          editorialCopyLayout: "sky-left",
+          editorialCopyLayerId: undefined,
+          editorialNarrationLayerId: "boat",
+        }}
+      />,
+    );
+
+    expect(
+      view.container.querySelector('[data-story-layer="boat"]'),
+    ).toHaveAttribute("data-story-editorial-surface-lock", "true");
+    expect(
+      view.container.querySelector(
+        ".parallax-story__editorial-narration-carrier",
+      ),
+    ).toHaveAttribute("data-story-editorial-narration-layer", "boat");
+    expect(
+      view.container.querySelector("[data-story-editorial-copy]"),
+    ).not.toContainElement(
+      view.container.querySelector(".parallax-story__editorial-narration"),
+    );
   });
 
   it("prints localized scene copy and beat narration on the reserved editorial leaf", () => {
@@ -404,7 +434,7 @@ describe("ParallaxStage", () => {
       /@keyframes paper-layer-breath\s*\{\s*0%,\s*100%\s*\{[^}]*translate3d\(0%,\s*0%,\s*0\)/,
     );
     expect(css).toMatch(
-      /@media \(max-width: 820px\)[\s\S]*\.parallax-story\[data-layout="inline"\]\s+\.parallax-story__editorial-copy\s*\{[^}]*display:\s*none;/,
+      /@media \(max-width: 820px\)[\s\S]*\.parallax-story\[data-layout="inline"\][\s\S]*:is\([\s\S]*\.parallax-story__editorial-copy,[\s\S]*\.parallax-story__editorial-narration-carrier[\s\S]*\)\s*\{[^}]*display:\s*none;/,
     );
     for (const mechanism of [
       "adoption-folds",
@@ -418,7 +448,7 @@ describe("ParallaxStage", () => {
       expect(css).toContain(`data-story-mechanism="${mechanism}"`);
     }
     expect(css).toMatch(
-      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-heading\s*\{[^}]*position:\s*absolute;[^}]*width:\s*34%;/,
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-heading\s*\{[^}]*position:\s*absolute;[^}]*top:\s*15%;[^}]*left:\s*39%;[^}]*width:\s*30\.5%;/,
     );
     expect(css).toMatch(
       /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-copy--sky-left\s*\{[^}]*container-type:\s*inline-size;/,
@@ -430,22 +460,28 @@ describe("ParallaxStage", () => {
       /data-story-mechanism="honest-mode-rail"[\s\S]*\[data-story-title-line\]\s*\{[^}]*display:\s*block;[^}]*white-space:\s*nowrap;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*position:\s*absolute;[^}]*top:\s*74\.5%;[^}]*width:\s*49%;/,
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*position:\s*absolute;[^}]*top:\s*70\.8%;[^}]*left:\s*21\.8%;[^}]*box-sizing:\s*border-box;[^}]*width:\s*50%;[^}]*height:\s*14\.5%;[^}]*padding:\s*1\.25cqw 2\.5cqw 1\.75cqw 3\.2cqw;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__beat--editorial span\s*\{[^}]*max-width:\s*min\(52ch,\s*26cqw\);/,
+      /\.parallax-story__editorial-narration-carrier\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;[^}]*container-type:\s*inline-size;/,
+    );
+    expect(css).toMatch(
+      /\.parallax-story__editorial-narration-carrier\[data-story-editorial-narration-layer\]\s*\{[^}]*translate3d\([^}]*var\(--story-layer-x\)[^}]*var\(--story-layer-y\)[^}]*scale\(var\(--story-layer-scale\)\);[^}]*transform-origin:\s*center;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="honest-mode-rail"[\s\S]*\.parallax-story__beat--editorial span\s*\{[^}]*max-width:\s*min\(48ch,\s*38cqw\);/,
     );
     expect(css).toMatch(
       /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-copy--sky-left\s*\{[^}]*container-type:\s*inline-size;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22\.42%;[^}]*left:\s*9\.81%;[^}]*width:\s*10\.29%;[^}]*height:\s*9\.56%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22\.21%;[^}]*left:\s*10\.29%;[^}]*width:\s*9\.57%;[^}]*height:\s*9\.14%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-thesis\s*\{[^}]*top:\s*30\.39%;[^}]*left:\s*24\.1%;[^}]*width:\s*8\.79%;[^}]*height:\s*11\.69%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-thesis\s*\{[^}]*top:\s*30\.61%;[^}]*left:\s*24\.4%;[^}]*width:\s*8\.25%;[^}]*height:\s*10\.63%;[^}]*font-size:\s*clamp\([^;]*cqw[^;]*\);/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*34\.75%;[^}]*left:\s*38\.76%;[^}]*width:\s*9\.57%;[^}]*height:\s*11\.69%;[^}]*padding:\s*0;[^}]*border:\s*0;/,
+      /data-story-mechanism="ground-or-gravity"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*35\.07%;[^}]*left:\s*38\.4%;[^}]*width:\s*8\.25%;[^}]*height:\s*10\.63%;[^}]*padding:\s*0;[^}]*border:\s*0;/,
     );
     expect(css).toMatch(
       /\.parallax-story__editorial-support:nth-child\(1\)\s*\{[^}]*top:\s*32\.41%;[^}]*left:\s*54\.61%;[^}]*width:\s*9\.33%;[^}]*height:\s*11\.69%;/,
@@ -460,28 +496,40 @@ describe("ParallaxStage", () => {
       /\.parallax-story__editorial-support:nth-child\(2\)[\s\S]*\.parallax-story__editorial-support-label\s*\{[^}]*font-size:\s*clamp\(0\.55rem,\s*0\.78cqw,\s*0\.84rem\);/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*20\.5%;[^}]*left:\s*8\.8%;[^}]*width:\s*22%;[^}]*height:\s*14%;/,
+      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*23%;[^}]*left:\s*10\.5%;[^}]*width:\s*19\.5%;[^}]*height:\s*13\.5%;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*49\.5%;[^}]*left:\s*8\.8%;[^}]*width:\s*18%;[^}]*height:\s*16%;/,
+      /data-story-mechanism="candidate-map"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*51%;[^}]*left:\s*10\.5%;[^}]*width:\s*16%;[^}]*height:\s*15\.5%;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*28\.5%;[^}]*left:\s*18\.5%;[^}]*width:\s*28%;[^}]*height:\s*14%;/,
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*31\.88%;[^}]*left:\s*20\.93%;[^}]*width:\s*21\.53%;[^}]*height:\s*12\.22%;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*55\.5%;[^}]*left:\s*18\.5%;[^}]*width:\s*25\.5%;[^}]*height:\s*13\.5%;/,
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-thesis\s*\{[^}]*top:\s*45\.7%;[^}]*left:\s*20\.93%;[^}]*width:\s*20\.93%;[^}]*height:\s*7\.97%;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22%;[^}]*left:\s*7\.2%;[^}]*width:\s*35\.5%;[^}]*height:\s*12\.2%;/,
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*54\.5%;[^}]*left:\s*20\.93%;[^}]*width:\s*20\.33%;[^}]*height:\s*12\.22%;[^}]*padding:\s*clamp\(0\.3rem,\s*0\.52cqw,\s*0\.7rem\)[^}]*border:\s*0;[^}]*border-top:\s*1px solid rgb\(16 17 22 \/ 22%\);[^}]*background:\s*transparent;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*63%;[^}]*left:\s*72%;[^}]*width:\s*18\.5%;[^}]*height:\s*11\.5%;/,
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__beat--editorial\s*\{[^}]*gap:\s*clamp\(0\.12rem,\s*0\.2cqw,\s*0\.28rem\);/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*10%;[^}]*left:\s*28%;[^}]*width:\s*21%;[^}]*height:\s*11\.8%;/,
+      /data-story-mechanism="return-threshold"[\s\S]*\.parallax-story__beat--editorial span\s*\{[^}]*font-size:\s*clamp\(0\.68rem,\s*0\.86cqw,\s*0\.93rem\);[^}]*line-height:\s*1\.2;/,
     );
     expect(css).toMatch(
-      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*35%;[^}]*left:\s*20\.5%;[^}]*width:\s*18%;[^}]*height:\s*10%;/,
+      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*22\.5%;[^}]*left:\s*10\.5%;[^}]*width:\s*29\.5%;[^}]*height:\s*11\.5%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="equal-lenses"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*64\.5%;[^}]*left:\s*73\.5%;[^}]*width:\s*15\.5%;[^}]*height:\s*10\.5%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-title\s*\{[^}]*top:\s*12\.5%;[^}]*left:\s*28\.5%;[^}]*width:\s*17%;[^}]*height:\s*12%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-thesis\s*\{[^}]*top:\s*20\.5%;[^}]*left:\s*55%;[^}]*width:\s*14\.5%;[^}]*height:\s*8\.5%;/,
+    );
+    expect(css).toMatch(
+      /data-story-mechanism="open-horizon"[\s\S]*\.parallax-story__editorial-narration\s*\{[^}]*top:\s*38\.5%;[^}]*left:\s*22\.5%;[^}]*width:\s*16\.5%;[^}]*height:\s*11%;/,
     );
     expect(css).toMatch(
       /\.parallax-story__beat--editorial\s*\{[^}]*transition:\s*none;/,

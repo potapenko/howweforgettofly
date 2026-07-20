@@ -87,6 +87,11 @@ export interface RasterStory {
     | "horizon-left";
   /** Moves printed HTML with the paper plane that physically carries it. */
   editorialCopyLayerId?: string;
+  /**
+   * Moves integrated beat copy with a different physical carrier when the
+   * heading and narration are printed on separate planes.
+   */
+  editorialNarrationLayerId?: string;
   /** Keeps beat captions separate when the paper mechanism occupies the leaf. */
   editorialNarrationLayout?: "integrated" | "card";
   /** Optional authored editions for beat labels and narration. */

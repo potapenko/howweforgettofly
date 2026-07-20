@@ -292,6 +292,7 @@ export function ParallaxStage({
   const sectionRef = useRef<HTMLElement>(null);
   const visualRef = useRef<HTMLElement>(null);
   const editorialCopyRef = useRef<HTMLDivElement>(null);
+  const editorialNarrationRef = useRef<HTMLDivElement>(null);
   const layerRefs = useRef(new Map<string, HTMLElement>());
   const layerImageRefs = useRef(new Map<string, HTMLImageElement>());
   const narrationRefs = useRef(new Map<string, HTMLElement>());
@@ -459,6 +460,20 @@ export function ParallaxStage({
       );
     }
 
+    const editorialNarrationTimeline = story.editorialNarrationLayerId
+      ? timelines.get(story.editorialNarrationLayerId)
+      : undefined;
+    if (editorialNarrationRef.current && editorialNarrationTimeline) {
+      setLayerPose(
+        editorialNarrationRef.current,
+        amplifyScrollPose(
+          sampleTimeline(editorialNarrationTimeline, progress),
+          editorialNarrationTimeline[0].state,
+          scrollParallaxStrength,
+        ),
+      );
+    }
+
     if (beats.length > 0) {
       const nextBeat = currentBeatIndex(beats, progress);
       if (activeBeat.current !== nextBeat) {
@@ -478,6 +493,7 @@ export function ParallaxStage({
     onProgress,
     scrollParallaxStrength,
     story.editorialCopyLayerId,
+    story.editorialNarrationLayerId,
     story.layers,
     timelines,
   ]);
@@ -575,6 +591,14 @@ export function ParallaxStage({
       }
       editorialCopyRef.current?.style.setProperty("--story-pointer-x", "0");
       editorialCopyRef.current?.style.setProperty("--story-pointer-y", "0");
+      editorialNarrationRef.current?.style.setProperty(
+        "--story-pointer-x",
+        "0",
+      );
+      editorialNarrationRef.current?.style.setProperty(
+        "--story-pointer-y",
+        "0",
+      );
     };
     // Inline stories are the touch-first mobile composition. Keep their
     // authored pose and ambient breathing, but do not let a pan gesture pull
@@ -633,6 +657,29 @@ export function ParallaxStage({
             ),
           );
         }
+        if (
+          editorialNarrationRef.current &&
+          story.editorialNarrationLayerId === layer.id
+        ) {
+          editorialNarrationRef.current.style.setProperty(
+            "--story-pointer-x",
+            String(
+              pendingPointer.current.x *
+                depth *
+                strength *
+                pointerParallaxStrength,
+            ),
+          );
+          editorialNarrationRef.current.style.setProperty(
+            "--story-pointer-y",
+            String(
+              pendingPointer.current.y *
+                depth *
+                strength *
+                pointerParallaxStrength,
+            ),
+          );
+        }
       }
     };
 
@@ -672,6 +719,7 @@ export function ParallaxStage({
     motionDisabled,
     pointerParallaxStrength,
     story.editorialCopyLayerId,
+    story.editorialNarrationLayerId,
     story.layers,
   ]);
 
@@ -720,6 +768,26 @@ export function ParallaxStage({
     "--story-scroll-length": `${story.scrollLengthVh ?? 320}vh`,
   } as CSSProperties;
   const classes = ["parallax-story", className].filter(Boolean).join(" ");
+  const editorialNarrationContent =
+    hasNarration && integrateEditorialNarration ? (
+      <div className="parallax-story__editorial-narration">
+        {beats.map((beat, index) => (
+          <article
+            aria-hidden={index !== 0}
+            className="parallax-story__beat parallax-story__beat--editorial"
+            data-active={String(index === 0)}
+            key={beat.id}
+            ref={(element) => {
+              if (element) narrationRefs.current.set(beat.id, element);
+              else narrationRefs.current.delete(beat.id);
+            }}
+          >
+            {beat.label ? <strong>{beat.label}</strong> : null}
+            {beat.narration ? <span>{beat.narration}</span> : null}
+          </article>
+        ))}
+      </div>
+    ) : null;
 
   return (
     <section
@@ -771,7 +839,8 @@ export function ParallaxStage({
               ? story.layers.map((layer, index) => {
                   const ambientMotion = ambientMotions.get(layer.id)!;
                   const locksPrintedEditorialSurface =
-                    layer.id === story.editorialCopyLayerId;
+                    layer.id === story.editorialCopyLayerId ||
+                    layer.id === story.editorialNarrationLayerId;
                   return (
                     <span
                       className="parallax-story__layer-pose"
@@ -834,73 +903,70 @@ export function ParallaxStage({
               : null}
           </div>
           {resolvedEditorialCopy ? (
-            <div
-              className={[
-                "parallax-story__editorial-copy",
-                `parallax-story__editorial-copy--${story.editorialCopyLayout}`,
-              ].join(" ")}
-              data-story-editorial-copy-layer={story.editorialCopyLayerId}
-              data-story-editorial-copy
-              ref={editorialCopyRef}
-            >
+            <>
               <div
-                aria-hidden="true"
-                className="parallax-story__editorial-heading"
+                className={[
+                  "parallax-story__editorial-copy",
+                  `parallax-story__editorial-copy--${story.editorialCopyLayout}`,
+                ].join(" ")}
+                data-story-editorial-copy-layer={story.editorialCopyLayerId}
+                data-story-editorial-copy
+                ref={editorialCopyRef}
               >
-                <p className="parallax-story__editorial-title">
-                  {authoredTitleLines(
-                    resolvedEditorialCopy.title,
-                    story.mechanism,
-                  )}
-                </p>
-                <p className="parallax-story__editorial-thesis">
-                  {resolvedEditorialCopy.thesis}
-                </p>
-              </div>
-              {hasNarration && integrateEditorialNarration ? (
-                <div className="parallax-story__editorial-narration">
-                  {beats.map((beat, index) => (
-                    <article
-                      aria-hidden={index !== 0}
-                      className="parallax-story__beat parallax-story__beat--editorial"
-                      data-active={String(index === 0)}
-                      key={beat.id}
-                      ref={(element) => {
-                        if (element) narrationRefs.current.set(beat.id, element);
-                        else narrationRefs.current.delete(beat.id);
-                      }}
-                    >
-                      {beat.label ? <strong>{beat.label}</strong> : null}
-                      {beat.narration ? <span>{beat.narration}</span> : null}
-                    </article>
-                  ))}
-                </div>
-              ) : null}
-              {story.mechanism === "ground-or-gravity" &&
-              editorialPanels?.length ? (
                 <div
                   aria-hidden="true"
-                  className="parallax-story__editorial-supports"
+                  className="parallax-story__editorial-heading"
                 >
-                  {editorialPanels.map((panel, panelIndex) => (
-                    <div
-                      className="parallax-story__editorial-support"
-                      data-story-editorial-panel={panelIndex + 1}
-                      key={panelIndex}
-                    >
-                      {panel.labels.map((label, labelIndex) => (
-                        <strong
-                          className="parallax-story__editorial-support-label"
-                          key={`${label}-${labelIndex}`}
-                        >
-                          {label}
-                        </strong>
-                      ))}
-                    </div>
-                  ))}
+                  <p className="parallax-story__editorial-title">
+                    {authoredTitleLines(
+                      resolvedEditorialCopy.title,
+                      story.mechanism,
+                    )}
+                  </p>
+                  <p className="parallax-story__editorial-thesis">
+                    {resolvedEditorialCopy.thesis}
+                  </p>
+                </div>
+                {!story.editorialNarrationLayerId
+                  ? editorialNarrationContent
+                  : null}
+                {story.mechanism === "ground-or-gravity" &&
+                editorialPanels?.length ? (
+                  <div
+                    aria-hidden="true"
+                    className="parallax-story__editorial-supports"
+                  >
+                    {editorialPanels.map((panel, panelIndex) => (
+                      <div
+                        className="parallax-story__editorial-support"
+                        data-story-editorial-panel={panelIndex + 1}
+                        key={panelIndex}
+                      >
+                        {panel.labels.map((label, labelIndex) => (
+                          <strong
+                            className="parallax-story__editorial-support-label"
+                            key={`${label}-${labelIndex}`}
+                          >
+                            {label}
+                          </strong>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+              {story.editorialNarrationLayerId && editorialNarrationContent ? (
+                <div
+                  className="parallax-story__editorial-narration-carrier"
+                  data-story-editorial-narration-layer={
+                    story.editorialNarrationLayerId
+                  }
+                  ref={editorialNarrationRef}
+                >
+                  {editorialNarrationContent}
                 </div>
               ) : null}
-            </div>
+            </>
           ) : null}
           {children ? <div className="parallax-story__overlay">{children}</div> : null}
         </figure>

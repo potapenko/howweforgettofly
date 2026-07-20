@@ -438,6 +438,7 @@ const returnThreshold: RasterStory = {
 const honestModeRail: RasterStory = {
   mechanism: "honest-mode-rail",
   editorialCopyLayout: "sky-left",
+  editorialNarrationLayerId: "honest-mode-rail-primary",
   poster: "/scenes/P01.webp",
   posterMobileSrc: "/scenes/P01-960.webp",
   posterSrcSet: "/scenes/P01-960.webp 960w, /scenes/P01.webp 1672w",

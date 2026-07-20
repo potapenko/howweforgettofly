@@ -266,6 +266,10 @@ describe("raster story registry", () => {
     expect(storyRegistry["ground-or-gravity"].editorialCopyLayerId).toBe(
       "ground-or-gravity-primary",
     );
+    expect(storyRegistry["honest-mode-rail"].editorialCopyLayerId).toBeUndefined();
+    expect(storyRegistry["honest-mode-rail"].editorialNarrationLayerId).toBe(
+      "honest-mode-rail-primary",
+    );
   });
 
   it("keeps every new paper plane materially present and reveals motion in sequence", () => {
