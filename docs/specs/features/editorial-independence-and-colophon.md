@@ -35,6 +35,11 @@ acknowledgment at the end of the completed journey.
 - Outside that bottom colophon, public rendered copy, navigation, metadata, and
   accessibility text do not mention the source book, authors, title, URL,
   adaptation, translation, inspiration, provenance, or source boundary.
+- The public document head exposes a large-image Open Graph and Twitter Card
+  preview for link sharing. It uses the approved opening-book cover artwork,
+  the independent project title and description, and an absolute HTTPS image
+  URL under `howweforgettofly.com` so crawlers can render it without executing
+  JavaScript.
 - Internal materials in `docs/source/` and `docs/governance/` never enter the
   public runtime artifact.
 
@@ -47,6 +52,9 @@ acknowledgment at the end of the completed journey.
 - AI is Wind, not pilot, moral authority, or a replacement for consent, care,
   direction, human worth, or responsibility. Children are never optimization
   projects.
+- Social-preview metadata and image alternative text remain source-independent,
+  and the preview image is included in the static production artifact at the
+  declared dimensions.
 
 ## Edge cases and failure policy
 
@@ -71,7 +79,7 @@ acknowledgment at the end of the completed journey.
 - `docs/product/PUBLIC_SOURCE_COLOPHON_PLAN.md` and
   `docs/reports/PUBLIC_SOURCE_COLOPHON_REPORT.md`
 - scoped rendered-copy, metadata, accessibility, navigation, and test search;
-  `npm run check`.
+  production `index.html` inspection; `npm run check`.
 
 ## Unknowns requiring confirmation
 
