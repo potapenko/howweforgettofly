@@ -14,14 +14,14 @@ second product artifact.
 - the committed App Platform spec in `.do/app.yaml`;
 - the App Platform GitHub integration, `master` branch, static build command,
   artifact directory, and SPA fallback;
+- the `howweforgettofly.com` DNS zone delegated to DigitalOcean, with the apex
+  as the primary domain and `www` as its alias;
 - build/deploy failure alerts and bounded post-deploy verification.
 
 ## Non-goals
 
 - application servers, databases, runtime environment variables, analytics, or
   a custom CI-to-DigitalOcean token path;
-- a custom domain or DNS change before its exact hostname and ownership are
-  explicitly confirmed;
 - publishing internal provenance materials or repository documentation as
   public application content.
 
@@ -35,6 +35,9 @@ second product artifact.
   fail the deployment rather than publish a partial artifact.
 - DigitalOcean automatically deploys new commits on `master` after its GitHub
   installation is authorized for `potapenko/howweforgettofly`.
+- `howweforgettofly.com` is the primary public address and
+  `www.howweforgettofly.com` is an alias. DigitalOcean manages their DNS
+  records and TLS certificates after nameserver propagation.
 - The deployment contains only the static build output. Internal `docs/source/`
   and `docs/governance/` content remains repository-only.
 
@@ -52,14 +55,14 @@ second product artifact.
 
 - A build or deployment failure creates no claimed successful release; inspect
   the App Platform deployment log and retry only after the cause is understood.
-- No custom domain is attached until the exact hostname and its DNS ownership
-  are confirmed. The DigitalOcean technical ingress is verified first.
+- If the custom domain is not active, keep the technical ingress available and
+  inspect App Platform domain progress rather than changing product routing.
 - A failed or missing `dist/` artifact is a deployment failure, not a reason to
   serve repository files or `public/` directly.
 
 ## Route / state / data implications
 
-- Production URL, App Platform app ID, and any eventual custom domain are
+- Production URL, App Platform app ID, and custom-domain configuration are
   deployment metadata, not visitor state and not product configuration stored
   in the browser.
 - `master` is the production source branch. Pull requests continue to use the
@@ -72,11 +75,5 @@ second product artifact.
 - `.do/app.yaml` declares the matching App Platform static-site build and
   artifact contract.
 - In the App Platform console, verify the connected repository, `master`,
-  auto-deploy, static output, successful deployment, technical ingress, and
-  direct `/ru` response before attaching a custom domain.
-
-## Unknowns requiring confirmation
-
-- The exact production hostname and whether a custom domain should be attached
-  are intentionally unresolved. No domain/DNS configuration is authorized by
-  this spec.
+  auto-deploy, static output, successful deployment, technical ingress, custom
+  domain/TLS state, and direct `/ru` response.

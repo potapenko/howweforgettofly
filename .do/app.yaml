@@ -3,6 +3,14 @@ name: how-we-forget-to-fly
 alerts:
   - rule: DEPLOYMENT_FAILED
 
+domains:
+  - domain: howweforgettofly.com
+    type: PRIMARY
+    zone: howweforgettofly.com
+  - domain: www.howweforgettofly.com
+    type: ALIAS
+    zone: howweforgettofly.com
+
 static_sites:
   - name: reader
     environment_slug: node-js

@@ -95,6 +95,8 @@ The committed [`.do/app.yaml`](./.do/app.yaml) is the source of truth:
 - public artifact: `dist/`
 - fallback document: `index.html`, including client-side routes such as `/ru`
 - deploy trigger: App Platform's GitHub integration with `deploy_on_push: true`
+- primary public domain: `howweforgettofly.com`; `www.howweforgettofly.com` is
+  an App Platform alias, with DNS delegated to DigitalOcean
 
 The App Platform console must be connected to the repository once; after that,
 commits reaching `master` deploy automatically. The GitHub CI workflow remains
@@ -102,9 +104,9 @@ an independent check for pushes and pull requests; it does not need a
 DigitalOcean token or a separate deployment workflow.
 
 The deployment contains no server component, environment variables, or secrets.
-Verify the DigitalOcean technical ingress and direct `/ru` response before
-attaching any custom domain. Do not deploy repository documentation or internal
-provenance materials; only `dist/` is public.
+Verify the technical ingress, custom-domain TLS state, and direct `/ru`
+response after DNS propagation. Do not deploy repository documentation or
+internal provenance materials; only `dist/` is public.
 
 ## License
 
