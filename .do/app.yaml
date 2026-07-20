@@ -1,0 +1,20 @@
+name: how-we-forget-to-fly
+
+alerts:
+  - rule: DEPLOYMENT_FAILED
+
+static_sites:
+  - name: reader
+    environment_slug: node-js
+    github:
+      repo: potapenko/howweforgettofly
+      branch: master
+      deploy_on_push: true
+    source_dir: /
+    build_command: |
+      set -eu
+      npm ci
+      npm run check
+    output_dir: dist
+    index_document: index.html
+    catchall_document: index.html

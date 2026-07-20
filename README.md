@@ -86,9 +86,25 @@ See [docs/README.md](./docs/README.md) for the document map and authority order.
 
 ## Deployment
 
-`npm run build` produces a static `dist/` directory. A host must serve
-`index.html` as the fallback for client-side routes such as `/ru`. The build
-contains no server component and needs no environment variables.
+The site is configured for a DigitalOcean App Platform static-site deployment.
+The committed [`.do/app.yaml`](./.do/app.yaml) is the source of truth:
+
+- GitHub repository: `potapenko/howweforgettofly`
+- production branch: `master`
+- build: `npm ci && npm run check`
+- public artifact: `dist/`
+- fallback document: `index.html`, including client-side routes such as `/ru`
+- deploy trigger: App Platform's GitHub integration with `deploy_on_push: true`
+
+The App Platform console must be connected to the repository once; after that,
+commits reaching `master` deploy automatically. The GitHub CI workflow remains
+an independent check for pushes and pull requests; it does not need a
+DigitalOcean token or a separate deployment workflow.
+
+The deployment contains no server component, environment variables, or secrets.
+Verify the DigitalOcean technical ingress and direct `/ru` response before
+attaching any custom domain. Do not deploy repository documentation or internal
+provenance materials; only `dist/` is public.
 
 ## License
 
