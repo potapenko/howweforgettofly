@@ -235,6 +235,12 @@ typography, visible content, and hierarchy.
 - Illustrations must remain gently alive while idle. Scroll and pointer may
   increase the range of motion, but the scene must remain coherent and never
   become a pile of independently drifting fragments.
+- Compose editorial text as an authored part of each paper mechanism, not as
+  a loose overlay. Desktop scene titles should occupy a deliberate readable
+  measure and normally resolve in one or two lines; a forced three-line or
+  one-word-per-line stack is a layout failure when the phrase fits. Preserve a
+  clear title -> premise -> mechanism scan path, and move copy to a dedicated
+  paper surface when the illustration has no safe reading zone.
 - Desktop chapters may use sticky scroll-played scenes. On mobile, use a
   full-width living illustration in normal document flow; do not pin the
   visitor inside a desktop-style scroll sequence.

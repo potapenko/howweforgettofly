@@ -35,6 +35,12 @@ confusion, or a performance burden.
   its explicit authored `inlineProgress`, not a shared interpolated value.
 - Scene labels and narration are localized without changing beat ids, offsets,
   layer poses, or motion meaning.
+- Every scene reserves deliberate reading zones and follows a stable scan path:
+  scene title, premise, then the mechanism or authored beats it introduces.
+  At desktop scene widths, a title that fits naturally in one or two lines must
+  not be squeezed into a three-line or one-word-per-line stack. Supporting copy
+  and beat labels must read as part of the paper composition rather than as
+  arbitrary text laid over active illustration details.
 - Quiet view and `prefers-reduced-motion` reduce or settle decorative motion
   without hiding content or changing the reading's meaning.
 
@@ -53,6 +59,10 @@ confusion, or a performance burden.
   do not hide the scene or expose broken visual fragments.
 - Coarse-pointer and mobile use must not require pointer parallax to understand
   a scene.
+- If a locale, viewport, or authored pose leaves too little safe space for
+  readable copy, move the copy into a dedicated paper surface or normal-flow
+  text region instead of allowing clipping, accidental overlap, or an awkward
+  forced wrap.
 - Reduced-motion, quiet, and keyboard use retain access to every chapter and
   all editorial content.
 
