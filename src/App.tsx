@@ -5,7 +5,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { usePrefersReducedMotion } from "./hooks/usePrefersReducedMotion";
-import { LocaleProvider, useLocale } from "./i18n/LocaleContext";
+import { LocaleProvider, localeRoot, useLocale } from "./i18n/LocaleContext";
 import { legacyBookDestination } from "./navigation/bookNavigation";
 import { LongformPage } from "./routes/LongformPage";
 import { TheatreProvider } from "./theatre";
@@ -32,11 +32,22 @@ function RouteLoadingSpread() {
 }
 
 function BookRoutes() {
+  const location = useLocation();
+  if (location.pathname === "/ru") {
+    return (
+      <Navigate
+        replace
+        state={location.state}
+        to={{ pathname: "/ru/", search: location.search, hash: location.hash }}
+      />
+    );
+  }
+
   return (
     <Suspense fallback={<RouteLoadingSpread />}>
       <Routes>
         <Route path="/" element={<LongformPage />} />
-        <Route path="/ru" element={<LongformPage />} />
+        <Route path="/ru/" element={<LongformPage />} />
         <Route path="*" element={<LegacyBookRoute />} />
       </Routes>
     </Suspense>
@@ -84,7 +95,7 @@ export function App() {
 function SkipOpeningLink() {
   const locale = useLocale();
   return (
-    <a className="skip-link" href={`${locale === "ru" ? "/ru" : "/"}#doorways`}>
+    <a className="skip-link" href={`${localeRoot(locale)}#doorways`}>
       {locale === "ru" ? "Пропустить обложку" : "Skip the opening story"}
     </a>
   );

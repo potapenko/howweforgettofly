@@ -31,8 +31,19 @@ confusion, or a performance burden.
   alive at rest; scroll and pointer may increase their range without producing
   independently drifting fragments.
 - Desktop chapter scenes may play through sticky scroll-authored beats. Mobile
-  scenes are full-width living illustrations in normal document flow, each at
-  its explicit authored `inlineProgress`, not a shared interpolated value.
+  scenes are full-width living illustrations in normal document flow. As each
+  mobile scene passes through the viewport, its own scene-local scroll progress
+  plays through the authored beats without pinning the page, delaying the
+  visitor, changing scroll speed, or requiring a minimum viewing time.
+- Every mobile scene retains its explicit authored `inlineProgress` as the
+  coherent resting, reduced-motion, Quiet, and poster-fallback pose. Active
+  mobile scroll progress is derived independently for that scene; it must not
+  use one shared interpolated value across scenes.
+- Responsive scene treatments do not add a separately titled explanatory
+  panel, such as `What the illustration shows` / `Что показывает иллюстрация`,
+  beside or below the artwork. The illustration may remain open to
+  interpretation; approved chapter prose and authored text within the paper
+  composition retain their existing editorial roles.
 - Scene labels and narration are localized without changing beat ids, offsets,
   layer poses, or motion meaning.
 - Every scene reserves deliberate reading zones and follows a stable scan path:
@@ -52,6 +63,9 @@ confusion, or a performance burden.
   recreate with CSS drawings.
 - The shared proximity gate is 175%. At most two heavy layer packs are
   hydrated; release the outgoing pack before warming a replacement.
+- Mobile scroll playback is progressive enhancement. It never changes the
+  document's natural height, focus order, touch scrolling, or chapter-anchor
+  behavior.
 
 ## Edge cases and failure policy
 
@@ -59,6 +73,9 @@ confusion, or a performance burden.
   do not hide the scene or expose broken visual fragments.
 - Coarse-pointer and mobile use must not require pointer parallax to understand
   a scene.
+- A mobile visitor who scrolls quickly may skip intermediate poses without
+  being stopped or snapped back. The resulting visible pose must remain
+  coherent, and reversing scroll must reverse the scene progression.
 - If a locale, viewport, or authored pose leaves too little safe space for
   readable copy, move the copy into a dedicated paper surface or normal-flow
   text region instead of allowing clipping, accidental overlap, or an awkward
@@ -76,13 +93,13 @@ confusion, or a performance burden.
 ## Verification mapping
 
 - `src/story/ParallaxStage.test.tsx`, `src/story/storyRegistry.test.ts`,
-  `src/hooks/useStickyStoryProgress.test.tsx`, and motion-related `App` tests
+  mobile scene-progress tests, `src/hooks/useStickyStoryProgress.test.tsx`, and
+  motion-related `App` tests
 - `docs/visual/reference/popup-game-master.png` and
   `docs/visual/scene-expansion/SCENE_SPECS.md`
 - `npm run check`; Safari desktop and mobile visual QA for changes in scope.
 
 ## Unknowns requiring confirmation
 
-The optional browser-QA layer is installed, but it has no authored cases yet.
-Create an active-spec-mapped case before treating a browser-QA run as release
-evidence for a motion change.
+Create or update an active-spec-mapped browser-QA case before treating a
+browser-QA run as release evidence for a motion change.

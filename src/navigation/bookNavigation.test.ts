@@ -52,8 +52,10 @@ describe("canonicalBookHref", () => {
   });
 
   it("builds the same anchors under the Russian locale root", () => {
-    expect(canonicalBookHref("/manifesto/M04", "ru")).toBe("/ru#M04");
-    expect(canonicalBookHref("/parents", "ru")).toBe("/ru#parents");
+    expect(canonicalBookHref("/manifesto/M04", "ru")).toBe("/ru/#M04");
+    expect(canonicalBookHref("/parents", "ru")).toBe("/ru/#parents");
+    expect(canonicalBookHref("/ru#parents", "ru")).toBe("/ru/#parents");
+    expect(canonicalBookHref("/ru/#parents", "ru")).toBe("/ru/#parents");
   });
 });
 
@@ -87,6 +89,10 @@ describe("sectionForHash", () => {
 });
 
 describe("legacyBookDestination", () => {
+  it("normalizes the slashless Russian root without losing its hash", () => {
+    expect(legacyBookDestination("/ru", "#parents")).toBe("/ru/#parents");
+  });
+
   it.each(formerTopLevelRoutes)(
     "redirects the former %s route to %s",
     (route, destination) => {
@@ -108,7 +114,7 @@ describe("legacyBookDestination", () => {
 
   it("redirects retired Atlas workbenches into the long-form Atlas chapter", () => {
     expect(legacyBookDestination("/atlas/problem-finder")).toBe("/#atlas");
-    expect(legacyBookDestination("/ru/atlas/problem-finder")).toBe("/ru#atlas");
+    expect(legacyBookDestination("/ru/atlas/problem-finder")).toBe("/ru/#atlas");
   });
 
   it("keeps former Source addresses as invisible aliases to Final Sky", () => {
@@ -116,7 +122,7 @@ describe("legacyBookDestination", () => {
     expect(canonicalBookHref("/#source")).toBe("/#final-sky");
     expect(sectionForHash("#source-boundary")).toBe("final-sky");
     expect(legacyBookDestination("/source")).toBe("/#final-sky");
-    expect(legacyBookDestination("/ru/source")).toBe("/ru#final-sky");
+    expect(legacyBookDestination("/ru/source")).toBe("/ru/#final-sky");
   });
 
   it("does not let an unknown route bypass Not Found by adding a hash", () => {

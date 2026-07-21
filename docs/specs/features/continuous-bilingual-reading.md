@@ -22,8 +22,10 @@ experience rather than a collection of products, exercises, or separate apps.
 
 ## User-visible behavior
 
-- `/` presents English and `/ru` presents Russian as one long-form page in the
-  order Cover, Manifesto, Parents, Adults, AI as Wind, Atlas, Final Sky.
+- `/` presents English and `/ru/` presents Russian as one long-form page in the
+  order Cover, Manifesto, Parents, Adults, AI as Wind, Atlas, Final Sky. The
+  legacy slashless `/ru` entry normalizes to `/ru/` without losing a chapter
+  fragment.
 - Primary navigation moves through stable in-page chapter anchors. Existing
   legacy book destinations redirect to their canonical anchors when an
   equivalent section exists; unknown destinations show a useful not-found view.
@@ -55,7 +57,7 @@ experience rather than a collection of products, exercises, or separate apps.
 
 ## Route / state / data implications
 
-- Canonical public roots are `/` and `/ru`; chapter location is represented by
+- Canonical public roots are `/` and `/ru/`; chapter location is represented by
   stable URL fragments, not visitor profiles or persisted reading records.
 - Locale derives from the path. Motion preference may be locally controlled
   for the current view but must not alter editorial meaning.

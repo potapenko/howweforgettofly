@@ -2,7 +2,10 @@ import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 import { manifestoArticles } from "../content/manifesto";
 import { manifestoArticlesRu } from "../content/manifesto.ru";
-import { localeFromPathname } from "../i18n/LocaleContext";
+import {
+  isBookRootPathname,
+  localeFromPathname,
+} from "../i18n/LocaleContext";
 import {
   bookAnchorFromHash,
   sectionForHash,
@@ -53,7 +56,15 @@ function titleForLocation(pathname: string, hash: string) {
   const article = articles.find(({ id }) => id === articleId);
   if (article) return `${article.title} — ${sectionTitles.manifesto}`;
 
-  if (pathname === "/" || pathname === "/ru") return sectionTitles[sectionForHash(hash)];
+  if (isBookRootPathname(pathname)) {
+    const section = sectionForHash(hash);
+    if (section === "home") {
+      return locale === "ru"
+        ? "Как мы забываем летать — Творчество, авторство и ИИ"
+        : "How We Forget to Fly — Creativity, Agency, and AI";
+    }
+    return sectionTitles[section];
+  }
   return locale === "ru" ? `Страница не найдена | ${siteName}` : `Page not found | ${siteName}`;
 }
 
@@ -114,7 +125,7 @@ export function ScrollToTop() {
       const anchor = bookAnchorFromHash(hash);
       const target = anchor
         ? document.getElementById(anchor)
-        : pathname === "/" || pathname === "/ru"
+        : isBookRootPathname(pathname)
           ? document.getElementById("top")
           : document.querySelector<HTMLElement>("#main-content main h1");
       if (!target) return;

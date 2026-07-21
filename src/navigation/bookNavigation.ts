@@ -1,4 +1,4 @@
-import type { Locale } from "../i18n/LocaleContext";
+import { localeRoot, type Locale } from "../i18n/LocaleContext";
 
 export const bookSections = [
   { id: "manifesto", en: "Manifesto", ru: "Манифест" },
@@ -45,10 +45,14 @@ const topLevelAnchors: Record<string, string> = {
  * product has no separate tools or form routes.
  */
 export function canonicalBookHref(href: string, locale: Locale = "en") {
-  const root = locale === "ru" ? "/ru" : "/";
+  const root = localeRoot(locale);
   const withAnchor = (anchor: string) => `${root}#${anchor}`;
 
-  if (href.startsWith("/#") || href.startsWith("/ru#")) {
+  if (
+    href.startsWith("/#") ||
+    href.startsWith("/ru#") ||
+    href.startsWith("/ru/#")
+  ) {
     return withAnchor(bookAnchorFromHash(href.slice(href.indexOf("#"))));
   }
   if (href.startsWith("#")) return withAnchor(bookAnchorFromHash(href));
@@ -78,7 +82,7 @@ export function sectionForHash(hash: string): BookSectionId | "home" {
 export function legacyBookDestination(pathname: string, hash = "") {
   const locale: Locale =
     pathname === "/ru" || pathname.startsWith("/ru/") ? "ru" : "en";
-  const root = locale === "ru" ? "/ru" : "/";
+  const root = localeRoot(locale);
   const withoutLocale = locale === "ru" ? pathname.slice(3) || "/" : pathname;
   const normalized =
     withoutLocale.length > 1

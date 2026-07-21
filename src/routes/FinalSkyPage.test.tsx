@@ -59,7 +59,7 @@ describe("Final Sky illustrated cadence", () => {
   });
 
   it("keeps the independent Russian cadence", () => {
-    renderFinalSky("/ru#final-sky");
+    renderFinalSky("/ru/#final-sky");
 
     expect(screen.getByText("Здесь заканчивается страница. Не небо.")).toBeVisible();
     expect(screen.getByText(

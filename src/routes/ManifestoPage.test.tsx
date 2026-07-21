@@ -50,7 +50,7 @@ describe("Manifesto reading flow", () => {
   });
 
   it("uses contextual Russian copy on the Russian route", () => {
-    const { container } = renderManifesto("/ru#manifesto");
+    const { container } = renderManifesto("/ru/#manifesto");
     expect(screen.getByRole("heading", { name: "То, что должно остаться нашим" })).toBeVisible();
     expect(within(container).getByRole("heading", { name: "Достоинство не зависит от Полёта" })).toBeVisible();
     expect(screen.getAllByText("Если приложить к жизни")).toHaveLength(12);

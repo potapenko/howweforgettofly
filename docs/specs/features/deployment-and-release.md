@@ -27,9 +27,13 @@ second product artifact.
 
 ## User-visible behavior
 
-- The public host serves the Vite production artifact from `dist/` with
-  `index.html` as both the index and fallback document, so direct `/ru` and
-  legacy client-side routes resolve to the reading experience.
+- The public host serves the Vite production artifact from `dist/`. The build
+  emits localized static entry documents for `/` and `/ru/`; `index.html`
+  remains the fallback for legacy client-side routes, and `/ru` normalizes to
+  the canonical Russian root `/ru/`.
+- The artifact includes a root `robots.txt`, an XML sitemap containing both
+  canonical locale roots, and the shared public social-preview image.
+  These resources use absolute production URLs and require no server runtime.
 - App Platform builds the root repository with Node.js using `npm ci` followed
   by `npm run check`; a failed typecheck, test suite, or production build must
   fail the deployment rather than publish a partial artifact.
@@ -59,6 +63,9 @@ second product artifact.
   inspect App Platform domain progress rather than changing product routing.
 - A failed or missing `dist/` artifact is a deployment failure, not a reason to
   serve repository files or `public/` directly.
+- If the host does not serve `dist/ru/index.html` at `/ru/`, the Russian
+  crawler contract has failed even when the client-side application later
+  renders Russian after JavaScript starts.
 
 ## Route / state / data implications
 
@@ -76,4 +83,5 @@ second product artifact.
   artifact contract.
 - In the App Platform console, verify the connected repository, `master`,
   auto-deploy, static output, successful deployment, technical ingress, custom
-  domain/TLS state, and direct `/ru` response.
+  domain/TLS state, `/ru` normalization, localized `/ru/` source HTML, and
+  direct `robots.txt`, sitemap, and social-image responses.

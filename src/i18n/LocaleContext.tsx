@@ -10,7 +10,11 @@ export function localeFromPathname(pathname: string): Locale {
 }
 
 export function localeRoot(locale: Locale) {
-  return locale === "ru" ? "/ru" : "/";
+  return locale === "ru" ? "/ru/" : "/";
+}
+
+export function isBookRootPathname(pathname: string) {
+  return pathname === "/" || pathname === "/ru" || pathname === "/ru/";
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {

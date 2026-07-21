@@ -1,7 +1,7 @@
 import { ArrowDown } from "@phosphor-icons/react/ArrowDown";
 import { ArrowRight } from "@phosphor-icons/react/ArrowRight";
 import { Link } from "react-router-dom";
-import { useLocale } from "../i18n/LocaleContext";
+import { localeRoot, useLocale } from "../i18n/LocaleContext";
 import { canonicalBookHref } from "../navigation/bookNavigation";
 
 export function HomeCoverContent() {
@@ -98,7 +98,7 @@ export function HomeCoverContent() {
       </Link>
       <a
         className="home-cover-tab home-cover-tab-bottom"
-        href={`${locale === "ru" ? "/ru" : "/"}#doorways`}
+        href={`${localeRoot(locale)}#doorways`}
         aria-label={copy.finish}
       >
         <ArrowDown weight="bold" aria-hidden="true" />

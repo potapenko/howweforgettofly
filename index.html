@@ -3,21 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <script>
+      if (window.location.pathname === "/ru") {
+        window.location.replace(
+          "/ru/" + window.location.search + window.location.hash,
+        );
+      }
+    </script>
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
+    <link rel="canonical" href="https://howweforgettofly.com/" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://howweforgettofly.com/"
+    />
+    <link
+      rel="alternate"
+      hreflang="ru"
+      href="https://howweforgettofly.com/ru/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://howweforgettofly.com/"
+    />
     <meta
       name="description"
-      content="How We Forget to Fly — an interactive atlas for human authorship in the age of AI."
+      content="On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="How We Forget to Fly" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ru_RU" />
     <meta property="og:url" content="https://howweforgettofly.com/" />
-    <meta property="og:title" content="How We Forget to Fly" />
+    <meta
+      property="og:title"
+      content="How We Forget to Fly — Creativity, Agency, and AI"
+    />
     <meta
       property="og:description"
-      content="How We Forget to Fly — an interactive atlas for human authorship in the age of AI."
+      content="On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot."
     />
     <meta
       property="og:image"
@@ -32,13 +63,16 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="An open paper book becomes a bright landscape of wind, boats, aircraft, a kite, and a pinwheel."
+      content="How We Forget to Fly social preview: an open paper book becomes a bright landscape of wind, boats, aircraft, a kite, and a pinwheel."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="How We Forget to Fly" />
+    <meta
+      name="twitter:title"
+      content="How We Forget to Fly — Creativity, Agency, and AI"
+    />
     <meta
       name="twitter:description"
-      content="How We Forget to Fly — an interactive atlas for human authorship in the age of AI."
+      content="On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot."
     />
     <meta
       name="twitter:image"
@@ -46,9 +80,21 @@
     />
     <meta
       name="twitter:image:alt"
-      content="An open paper book becomes a bright landscape of wind, boats, aircraft, a kite, and a pinwheel."
+      content="How We Forget to Fly social preview: an open paper book becomes a bright landscape of wind, boats, aircraft, a kite, and a pinwheel."
     />
-    <title>How We Forget to Fly</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://howweforgettofly.com/#website",
+        "url": "https://howweforgettofly.com/",
+        "name": "How We Forget to Fly",
+        "alternateName": "Как мы забываем летать",
+        "description": "On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot.",
+        "inLanguage": ["en", "ru"]
+      }
+    </script>
+    <title>How We Forget to Fly — Creativity, Agency, and AI</title>
   </head>
   <body>
     <div id="root"></div>

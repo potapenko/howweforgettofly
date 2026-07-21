@@ -35,18 +35,32 @@ acknowledgment at the end of the completed journey.
 - Outside that bottom colophon, public rendered copy, navigation, metadata, and
   accessibility text do not mention the source book, authors, title, URL,
   adaptation, translation, inspiration, provenance, or source boundary.
+- Responsive illustration layouts do not introduce separately titled
+  interpretive companion panels such as `What the illustration shows` / `Что
+  показывает иллюстрация`. Removing those responsive-only panels is a narrow
+  presentation correction, not permission to rewrite the approved chapter
+  prose or authored text that belongs inside the paper composition.
 - The public document head exposes a large-image Open Graph and Twitter Card
   preview for link sharing. It uses the approved opening-book cover artwork,
   the independent project title and description, and an absolute HTTPS image
   URL under `howweforgettofly.com` so crawlers can render it without executing
   JavaScript.
+- Each canonical locale root exposes its own localized, crawler-readable
+  document head in the static HTML. It includes a concise title and description,
+  a self-referencing canonical URL, reciprocal EN/RU/x-default language links,
+  index and rich-preview directives, and social metadata that agrees with the
+  visible edition. Search and social crawlers must not need JavaScript to see it.
+- The domain root exposes truthful `WebSite` structured data for the public
+  project identity. `robots.txt` and the XML sitemap expose only the canonical
+  public locale roots and do not turn anchored chapters into separate pages.
 - Internal materials in `docs/source/` and `docs/governance/` never enter the
   public runtime artifact.
 
 ## Invariants
 
 - Approved rendered EN/RU copy is the golden master except for explicitly
-  authorized editorial work.
+  authorized editorial work and the removal of the responsive-only explanatory
+  panels named above.
 - Flight is situated authorship, not human rank; Ground includes care, limits,
   craft, obligation, repair, routine, and rest.
 - AI is Wind, not pilot, moral authority, or a replacement for consent, care,
@@ -55,6 +69,12 @@ acknowledgment at the end of the completed journey.
 - Social-preview metadata and image alternative text remain source-independent,
   and the preview image is included in the static production artifact at the
   declared dimensions.
+- Search metadata and structured data describe only content a visitor can
+  actually read. They contain no source traces, keyword stuffing, hidden copy,
+  invented claims, or legacy `meta keywords`.
+- EN and RU metadata are parallel authored summaries of their editions. Their
+  canonical and language-alternate URLs remain internally consistent across
+  HTML, Open Graph, structured data, and the sitemap.
 
 ## Edge cases and failure policy
 
@@ -65,6 +85,8 @@ acknowledgment at the end of the completed journey.
   unless it is the authorized colophon.
 - If EN/RU differ in exact form, preserve each edition's authored cadence and
   require an editorial decision before treating the difference as a defect.
+- If a canonical locale URL cannot return the matching localized static head,
+  fail verification rather than relying on a client-side metadata mutation.
 
 ## Route / state / data implications
 
@@ -79,7 +101,8 @@ acknowledgment at the end of the completed journey.
 - `docs/product/PUBLIC_SOURCE_COLOPHON_PLAN.md` and
   `docs/reports/PUBLIC_SOURCE_COLOPHON_REPORT.md`
 - scoped rendered-copy, metadata, accessibility, navigation, and test search;
-  production `index.html` inspection; `npm run check`.
+  production EN/RU HTML inspection with ordinary and crawler user agents;
+  `robots.txt` and sitemap validation; `npm run check`.
 
 ## Unknowns requiring confirmation
 

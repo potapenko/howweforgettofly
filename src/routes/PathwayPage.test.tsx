@@ -89,7 +89,7 @@ describe("AI pathway illustrated acts", () => {
         removeEventListener: vi.fn(),
       })),
     });
-    const { container } = renderAiPath("/ru#ai");
+    const { container } = renderAiPath("/ru/#ai");
     const story = container.querySelector<HTMLElement>(
       '[data-story-mechanism="adoption-folds"]',
     )!;
@@ -113,7 +113,7 @@ describe("AI pathway illustrated acts", () => {
   });
 
   it("renders the authored Russian beat narration for the new AI scenes", () => {
-    const { container } = renderAiPath("/ru#ai");
+    const { container } = renderAiPath("/ru/#ai");
     const expectedFirstBeats = {
       "adoption-folds": [
         "Свободное место ждёт",
@@ -231,7 +231,7 @@ describe("AI pathway illustrated acts", () => {
       ],
     },
     {
-      entry: "/ru#adult",
+      entry: "/ru/#adult",
       pairs: [
         ["Деньги", "Забота"],
         ["Ремесло", "Работа"],

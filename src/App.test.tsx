@@ -230,13 +230,13 @@ describe("application accessibility controls", () => {
   });
 
   it("renders a complete Russian locale without forms or workbench routes", async () => {
-    renderBook("/ru#atlas");
+    renderBook("/ru/#atlas");
 
     const main = await screen.findByRole("main", { name: "Как мы забываем летать" });
     expect(within(main).getByRole("heading", { name: "Как мы забываем летать" })).toBeVisible();
     const navigation = screen.getByRole("navigation", { name: "Навигация по книге" });
     expect(navigation).toBeVisible();
-    expect(within(navigation).getByRole("link", { name: "Манифест" })).toHaveAttribute("href", "/ru#manifesto");
+    expect(within(navigation).getByRole("link", { name: "Манифест" })).toHaveAttribute("href", "/ru/#manifesto");
     expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute("aria-current", "page");
     expect(document.documentElement).toHaveAttribute("lang", "ru");
     expect(document.querySelector("form, input, textarea, fieldset")).toBeNull();
@@ -278,7 +278,7 @@ describe("application accessibility controls", () => {
       })),
     });
 
-    renderBook("/ru#top");
+    renderBook("/ru/#top");
 
     const opening = await waitFor(() => {
       const element = document.querySelector<HTMLElement>(
@@ -329,7 +329,7 @@ describe("application accessibility controls", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute(
       "href",
-      "/ru#top",
+      "/ru/#top",
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Quiet view" }));
@@ -413,7 +413,7 @@ describe("application accessibility controls", () => {
     );
     expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute(
       "href",
-      "/ru#top",
+      "/ru/#top",
     );
 
     const manifesto = document.getElementById("manifesto");
@@ -458,14 +458,14 @@ describe("application accessibility controls", () => {
     await waitFor(() => {
       expect(russianLink).toHaveAttribute(
         "href",
-        "/ru#parents-keeper-conditions",
+        "/ru/#parents-keeper-conditions",
       );
     });
     fireEvent.click(russianLink);
 
     await waitFor(() => {
       expect(screen.getByTestId("location-probe")).toHaveTextContent(
-        "/ru#parents-keeper-conditions",
+        "/ru/#parents-keeper-conditions",
       );
     });
   });
@@ -500,7 +500,7 @@ describe("application accessibility controls", () => {
     await waitFor(() => {
       expect(russianLink).toHaveAttribute(
         "href",
-        "/ru#scene-ai-03-illustration",
+        "/ru/#scene-ai-03-illustration",
       );
       expect(
         within(screen.getByRole("navigation", { name: "Primary" })).getByRole(
@@ -514,7 +514,7 @@ describe("application accessibility controls", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("location-probe")).toHaveTextContent(
-        "/ru#scene-ai-03-illustration",
+        "/ru/#scene-ai-03-illustration",
       );
       expect(window.scrollTo).toHaveBeenCalledWith({
         behavior: "auto",
@@ -579,6 +579,24 @@ describe("application accessibility controls", () => {
     });
     expect(
       await screen.findByRole("main", { name: "How We Forget to Fly" }),
+    ).toBeInTheDocument();
+  });
+
+  it("normalizes the slashless Russian root without losing its chapter", async () => {
+    render(
+      <MemoryRouter initialEntries={["/ru#parents"]}>
+        <App />
+        <LocationProbe />
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("location-probe")).toHaveTextContent(
+        "/ru/#parents",
+      );
+    });
+    expect(
+      await screen.findByRole("main", { name: "Как мы забываем летать" }),
     ).toBeInTheDocument();
   });
 });

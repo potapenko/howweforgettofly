@@ -6,7 +6,7 @@ import { TwitterLogo } from "@phosphor-icons/react/TwitterLogo";
 import { X } from "@phosphor-icons/react/X";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useLocale } from "../i18n/LocaleContext";
+import { isBookRootPathname, useLocale } from "../i18n/LocaleContext";
 import {
   bookAnchorFromHash,
   bookSections,
@@ -22,7 +22,7 @@ import {
 } from "../navigation/readingPosition";
 
 function activeSectionForRoute(pathname: string, hash: string) {
-  if (pathname === "/" || pathname === "/ru") return sectionForHash(hash);
+  if (isBookRootPathname(pathname)) return sectionForHash(hash);
   const localPath = pathname.replace(/^\/ru(?=\/|$)/, "") || "/";
   return sectionForHash(`#${localPath.replace(/^\//, "")}`);
 }
@@ -100,7 +100,7 @@ export function SiteHeader({
   }, [location.hash, location.pathname]);
 
   useEffect(() => {
-    if (location.pathname !== "/" && location.pathname !== "/ru") return;
+    if (!isBookRootPathname(location.pathname)) return;
     let frame: number | null = null;
 
     const update = () => {

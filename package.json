@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "build": "vite build && node scripts/verify-seo-build.mjs",
     "check": "npm run typecheck && npm test && npm run build",
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
