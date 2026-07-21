@@ -1027,7 +1027,74 @@ describe("ParallaxStage", () => {
     expect(boatPose.style.getPropertyValue("--story-layer-x")).not.toBe("0");
   });
 
-  it("uses a story-authored beat instead of the legacy inline interpolation", () => {
+  it("plays an inline story through its authored focal pose as it crosses the viewport", () => {
+    let sectionTop = 1000;
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
+      function storyBounds(this: HTMLElement) {
+        const top = this.dataset.storyMechanism ? sectionTop : 0;
+        const height = this.dataset.storyMechanism ? 600 : 0;
+        return {
+          bottom: top + height,
+          height,
+          left: 0,
+          right: 100,
+          top,
+          width: 100,
+          x: 0,
+          y: top,
+          toJSON: () => ({}),
+        } as DOMRect;
+      },
+    );
+    const onProgress = vi.fn();
+    const view = render(
+      <ParallaxStage
+        inline
+        onProgress={onProgress}
+        reducedMotion={false}
+        scrollDrivenInline
+        story={{ ...intensifiedStory, inlineProgress: 0.72 }}
+      />,
+    );
+    const section = view.container.querySelector<HTMLElement>(
+      "[data-story-mechanism]",
+    )!;
+
+    expect(section).toHaveAttribute("data-story-progress", "0.000");
+
+    sectionTop = 200;
+    act(() => window.dispatchEvent(new Event("scroll")));
+    expect(section).toHaveAttribute("data-story-progress", "0.720");
+
+    sectionTop = -600;
+    act(() => window.dispatchEvent(new Event("scroll")));
+    expect(section).toHaveAttribute("data-story-progress", "1.000");
+
+    sectionTop = 200;
+    act(() => window.dispatchEvent(new Event("scroll")));
+    expect(section).toHaveAttribute("data-story-progress", "0.720");
+    expect(onProgress).toHaveBeenLastCalledWith(0.72);
+  });
+
+  it("keeps the story-authored inline pose fixed when scroll playback is disabled", () => {
+    let sectionTop = 1000;
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
+      function storyBounds(this: HTMLElement) {
+        const top = this.dataset.storyMechanism ? sectionTop : 0;
+        const height = this.dataset.storyMechanism ? 600 : 0;
+        return {
+          bottom: top + height,
+          height,
+          left: 0,
+          right: 100,
+          top,
+          width: 100,
+          x: 0,
+          y: top,
+          toJSON: () => ({}),
+        } as DOMRect;
+      },
+    );
     const view = render(
       <ParallaxStage
         inline
@@ -1039,6 +1106,10 @@ describe("ParallaxStage", () => {
       "[data-story-mechanism]",
     )!;
 
+    expect(section).toHaveAttribute("data-story-progress", "0.720");
+
+    sectionTop = -600;
+    act(() => window.dispatchEvent(new Event("scroll")));
     expect(section).toHaveAttribute("data-story-progress", "0.720");
   });
 

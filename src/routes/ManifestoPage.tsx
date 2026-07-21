@@ -45,10 +45,6 @@ function ManifestoSpread({
           <p className="eyebrow">{locale === "ru" ? "Если приложить к жизни" : "In ordinary life"}</p>
           <p>{article.landing}</p>
         </aside>
-        <aside className="scene-reading-note">
-          <p className="eyebrow">{locale === "ru" ? "Что показывает иллюстрация" : "What the illustration holds"}</p>
-          <p>{article.scene.plainMeaning}</p>
-        </aside>
       </div>
       <div className="theatre-reserve" aria-hidden="true" />
     </SceneObserver>

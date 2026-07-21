@@ -36,10 +36,12 @@ acknowledgment at the end of the completed journey.
   accessibility text do not mention the source book, authors, title, URL,
   adaptation, translation, inspiration, provenance, or source boundary.
 - Responsive illustration layouts do not introduce separately titled
-  interpretive companion panels such as `What the illustration shows` / `Что
-  показывает иллюстрация`. Removing those responsive-only panels is a narrow
-  presentation correction, not permission to rewrite the approved chapter
-  prose or authored text that belongs inside the paper composition.
+  interpretive companion panels such as `What the illustration holds` / `Что
+  показывает иллюстрация`. Removing those standalone panels in both locales
+  and at every viewport is a narrow presentation correction, not permission
+  to rewrite the approved chapter prose, scene title, premise, beat narration,
+  metadata, reviewed non-visual alternative, or authored text that belongs
+  inside the paper composition.
 - The public document head exposes a large-image Open Graph and Twitter Card
   preview for link sharing. It uses the approved opening-book cover artwork,
   the independent project title and description, and an absolute HTTPS image
@@ -59,7 +61,7 @@ acknowledgment at the end of the completed journey.
 ## Invariants
 
 - Approved rendered EN/RU copy is the golden master except for explicitly
-  authorized editorial work and the removal of the responsive-only explanatory
+  authorized editorial work and the removal of the standalone explanatory
   panels named above.
 - Flight is situated authorship, not human rank; Ground includes care, limits,
   craft, obligation, repair, routine, and rest.

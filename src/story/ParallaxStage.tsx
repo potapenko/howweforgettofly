@@ -283,6 +283,7 @@ export function ParallaxStage({
   settled = false,
   reducedMotion,
   inline = false,
+  scrollDrivenInline = false,
   onProgress,
   onBeatChange,
   onSkip,
@@ -503,7 +504,10 @@ export function ParallaxStage({
     onProgress: applyProgress,
     reducedMotion: motionDisabled,
     settled,
-    fixedProgress: inline ? (story.inlineProgress ?? 0.58) : undefined,
+    fixedProgress:
+      inline && !scrollDrivenInline ? (story.inlineProgress ?? 0.58) : undefined,
+    progressMode: inline && scrollDrivenInline ? "inline" : "sticky",
+    inlineFocalProgress: story.inlineProgress ?? 0.58,
     onProximityChange: setLayersHydrated,
   });
 

@@ -19,6 +19,8 @@ export interface StickyStoryGeometry {
   height: number;
 }
 
+export type StoryProgressMode = "sticky" | "inline";
+
 function defaultStickyGeometry(viewportHeight: number): StickyStoryGeometry {
   return { top: 0, height: viewportHeight };
 }
@@ -38,6 +40,30 @@ export function stickyStoryProgress(
     : viewportHeight;
   const travel = Math.max(rect.height - stickyHeight, 1);
   return clampProgress((stickyTop - rect.top) / travel);
+}
+
+/**
+ * Maps one normal-flow illustration's complete viewport passage to its own
+ * authored timeline. The focal pose is reached when the scene is centred,
+ * without adding document height or taking control of native scrolling.
+ */
+export function inlineStoryProgress(
+  rect: Pick<DOMRect, "top" | "height">,
+  viewportHeight: number,
+  focalProgress = 0.5,
+) {
+  const sceneHeight = Number.isFinite(rect.height) && rect.height > 0
+    ? rect.height
+    : 0;
+  const passage = clampProgress(
+    (Math.max(0, viewportHeight) - rect.top) /
+      Math.max(Math.max(0, viewportHeight) + sceneHeight, 1),
+  );
+  const focal = clampProgress(focalProgress);
+
+  return passage <= 0.5
+    ? passage * 2 * focal
+    : focal + (passage - 0.5) * 2 * (1 - focal);
 }
 
 function measureStickyGeometry(
@@ -62,6 +88,8 @@ interface StoryScheduleRegistration {
   warm: boolean | null;
   order: number;
   lastProgress: number | null;
+  progressMode: StoryProgressMode;
+  inlineFocalProgress: number;
   stickyGeometry: StickyStoryGeometry;
   onProgress?: (progress: number) => void;
   onProximityChange?: (near: boolean) => void;
@@ -70,6 +98,8 @@ interface StoryScheduleRegistration {
 interface RegisterStoryScheduleOptions {
   onProgress?: (progress: number) => void;
   onProximityChange?: (near: boolean) => void;
+  progressMode?: StoryProgressMode;
+  inlineFocalProgress?: number;
 }
 
 function initiallyNearViewport(element: HTMLElement) {
@@ -154,7 +184,12 @@ class StickyStoryScheduler {
 
   register(
     element: HTMLElement,
-    { onProgress, onProximityChange }: RegisterStoryScheduleOptions,
+    {
+      onProgress,
+      onProximityChange,
+      progressMode = "sticky",
+      inlineFocalProgress = 0.5,
+    }: RegisterStoryScheduleOptions,
   ) {
     const near = initiallyNearViewport(element);
     const registration: StoryScheduleRegistration = {
@@ -163,7 +198,9 @@ class StickyStoryScheduler {
       warm: null,
       order: this.nextOrder++,
       lastProgress: null,
-      stickyGeometry: onProgress
+      progressMode,
+      inlineFocalProgress: clampProgress(inlineFocalProgress),
+      stickyGeometry: onProgress && progressMode === "sticky"
         ? measureStickyGeometry(element, window.innerHeight)
         : defaultStickyGeometry(window.innerHeight),
       onProgress,
@@ -233,7 +270,12 @@ class StickyStoryScheduler {
   private refreshStickyGeometries() {
     const viewportHeight = window.innerHeight;
     for (const registration of this.registrations.values()) {
-      if (!registration.onProgress) continue;
+      if (
+        !registration.onProgress ||
+        registration.progressMode !== "sticky"
+      ) {
+        continue;
+      }
       registration.stickyGeometry = measureStickyGeometry(
         registration.element,
         viewportHeight,
@@ -329,11 +371,17 @@ class StickyStoryScheduler {
       measuredRects.set(registration.element, rect);
       if (!registration.onProgress) continue;
 
-      const progress = stickyStoryProgress(
-        rect,
-        viewportHeight,
-        registration.stickyGeometry,
-      );
+      const progress = registration.progressMode === "inline"
+        ? inlineStoryProgress(
+            rect,
+            viewportHeight,
+            registration.inlineFocalProgress,
+          )
+        : stickyStoryProgress(
+            rect,
+            viewportHeight,
+            registration.stickyGeometry,
+          );
       if (progress === registration.lastProgress) continue;
 
       registration.lastProgress = progress;

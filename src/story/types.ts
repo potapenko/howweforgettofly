@@ -120,8 +120,10 @@ export interface ParallaxStageProps {
   settled?: boolean;
   /** Explicit override; otherwise the system reduced-motion preference is used. */
   reducedMotion?: boolean;
-  /** Renders one living, non-sticky pose instead of a scroll-controlled chapter. */
+  /** Renders the illustration in normal document flow without sticky travel. */
   inline?: boolean;
+  /** Lets a normal-flow scene play its own beats as it crosses the viewport. */
+  scrollDrivenInline?: boolean;
   onProgress?: (progress: number) => void;
   onBeatChange?: (beat: StoryBeat, index: number) => void;
   onSkip?: () => void;

@@ -101,9 +101,15 @@ invented.
 - Idle movement is approximately half the local scroll/pointer envelope and
   uses long, non-synchronised 14–24 second breaths. It must not disassemble the
   composition or continuously move the Compass.
-- At `900px` and below each expansion scene is full-width, inline, non-sticky,
-  and uses one authored pose with only small ambient breathing. Coarse pointer
-  does not run pointer parallax.
+- At `900px` and below each expansion scene is full-width, inline, and
+  non-sticky. When motion is enabled, that scene's own passage through the
+  viewport drives a bounded forward-and-reverse traversal of its authored
+  beats while small ambient breathing continues. The page is never pinned,
+  snapped, slowed, or held, and coarse pointer does not run pointer parallax.
+- Each expansion scene's `inlineProgress` remains its authored mobile focal
+  pose and is reached when the scene and viewport centres align. It is not a
+  fixed replacement for scene-local playback and is never replaced by one
+  shared page-wide progress value.
 - The opening cover keeps its independent `820px` breakpoint; the expansion
   scene threshold does not alter the approved cover composition.
 - Quiet view and `prefers-reduced-motion` render the same complete settled
@@ -161,10 +167,14 @@ title and thesis occupy the broad central sky, while the active beat is printed
 on the lower sentence strip so it never floats above or privileges one of the
 three mechanisms. `ATLAS-01` is the other deliberate placement exception,
 keeping its beat on the physical lower-right paper tab instead of in a
-viewport-relative card. At `900px` and below the
-duplicate editorial layer is hidden entirely, because the full-width inline
-illustration is immediately followed by the normal-flow accessible text. This
-prevents tiny overlaid type without removing meaning.
+viewport-relative card. At `900px` and below the duplicate editorial layer is
+hidden entirely, because the full-width inline illustration is followed by the
+existing normal-flow chapter prose. Standalone scene-explanation panels headed
+`What the illustration holds` / `Что показывает иллюстрация` are not rendered
+at any viewport; internal scene description metadata remains authoring
+material, and the reviewed `ariaLabel` remains the non-visual alternative.
+This prevents tiny overlaid type and adjacent over-explanation without removing
+chapter meaning.
 
 Every desktop text role is positioned from its physical carrier first: the
 actual page leaf, vellum screen, hanging tag, sentence strip, paper tab, or
@@ -336,7 +346,7 @@ no hanging tag is left as an unexplained empty text plane.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** four mechanisms open at equal size; two candidate
+- **Mobile focal pose:** four mechanisms open at equal size; two candidate
   forms remain above them and one altered form rests beside the blank note.
   Wind is a single shallow arc, not a deep moving stack.
 - **Reduced-motion pose:** beat 5 with all four gestures and the unfilled/no-
@@ -412,7 +422,7 @@ no hanging tag is left as an unexplained empty text plane.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** the polished route is half-lowered, exposing its
+- **Mobile focal pose:** the polished route is half-lowered, exposing its
   hinge and a clear strip of horizon; three materially different alternatives
   and an unoccupied Ground plane fit in one coherent composition.
 - **Reduced-motion pose:** beat 5; no wall occlusion and no route highlighted.
@@ -489,7 +499,7 @@ no hanging tag is left as an unexplained empty text plane.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** translucent screen folded partly aside; the real
+- **Mobile focal pose:** translucent screen folded partly aside; the real
   threshold, returned marked form, repair brace, and private/stop fold all
   remain legible without a left-to-right cinematic trip.
 - **Reduced-motion pose:** beat 5 with both the rehearsal screen and returned
@@ -568,7 +578,7 @@ no hanging tag is left as an unexplained empty text plane.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** vertical stack of three mechanisms with identical
+- **Mobile focal pose:** vertical stack of three mechanisms with identical
   width and light. The fixed rail is visible as an underside detail; the
   invitation exit remains as large as the invitation opening.
 - **Reduced-motion pose:** beat 5; distinctions are carried by physical
@@ -646,7 +656,7 @@ the golden master.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** labels lifted above but still visibly related to
+- **Mobile focal pose:** labels lifted above but still visibly related to
   the supports; reversible fold, rest shelf, locked door, and help brace all
   fit without reducing the scene to “before/after liberation.”
 - **Reduced-motion pose:** beat 5; support and limit remain as prominent as the
@@ -722,7 +732,7 @@ No literary change is needed. Reuse the approved page-scene title,
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** two-column or vertical accordion composition with
+- **Mobile focal pose:** two-column or vertical accordion composition with
   ten mechanisms kept equal. It is an illustration, not ten touch targets;
   the real cards remain semantic HTML below.
 - **Reduced-motion pose:** beat 5 with all ten windows present at once.
@@ -803,7 +813,7 @@ following remains a draft until the main editorial pass approves it.
 
 ### Responsive and fallback
 
-- **Mobile authored pose:** one full-width landscape window in normal flow.
+- **Mobile focal pose:** one full-width landscape window in normal flow.
   The book remains recognisable; horizon occupies the upper half, and the
   equal-state objects read at phone scale. No sticky hold.
 - **Reduced-motion pose:** beat 5, completely still. The final HTML line is
@@ -842,8 +852,8 @@ it may not create it from alpha.
   briefly double the complete composition and make objects look as if they
   were dissolving into the scene.
 - Every authored state in `AI02`, `AI03`, `AI04`, `P01`, `A01`, `ATLAS01`,
-  and `FINAL01` keeps material-layer opacity at `1`, including the interpolated
-  mobile pose.
+  and `FINAL01` keeps material-layer opacity at `1`, including every
+  interpolated mobile state.
 - Intrinsic translucency is allowed only when the asset depicts vellum,
   tracing paper, or a screen. Runtime opacity is not a reveal mechanism.
 - Reveal and conceal use hinges, folds, rotation, translation, scale-as-fold,
@@ -871,19 +881,25 @@ Before any prompt is sent for generation:
 - [ ] the five beats are legible forward, backward, skipped, and still;
 - [ ] all material planes remain fully opaque and begin physical movement in
       the scene-specific staggered order;
-- [ ] mobile authored pose preserves meaning without sticky motion;
+- [ ] mobile focal pose preserves meaning, and forward, reverse, skipped, and
+      still mobile states remain coherent without sticky motion or a scroll
+      trap;
 - [ ] reduced-motion and poster poses are semantically complete;
 - [ ] forbidden reading has a visible countermeasure in the composition;
 - [ ] no required text is present in the raster.
 
 ### Copy-preservation verification
 
-This specification introduces no edits to the current EN/RU registries,
-routes, or page metadata. The only new prose here is clearly marked draft
-scene metadata/narration. During implementation, compare the content files to
-the pre-change baseline and allow only:
+This specification does not re-author the current EN/RU registries, route
+prose, or page metadata. The only new prose here is clearly marked draft scene
+metadata/narration. During implementation, compare the content files to the
+pre-change baseline and allow only:
 
 1. additive scene definitions and accessibility metadata;
 2. the already-authorized minimal `FINAL-01` literary change after editorial
    approval;
-3. structural scene wrappers or ids that do not modify rendered copy.
+3. structural scene wrappers or ids that do not modify rendered copy;
+4. removal, in both locales and at every viewport, of the standalone visible
+   scene-explanation panels headed `What the illustration holds` / `Что
+   показывает иллюстрация`, without changing chapter prose, scene titles,
+   premises, beat narration, metadata, or the reviewed `ariaLabel`.

@@ -1,7 +1,8 @@
 # Browser case index
 
-There are no authored browser cases yet. Add one only after reading the active
-spec it proves and validating the behavior in a real browser.
+Author a browser case only after reading the active spec it proves and
+validating the behavior in a real browser. Current regression coverage begins
+with mobile scene motion and the removal of interpretive companion panels.
 
 | Active spec | Initial browser-QA focus | Recommended tier |
 | --- | --- | --- |

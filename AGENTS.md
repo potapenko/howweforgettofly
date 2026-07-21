@@ -248,10 +248,19 @@ typography, visible content, and hierarchy.
   paper surface when the illustration has no safe reading zone.
 - Desktop chapters may use sticky scroll-played scenes. On mobile, use a
   full-width living illustration in normal document flow; do not pin the
-  visitor inside a desktop-style scroll sequence.
+  visitor inside a desktop-style scroll sequence. When motion is enabled, each
+  mobile scene's own viewport passage may play its authored beats forward and
+  backward, but it must never hold, snap, slow, or otherwise take over native
+  scrolling.
 - Every expansion scene owns an explicit `inlineProgress` that points to one
-  of its authored beats. Do not replace those mobile compositions with a
-  shared interpolated progress value.
+  of its authored beats and remains its focal mobile composition. Active
+  mobile scroll playback is scene-local; never replace those compositions
+  with one shared page-wide progress value.
+- Do not render standalone interpretive panels such as `What the illustration
+  holds` / `Что показывает иллюстрация` around responsive artwork. The
+  illustration may remain open to interpretation; keep the approved chapter
+  prose and reviewed non-visual alternative instead of explaining the image
+  a second time.
 - Keep the shared `175%` proximity gate and enforce a maximum of two hydrated
   heavy layer packs. Rank eligible packs by distance from the viewport and
   release an outgoing pack before warming its replacement.

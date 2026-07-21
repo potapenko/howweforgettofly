@@ -1,18 +1,24 @@
 import { type RefObject, useEffect, useRef } from "react";
 import {
+  inlineStoryProgress,
+  type StoryProgressMode,
   stickyStoryProgress,
   stickyStoryScheduler,
 } from "./stickyStoryScheduler";
 
-export { stickyStoryProgress };
+export { inlineStoryProgress, stickyStoryProgress };
 
 export interface StickyStoryProgressOptions {
   onProgress: (progress: number) => void;
   reducedMotion?: boolean;
   settled?: boolean;
   activationKey?: string;
-  /** A single authored pose for inline/mobile stories that do not pin to scroll. */
+  /** A single authored pose for inline stories that intentionally do not play on scroll. */
   fixedProgress?: number;
+  /** Selects sticky travel or one scene's natural viewport passage. */
+  progressMode?: StoryProgressMode;
+  /** Authored mobile pose reached when an inline scene is viewport-centred. */
+  inlineFocalProgress?: number;
   /** Mount heavy raster layers only while this story is near the viewport. */
   onProximityChange?: (near: boolean) => void;
 }
@@ -33,6 +39,8 @@ export function useStickyStoryProgress<T extends HTMLElement>(
     settled = false,
     activationKey,
     fixedProgress,
+    progressMode = "sticky",
+    inlineFocalProgress = 0.5,
     onProximityChange,
   }: StickyStoryProgressOptions,
 ) {
@@ -61,10 +69,14 @@ export function useStickyStoryProgress<T extends HTMLElement>(
       onProximityChange: schedulesLayerHydration
         ? (near) => proximityCallbackRef.current?.(near)
         : undefined,
+      progressMode,
+      inlineFocalProgress,
     });
   }, [
     activationKey,
     fixedProgress,
+    inlineFocalProgress,
+    progressMode,
     reducedMotion,
     ref,
     schedulesLayerHydration,

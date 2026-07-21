@@ -89,6 +89,23 @@ describe("AI pathway illustrated acts", () => {
         removeEventListener: vi.fn(),
       })),
     });
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
+      function inlineSceneBounds(this: HTMLElement) {
+        const height = this.hasAttribute("data-story-mechanism") ? 300 : 0;
+        const top = height > 0 ? (window.innerHeight - height) / 2 : 0;
+        return {
+          bottom: top + height,
+          height,
+          left: 0,
+          right: 390,
+          top,
+          width: 390,
+          x: 0,
+          y: top,
+          toJSON: () => ({}),
+        } as DOMRect;
+      },
+    );
     const { container } = renderAiPath("/ru/#ai");
     const story = container.querySelector<HTMLElement>(
       '[data-story-mechanism="adoption-folds"]',

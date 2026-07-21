@@ -35,15 +35,21 @@ confusion, or a performance burden.
   mobile scene passes through the viewport, its own scene-local scroll progress
   plays through the authored beats without pinning the page, delaying the
   visitor, changing scroll speed, or requiring a minimum viewing time.
-- Every mobile scene retains its explicit authored `inlineProgress` as the
-  coherent resting, reduced-motion, Quiet, and poster-fallback pose. Active
-  mobile scroll progress is derived independently for that scene; it must not
-  use one shared interpolated value across scenes.
+- Every expansion scene retains its explicit authored `inlineProgress` as its
+  focal mobile composition. Active mobile scroll progress is derived
+  independently for that scene and passes through its authored beat path. When
+  the scene and viewport centres align, the scene resolves at its authored
+  `inlineProgress`; it must not use one shared interpolated value across
+  scenes. Quiet and
+  `prefers-reduced-motion` instead show the scene's semantically complete
+  settled pose without scroll or idle animation.
 - Responsive scene treatments do not add a separately titled explanatory
-  panel, such as `What the illustration shows` / `Что показывает иллюстрация`,
-  beside or below the artwork. The illustration may remain open to
-  interpretation; approved chapter prose and authored text within the paper
-  composition retain their existing editorial roles.
+  panel, such as `What the illustration holds` / `Что показывает иллюстрация`,
+  beside or below the artwork in either locale or at any viewport. Internal
+  scene description metadata may support authoring and the reviewed
+  non-visual alternative remains available, but the illustration may stay open
+  to interpretation. Approved chapter prose and authored text within the
+  paper composition retain their existing editorial roles.
 - Scene labels and narration are localized without changing beat ids, offsets,
   layer poses, or motion meaning.
 - Every scene reserves deliberate reading zones and follows a stable scan path:
@@ -76,6 +82,9 @@ confusion, or a performance burden.
 - A mobile visitor who scrolls quickly may skip intermediate poses without
   being stopped or snapped back. The resulting visible pose must remain
   coherent, and reversing scroll must reverse the scene progression.
+- Anchor jumps, rotation, and mobile dynamic-viewport changes must resolve to
+  the current scene-local pose without replaying a hold or leaving layers in a
+  stale pre-resize position.
 - If a locale, viewport, or authored pose leaves too little safe space for
   readable copy, move the copy into a dedicated paper surface or normal-flow
   text region instead of allowing clipping, accidental overlap, or an awkward
@@ -97,7 +106,9 @@ confusion, or a performance burden.
   motion-related `App` tests
 - `docs/visual/reference/popup-game-master.png` and
   `docs/visual/scene-expansion/SCENE_SPECS.md`
-- `npm run check`; Safari desktop and mobile visual QA for changes in scope.
+- `npm run check`; forward/reverse mobile scroll, no-hold, Quiet, and desktop
+  regression checks in Safari, Chrome, and the in-app Browser for changes in
+  scope.
 
 ## Unknowns requiring confirmation
 

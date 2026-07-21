@@ -117,6 +117,7 @@ export function SceneObserver({
           editorialPanels={editorialPanels}
           focusAfterSkipRef={inlineStory ? undefined : contentRef}
           inline={inlineStory}
+          scrollDrivenInline={inlineStory}
           onSkip={inlineStory ? undefined : activate}
           reducedMotion={reducedMotion}
           settled={storySettled}

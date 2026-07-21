@@ -3,6 +3,7 @@ import { act, cleanup, render } from "@testing-library/react";
 import { useRef } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  inlineStoryProgress,
   stickyStoryProgress,
   useStickyStoryProgress,
 } from "./useStickyStoryProgress";
@@ -13,6 +14,8 @@ interface HarnessProps {
   reducedMotion?: boolean;
   settled?: boolean;
   fixedProgress?: number;
+  progressMode?: "sticky" | "inline";
+  inlineFocalProgress?: number;
   withStickyChild?: boolean;
   testId?: string;
 }
@@ -23,6 +26,8 @@ function Harness({
   reducedMotion,
   settled,
   fixedProgress,
+  progressMode,
+  inlineFocalProgress,
   withStickyChild = false,
   testId = "story",
 }: HarnessProps) {
@@ -33,6 +38,8 @@ function Harness({
     reducedMotion,
     settled,
     fixedProgress,
+    progressMode,
+    inlineFocalProgress,
   });
   return (
     <div data-testid={testId} ref={ref}>
@@ -141,6 +148,23 @@ describe("useStickyStoryProgress", () => {
       expect(stickyStoryProgress(rect(positions[2]), 1000, geometry)).toBe(1);
     },
   );
+
+  it("maps entry, authored centre, exit, and reverse inline passage", () => {
+    const focalProgress = 0.72;
+    const positions = [
+      rect(1000, 600),
+      rect(200, 600),
+      rect(-600, 600),
+      rect(200, 600),
+      rect(1000, 600),
+    ];
+
+    expect(
+      positions.map((position) =>
+        inlineStoryProgress(position, 1000, focalProgress),
+      ),
+    ).toEqual([0, focalProgress, 1, focalProgress, 0]);
+  });
 
   it("caches sticky geometry across scroll frames and refreshes it on resize", () => {
     let sectionTop = 78;
@@ -252,6 +276,42 @@ describe("useStickyStoryProgress", () => {
     act(flushFrame);
     expect(first).toHaveBeenCalledOnce();
     expect(second).toHaveBeenCalledOnce();
+  });
+
+  it("shares the scheduler and listeners between sticky and inline stories", () => {
+    const addListener = vi.spyOn(window, "addEventListener");
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
+      function storyBounds(this: HTMLElement) {
+        return this.dataset.testid === "inline"
+          ? rect(200, 600)
+          : rect(-1000, 3000);
+      },
+    );
+    const stickyProgress = vi.fn();
+    const inlineProgress = vi.fn();
+
+    render(
+      <>
+        <Harness onProgress={stickyProgress} testId="sticky" />
+        <Harness
+          inlineFocalProgress={0.72}
+          onProgress={inlineProgress}
+          progressMode="inline"
+          testId="inline"
+        />
+      </>,
+    );
+
+    expect(
+      addListener.mock.calls.filter(([event]) => event === "scroll"),
+    ).toHaveLength(1);
+    expect(
+      addListener.mock.calls.filter(([event]) => event === "resize"),
+    ).toHaveLength(1);
+
+    act(flushFrame);
+    expect(stickyProgress).toHaveBeenLastCalledWith(0.5);
+    expect(inlineProgress).toHaveBeenLastCalledWith(0.72);
   });
 
   it("rebuilds the near gate in pixels from the current viewport height", () => {
