@@ -33,8 +33,12 @@ confusion, or a performance burden.
 - Desktop chapter scenes may play through sticky scroll-authored beats. Mobile
   scenes are full-width living illustrations in normal document flow. As each
   mobile scene passes through the viewport, its own scene-local scroll progress
-  plays through the authored beats without pinning the page, delaying the
-  visitor, changing scroll speed, or requiring a minimum viewing time.
+  visibly plays the same raster layer pack, beat offsets, per-layer transforms,
+  physical stagger, and reversible timeline used by the desktop scene. Mobile
+  may reframe or scale the common artboard, but it does not replace the scene
+  with a static poster, a separate simplified animation, or ambient breathing
+  alone. Playback never pins the page, delays the visitor, changes scroll
+  speed, or requires a minimum viewing time.
 - Every expansion scene retains its explicit authored `inlineProgress` as its
   focal mobile composition. Active mobile scroll progress is derived
   independently for that scene and passes through its authored beat path. When
@@ -72,11 +76,17 @@ confusion, or a performance burden.
 - Mobile scroll playback is progressive enhancement. It never changes the
   document's natural height, focus order, touch scrolling, or chapter-anchor
   behavior.
+- While a mobile scene is eligible and its layers are ready, the poster yields
+  atomically to those live layers. The poster remains only a loading/error
+  fallback and must not visually cover a successfully hydrated animation.
 
 ## Edge cases and failure policy
 
 - If a heavy layer fails to load or decode, retain a coherent poster fallback;
   do not hide the scene or expose broken visual fragments.
+- If progress changes but the mobile composition remains poster-only or its
+  layer transforms are not visibly equivalent to the desktop timeline, treat
+  the scene as failed rather than as an acceptable mobile simplification.
 - Coarse-pointer and mobile use must not require pointer parallax to understand
   a scene.
 - A mobile visitor who scrolls quickly may skip intermediate poses without

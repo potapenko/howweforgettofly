@@ -103,9 +103,13 @@ invented.
   composition or continuously move the Compass.
 - At `900px` and below each expansion scene is full-width, inline, and
   non-sticky. When motion is enabled, that scene's own passage through the
-  viewport drives a bounded forward-and-reverse traversal of its authored
-  beats while small ambient breathing continues. The page is never pinned,
-  snapped, slowed, or held, and coarse pointer does not run pointer parallax.
+  viewport drives the same layer package, beat offsets, per-layer transforms,
+  physical stagger, and forward-and-reverse timeline as desktop while small
+  ambient breathing continues. The shared artboard may be scaled or reframed
+  for the mobile aperture, but the scene may not degrade into its poster,
+  ambient motion alone, or a separate simplified animation. The page is never
+  pinned, snapped, slowed, or held, and coarse pointer does not run pointer
+  parallax.
 - Each expansion scene's `inlineProgress` remains its authored mobile focal
   pose and is reached when the scene and viewport centres align. It is not a
   fixed replacement for scene-local playback and is never replaced by one
@@ -114,6 +118,9 @@ invented.
   scene threshold does not alter the approved cover composition.
 - Quiet view and `prefers-reduced-motion` render the same complete settled
   pose with no idle, pointer, or scroll animation.
+- On capable mobile browsers, a ready hydrated layer pack atomically replaces
+  the poster for visible playback. The poster remains the loading/error
+  fallback and never sits above successfully loaded moving layers.
 - All raster planes are decorative in the accessibility tree. Each scene has
   one reviewed `ariaLabel`; approved prose remains semantic HTML.
 

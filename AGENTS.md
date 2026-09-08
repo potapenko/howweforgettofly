@@ -252,9 +252,12 @@ typography, visible content, and hierarchy.
 - Desktop chapters may use sticky scroll-played scenes. On mobile, use a
   full-width living illustration in normal document flow; do not pin the
   visitor inside a desktop-style scroll sequence. When motion is enabled, each
-  mobile scene's own viewport passage may play its authored beats forward and
-  backward, but it must never hold, snap, slow, or otherwise take over native
-  scrolling.
+  mobile scene's own viewport passage must visibly play the same layered
+  transforms, authored beat offsets, stagger, and reverse motion as its desktop
+  scene. Mobile may scale or crop the shared artboard for the smaller frame,
+  but it must not substitute a static poster, a separate simplified motion
+  track, or barely perceptible ambient motion for the desktop scene animation.
+  It must never hold, snap, slow, or otherwise take over native scrolling.
 - Every expansion scene owns an explicit `inlineProgress` that points to one
   of its authored beats and remains its focal mobile composition. Active
   mobile scroll playback is scene-local; never replace those compositions
