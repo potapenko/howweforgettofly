@@ -30,8 +30,8 @@ function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: "en" | "ru" 
         <p className="eyebrow">{deck.title}</p>
         <h2>
           {locale === "ru"
-            ? "Тридцать небольших приглашений. Не марафон и не испытание."
-            : "Thirty small invitations. Not a challenge or a streak."}
+            ? "Вопрос, который можно взять с собой."
+            : "A question to carry with you."}
         </h2>
         <p>{deck.introduction}</p>
       </div>
@@ -55,10 +55,10 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en"
         eyebrow: "Шесть видимых ролей",
         title: "Выберите для Ветра одну роль.",
         intro: "Роль определяет, какую помощь мы просим. Она не меняет человеческий вопрос, не даёт согласия и не решает, что принять.",
-        contribution: "Чем может помочь",
-        pull: "Куда незаметно тянет",
+        contribution: "Помощь",
+        pull: "Что легко упустить",
         decision: "Что решает человек",
-        prompt: "Пример запроса",
+        prompt: "Можно попросить",
         noAiTitle: "И без ИИ маршрут остаётся целым",
         noAi: "Вопрос, критерии и окончательное решение можно удерживать с помощью блокнота, разговора, источника, ремесленной практики — или вообще без помощника.",
       }
@@ -66,10 +66,10 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en"
         eyebrow: "Six visible roles",
         title: "Give the Wind one job.",
         intro: "A role defines the help being requested. It does not change the human question, give consent, or decide what to adopt.",
-        contribution: "Useful contribution",
-        pull: "Non-neutral pull",
+        contribution: "The help",
+        pull: "What can slip away",
         decision: "Human decision",
-        prompt: "Bounded starter",
+        prompt: "A possible request",
         noAiTitle: "The route remains complete without AI",
         noAi: "The question, criteria, and final adoption can be held with a notebook, another person, a source, a craft practice—or no assistant at all.",
       };
@@ -122,43 +122,43 @@ export function PathwayPage({
   const ChapterHeading = embedded ? "h2" : "h1";
   const labels = locale === "ru"
     ? {
-        outcome: "Что может стать возможным",
+        outcome: "На пороге",
         practicesEyebrow: "Идеи, которые можно попробовать",
-        practicesTitle: "Одна небольшая форма — или ни одной.",
-        practicesIntro: "Это не задания и не проверка. Каждый фрагмент можно просто прочитать, взять с собой или оставить.",
+        practicesTitle: "С чего можно начать",
+        practicesIntro: "Несколько возможных ходов. Выбирайте тот, который подходит к вашей ситуации.",
         action: "Возможный ход",
         complete: "Когда достаточно",
         guardrail: "Граница",
         scenesEyebrow: "Обычные ситуации",
-        scenesTitle: "Как принцип выглядит в жизни",
-        scenesIntro: "Это примеры для размышления, а не готовые реплики и не вердикт о семье или человеке.",
-        situation: "Ситуация",
-        pattern: "Скрытая схема",
-        response: "Более честный ответ",
-        principle: "Принцип",
-        guardrailsEyebrow: "Границы этого пути",
+        scenesTitle: "На общем столе, среди обычных дел",
+        scenesIntro: "Представьте эти моменты. В своей жизни вы, возможно, услышите другие слова.",
+        situation: "Момент",
+        pattern: "Что мешает",
+        response: "Возможный поворот",
+        principle: "Что остаётся важным",
+        guardrailsEyebrow: "Где нужны ясные слова",
         guardrailsTitle: "Пусть свобода остаётся конкретной.",
-        covenantEyebrow: "Обещание этого пути",
+        covenantEyebrow: "Остаётся с нами",
         covenantTitle: "Пусть отношения остаются честными.",
       }
     : {
-        outcome: "What this path may make possible",
+        outcome: "At the threshold",
         practicesEyebrow: "Ideas you might try",
-        practicesTitle: "One small form—or none.",
-        practicesIntro: "These are not assignments or a test. Read a fragment, carry it with you, or leave it here.",
+        practicesTitle: "A place to begin",
+        practicesIntro: "A few possible moves. Take the one that fits the situation in front of you.",
         action: "A possible move",
         complete: "Enough when",
         guardrail: "Guardrail",
         scenesEyebrow: "Ordinary situations",
-        scenesTitle: "What the principle looks like in life",
-        scenesIntro: "These are examples to think with, not scripts or verdicts about a person or family.",
-        situation: "Situation",
-        pattern: "Hidden pattern",
-        response: "A more grounded response",
-        principle: "Principle",
-        guardrailsEyebrow: "This path's guardrails",
+        scenesTitle: "At the table, in an ordinary day",
+        scenesIntro: "Imagine these moments. In your own life, the words may be different.",
+        situation: "The moment",
+        pattern: "What gets in the way",
+        response: "A possible turn",
+        principle: "What still matters",
+        guardrailsEyebrow: "Where clarity matters",
         guardrailsTitle: "Keep freedom concrete.",
-        covenantEyebrow: "This path's covenant",
+        covenantEyebrow: "What we carry onward",
         covenantTitle: "Keep the relation honest.",
       };
 

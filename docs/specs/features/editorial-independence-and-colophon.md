@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, revision 2, 2026-09-08.
+**Status:** Active, revision 3, 2026-09-08.
 
 ## Goal
 
@@ -17,8 +17,8 @@ acknowledgment at the end of the completed journey.
 
 ## Non-goals
 
-- a general rewrite, simplification, literal translation, or academic defense
-  of the work;
+- rewriting outside the authorized editorial pass below, literal translation,
+  or an academic defense of the work;
 - deleting or publishing internal provenance records;
 - adding promotional source material, calls to action, or source navigation.
 
@@ -67,7 +67,8 @@ acknowledgment at the end of the completed journey.
   heading correction to “The book evaluates no one.” / “Книга никого не
   оценивает.” The removed no-collection promise conflicts with the newly
   authorized GA4 integration in [site-analytics.md](site-analytics.md), revision
-  2. All other editorial copy and the source colophon remain protected.
+  2. The source colophon remains protected; the later editorial authorization
+  below opens the named reading copy only.
 - Flight is situated authorship, not human rank; Ground includes care, limits,
   craft, obligation, repair, routine, and rest.
 - AI is Wind, not pilot, moral authority, or a replacement for consent, care,
@@ -82,6 +83,41 @@ acknowledgment at the end of the completed journey.
 - EN and RU metadata are parallel authored summaries of their editions. Their
   canonical and language-alternate URLs remain internally consistent across
   HTML, Open Graph, structured data, and the sitemap.
+
+## Approved editorial pass — 2026-09-08
+
+- Change ID: `EDITORIAL-2026-09-08`; mode: Evolve. Authority: the user accepted
+  the complete EN/RU editorial review and explicitly instructed execution.
+  Revision 3 opens this bounded pass beyond the earlier golden-master freeze;
+  the completed colophon migration remains historical preservation evidence.
+- Strengthen the experience of forgetting, making, surprise, and Return.
+  Develop a few existing family, adult, and AI situations into short imagined
+  scenes. Do not invent autobiographical events, research, or testimonials.
+- Reduce explanations repeated across introductions, practices, scenario
+  cards, guardrails, and covenants. Keep dignity, the adult's greater duty,
+  consent, privacy, consequences, refusal, help, and rest clear where relevant.
+  Reflective invitations remain prose; the book acquires no assessment flow.
+- Keep all twelve Manifesto articles and their ids, the chapter order, section
+  anchors, ten Atlas lenses, and thirty optional adult invitations. Practices
+  and repeated supporting cards may be condensed. Give Atlas lenses distinct
+  observations rather than another summary of the same instructions.
+- The Russian cycle is `Зов → Компас → Подъём → Дело → Полёт → Возвращение →
+  Земля`; Gravity is `Инерция`. Ordinary surrounding prose may vary naturally.
+  English retains Call, Compass, Lift, Making, Flight, Return, Ground, Gravity.
+- The closing prose ends with `The page ends here. The Sky does not.` /
+  `Здесь заканчивается страница. Не небо.` Remove the subsequent prose cadence;
+  the existing illustrated beat track is outside this pass.
+- Protected: project title, source colophon and boundary, metadata, chapter
+  navigation and locale continuity, all illustration assets, scene placements,
+  beat tracks, motion, responsive behavior, analytics, and internal provenance.
+  No public deployment is requested. Existing unrelated edits stay untouched.
+- Acceptance: read the complete revised EN/RU editions; review the copy diff
+  for ethical and source-boundary preservation; verify unchanged section ids
+  and locale coverage; run the repository-required `npm run check`; inspect
+  changed reading surfaces in Safari desktop/mobile and the in-app preview.
+  Update exact-copy test expectations only where this authorization changes
+  their contract. Browser case changes are required only for an affected
+  existing behavior case, not to add tests of static prose alone.
 
 ## Edge cases and failure policy
 

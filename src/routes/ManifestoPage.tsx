@@ -61,60 +61,50 @@ export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
         eyebrow: "Меморандум о человеческом авторстве",
         title: "То, что должно остаться нашим",
         opening: [
-          "Мы живём среди карт. Семья, школа, традиции, профессия, рынок и машины предлагают маршруты раньше, чем мы успеваем спросить, куда они ведут. Карты нужны: в них есть знание, память, предостережение и забота. Опасность появляется, когда карта незаметно объявляет себя небом — знакомый ответ заменяет вопрос, правильное исполнение заменяет авторство, а измеримый результат заслоняет связь человека с тем, что он делает.",
-          "Генеративный ИИ сделал это напряжение особенно заметным. Он легко предлагает готовую фразу, картинку, план или довод. Но изобилие ответов не решает, что вообще заслуживает ответа. Машина не может дать согласие, позаботиться о затронутом человеке, выбрать достойное направление или принять на себя последствия чужого решения.",
-          "Творческое авторство мы называем Полётом. Это не профессия, не постоянное состояние и не высший сорт людей. Полёт случается, когда человек замечает вопрос, выбирает направление, придаёт ответу форму, выпускает её в реальность и возвращается с опытом, пользой, исправлением или честной точкой.",
-          "Летать никто не обязан. Полётом нельзя заслужить достоинство. Этот манифест нужен для другого: чтобы авторство оставалось возможным у детей, у взрослых и у каждого, кто живёт среди большего числа готовых ответов, чем одна жизнь способна проверить.",
+          "Мы живём среди карт. Семья, школа, традиции, профессия, рынок и машины предлагают маршруты раньше, чем мы успеваем спросить, куда они ведут. В картах есть знание, память, предостережение и забота. Опасность появляется, когда карта незаметно объявляет себя небом: знакомый ответ возникает раньше вопроса, а правильное исполнение вытесняет живую связь человека с тем, что он делает.",
+          "Генеративный ИИ сделал это напряжение особенно заметным. Готовая фраза, картинка или план могут появиться, пока наше намерение ещё складывается. Среди множества ответов просит внимания что-то более тихое: что мы хотим принести в мир и кому предстоит с этим жить?",
+          "Творческое авторство мы называем Полётом. Человек замечает вопрос, выбирает направление, придаёт ответу форму и выпускает её в реальность. Обратно могут прийти полезная вещь, удивление, ошибка, смех или более точный вопрос. Эта книга следует за таким движением."
         ],
         index: "Статьи манифеста",
         covenantEyebrow: "Обещание и приглашение",
         covenantTitle: "Оставлять небо открытым — и не требовать, чтобы кто-то его заслужил.",
         covenant: [
           "Мы не будем просить людей заслужить достоинство, которое у них уже есть.",
-          "Мы сохраним пользу карт, не принимая их за само небо.",
-          "Мы будем беречь вопрос достаточно долго, чтобы человек успел выбрать свой ответ.",
-          "Мы дадим свободе Компас, действию — форму, а последствиям — Возвращение.",
-          "На Земле найдётся место ремеслу, заботе, помощи, границам, рутине и отдыху.",
+          "Мы сохраним пользу карт и пространство, в котором можно услышать вопрос.",
           "Мы будем отвечать за безопасность детей, не присваивая себе право заранее решить, кем им стать.",
-          "Мы позволим взрослому начать с той жизни, которая уже существует.",
-          "Мы будем пользоваться Ветром, но не прятать в нём пилота.",
-          "Мы оставим место для «да», «нет», «не сейчас», «по-другому» и честного завершения.",
+          "Мы оставим направление, согласие и ответственность людям, когда Ветер усилится.",
+          "На Земле найдётся место ремеслу, заботе, помощи, границам, отказу, исправлению и отдыху."
         ],
         invitation: [
-          "Начать можно с обычной фразы:",
-          "Я замечаю ________. Возможно, мне хочется ответить, потому что ________.",
-          "Затем спросите, что должно остаться в безопасности, какая помощь доступна и какую самую небольшую форму может принять ответ. Делайте её только в том случае, если этот Зов — ваш. Позвольте реальности ответить. Верните то, что нужно вернуть. Приземлитесь.",
-          "Если сегодня никакого Зова нет, оставайтесь на Земле без оправданий. Так небо тоже остаётся открытым.",
+          "Возможно, какой-то вопрос оставался рядом, пока вы читали.",
+          "Что произойдёт, если дать ему немного места?",
+          "Фраза, сложенный лист, разговор. Что-то достаточно маленькое, чтобы попробовать, и достаточно настоящее, чтобы получить ответ.",
+          "Если сегодня ничто не зовёт, страница может подождать."
         ],
       }
     : {
         eyebrow: "A memorandum for human authorship",
         title: "What must remain ours",
         opening: [
-          "We live among maps. Families, schools, traditions, professions, markets, and machines offer routes before we know how to ask where they lead. We need those maps: they carry knowledge, memory, warning, and care. The danger begins when a map quietly calls itself the sky—when a familiar answer replaces the question, correct performance replaces authorship, and a measurable result obscures a person's relation to the work.",
-          "Generative AI has made that tension hard to ignore. It can offer a finished sentence, image, plan, or argument with remarkable ease. Yet an abundance of answers cannot decide what deserves an answer. It cannot give consent, care for an affected person, choose a worthy direction, or inherit responsibility for a route someone adopts.",
-          "We call creative authorship Flight. It is not a profession, a permanent state, or a higher kind of person. Flight is an event: someone notices what may call for a response, chooses a direction, gives the response a form, lets it meet reality, and returns with learning, value, repair, or an honest ending.",
-          "No one is required to fly. No one earns dignity by flying. This manifesto asks only that authorship remain possible—for children, for adults, and for anyone living among more ready-made answers than one life can examine.",
+          "We live among maps. Families, schools, traditions, professions, markets, and machines offer routes before we know how to ask where they lead. Those maps carry knowledge, memory, warning, and care. The danger begins when a map quietly calls itself the sky: a familiar answer arrives before the question, and correct performance takes the place of a person’s living relation to the work.",
+          "Generative AI has made this tension hard to ignore. A finished sentence, image, or plan can arrive while our intention is still taking shape. Among so many answers, something quieter asks for attention: what do we want to bring into the world, and who will live with it?",
+          "We call creative authorship Flight. Someone notices a question, chooses a direction, gives the answer a form, and lets it meet reality. What returns may be a useful thing, a surprise, a mistake, a laugh, or a better question. This book follows that movement."
         ],
         index: "Manifesto articles",
         covenantEyebrow: "A covenant and an invitation",
         covenantTitle: "Keep the sky open without asking anyone to earn it.",
         covenant: [
           "We will not ask people to earn the dignity they already possess.",
-          "We will keep maps useful by refusing to mistake them for the sky.",
-          "We will protect questions long enough for a person to choose a response.",
-          "We will give freedom a Compass, action a form, and consequence a Return.",
-          "We will let Ground include craft, care, help, limits, routine, and rest.",
+          "We will keep maps useful and protect the space in which a question can be heard.",
           "We will hold children safely without claiming ownership of who they must become.",
-          "We will let adults begin from the life that exists.",
-          "We will use Wind without giving it a hidden cockpit.",
-          "We will make room for yes, no, not now, differently, and an honest ending.",
+          "We will keep direction, consent, and responsibility human when the Wind grows strong.",
+          "Ground will have room for craft, care, help, limits, refusal, repair, and rest."
         ],
         invitation: [
-          "Begin with one ordinary sentence:",
-          "I notice ________. I may want to answer because ________.",
-          "Then ask what must remain safe, what help is available, and what smallest form could meet reality. Make it only if the Call is yours. Let reality answer. Return what is needed. Land.",
-          "If no Call is yours today, remain on Ground without apology. That, too, keeps the sky open.",
+          "Perhaps a question has been keeping you company as you read.",
+          "What might happen if you gave it a little room?",
+          "A sentence, a folded sheet, a conversation. Something small enough to try and real enough to answer back.",
+          "If nothing calls today, the page can wait."
         ],
       };
 

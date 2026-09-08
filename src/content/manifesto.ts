@@ -8,8 +8,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
     kicker: "Worth is never awarded by a measure.",
     paragraphs: [
       "Human worth is not awarded for originality, usefulness, courage, income, speed, visibility, or output. It is not reduced by routine, dependence, error, rest, refusal, assistance, or the use of AI.",
-      "Flight names a particular act of authorship, never a human rank. A successful form does not make its maker more human. An abandoned attempt does not make anyone less. We may criticise a form, refuse an action, and require repair for harm. The person’s dignity is not placed on the same scale.",
-      "There are no flying people above non-flying people. There are people, equal in worth, meeting different conditions and making different choices.",
+      "Flight names a particular act of authorship, never a human rank. A successful form does not make its maker more human. An abandoned attempt does not make anyone less. We may criticise a form, refuse an action, and require repair for harm. The person’s dignity is not placed on the same scale."
     ],
     scene: {
       id: "SCENE-M01",
@@ -23,7 +22,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "Distinct paper forms share one continuous Ground while a removable vellum overlay tries to compare height, speed, visibility, and output. The overlay can fold away; the shared support never becomes a ranking surface.",
       accent: "blue",
     },
-    landing: "Different forms remain equally held by the same Ground.",
+    landing: "A piece of work can be criticised without making affection a prize for getting it right.",
   },
   {
     id: "M02",
@@ -31,9 +30,9 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
     title: "Authorship begins with a question",
     kicker: "Attention becomes authorship when a response can be chosen.",
     paragraphs: [
-      "A Call may begin as curiosity, care, beauty, irritation, injustice, a broken object, an awkward sentence, or something unfinished between people. It does not arrive as a command from destiny. It asks: Do I want and have the capacity to answer this now?",
-      "The valid answers are yes, no, not now, and differently.",
-      "Authorship begins when a person can notice what is asking for attention and decide what relationship to have with it. A machine may generate a thousand possible questions. A parent, teacher, employer, or community may offer an important one. None becomes a person’s Call merely by being fluent, urgent, profitable, or praised.",
+      "A Call may begin as curiosity, care, beauty, irritation, a broken object, an awkward sentence, or something unfinished between people. Before it becomes a task, there is a question: do I want and have the capacity to answer this now?",
+      "The answers can be yes, no, not now, or differently.",
+      "A machine may generate a thousand ideas. A parent, teacher, or employer may offer a question. Authorship begins in the room between that invitation and a response we can choose."
     ],
     scene: {
       id: "SCENE-M02",
@@ -48,7 +47,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       accent: "ochre",
     },
     landing:
-      "A possible Call—or an honest non-answer—rests as a complete form on Ground.",
+      "Leave a little silence after asking a question.",
   },
   {
     id: "M03",
@@ -72,7 +71,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "A printed map first guides across Ground, then rises on articulated hinges until it occludes the sky. Turning it reveals its edge and authorship before it folds back into a useful reference beside an open view.",
       accent: "blue",
     },
-    landing: "The map remains available beside an open sky.",
+    landing: "A useful instruction has a place and a limit.",
   },
   {
     id: "M04",
@@ -84,7 +83,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       "The arc is:",
       "Call → Compass → Lift → Making → Flight → Return → Ground",
       "We notice. We choose a direction and its limits. We ask what conditions are actually available. We make one revisable form. The form meets material, fact, place, or another person. We receive what happened. We return, repair, learn, close, and land.",
-      "This is not a productivity pipeline. Every stage has a door backward or out. A ten-minute cycle can be complete. A great identity that never meets reality is not more real than one small honest attempt.",
+      "Every stage has a door backward or out. A ten-minute attempt can carry the whole arc."
     ],
     scene: {
       id: "SCENE-M04",
@@ -98,7 +97,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "A flat outline gains visible conditions and hinges, folds into a right-sized provisional form, meets one real plane, and returns with a material mark. It can remain smaller, pause, or stop at any stage.",
       accent: "rust",
     },
-    landing: "The returned form remains visibly provisional and repairable.",
+    landing: "The first folded sheet already has something to tell you.",
   },
   {
     id: "M05",
@@ -122,7 +121,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "The spread opens beneath a finished pop-up to reveal braces, hinges, maintenance areas, and a rest surface. Moving one support shows its consequence without collapse spectacle, then the structure can be resized or laid down.",
       accent: "graphite",
     },
-    landing: "Support and rest remain visible instead of disappearing backstage.",
+    landing: "Somebody washed the cups and cleared this table.",
   },
   {
     id: "M06",
@@ -130,10 +129,10 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
     title: "Freedom needs a Compass",
     kicker: "Direction becomes freer when judgment stays visible and revisable.",
     paragraphs: [
-      "Freedom is not the absence of every boundary. It is the capacity to take part in choosing a direction while seeing enough of its limits and effects to answer for it.",
-      "Compass is the human practice of asking: Whose Call is this? Why does it matter? Who will be affected? Is there consent? What must remain safe? What would make us revise or stop? What responsibility follows if we continue?",
-      "Compass is not infallible intuition. It can use evidence, teachers, laws, traditions, collaborators, professional help, and AI. It does not make the individual sovereign over everyone else. It keeps judgment visible, relational, and revisable.",
-      "Freedom without care can become escape. Responsibility without choice can become obedience. Compass holds the tension between them.",
+      "Freedom is the capacity to take part in choosing a direction while seeing enough of its limits and effects to answer for it.",
+      "Compass asks: Whose Call is this? Who will be affected? What must remain safe? What would make us change course?",
+      "The needle needs more than conviction. It can use facts, teachers, laws, traditions, collaborators, and conversation. A direction becomes clearer through contact with other lives.",
+      "Freedom without care can become escape. Responsibility without choice can become obedience. Compass holds the tension between them."
     ],
     scene: {
       id: "SCENE-M06",
@@ -147,7 +146,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "A freely rotating, human-held Compass sits on separable consent, boundary, evidence, affected-people, and consequence layers. It can test a direction but never snaps to certainty.",
       accent: "ochre",
     },
-    landing: "The direction stays annotated with its limits and uncertainty.",
+    landing: "The person affected by your decision may see an edge you missed.",
   },
   {
     id: "M07",
@@ -173,7 +172,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       accent: "rust",
     },
     landing:
-      "The adult remains present and responsible while the open field remains genuinely open.",
+      "The child may have been making something you had not imagined.",
   },
   {
     id: "M08",
@@ -197,7 +196,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "A worn map of present obligations, routines, and skills reveals one unused reversible fold. Borrowed direction separates from necessary Ground; the new fold can open, close, or wait while the existing map remains intact.",
       accent: "blue",
     },
-    landing: "The present life remains intact, ordinary, and usable.",
+    landing: "An old notebook can open beside today’s bills.",
   },
   {
     id: "M09",
@@ -208,7 +207,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       "We call AI Wind: an external amplifier that can change speed, options, resistance, craft, and reach. Wind can mirror a thought, generate alternatives, test a form, simulate questions, or help with execution.",
       "Wind is not neutral. Every system makes some routes easier to see and others easier to miss. Its fluency can alter a question before we notice that the question has changed.",
       "Yet Wind is not wings, pilot, or Compass. Purpose, consent, judgment, care, adoption, and responsibility remain human assignments in this world. Before using AI, name its role and the decision it must not take. Afterward, choose what to accept, change, verify, or reject.",
-      "Human-first does not mean human alone. People have always thought with other people, inherited language, borrowed tools, and received help. It means no hidden pilot and no purity myth. Using AI confers no rank; refusing it carries no shame.",
+      "People have always thought together, learned from others, and used tools. Help can widen authorship. Its part in the work should remain visible."
     ],
     scene: {
       id: "SCENE-M09",
@@ -223,7 +222,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       accent: "blue",
     },
     landing:
-      "Adopted material stays annotated, rejected material carries no penalty, and responsibility remains on the human card.",
+      "Read the generated letter for promises you never meant to make.",
   },
   {
     id: "M10",
@@ -248,7 +247,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       accent: "rust",
     },
     landing:
-      "Return may remain private; any actual harm still keeps a visible route to attention and repair.",
+      "An answer may arrive after you thought the work was finished.",
   },
   {
     id: "M11",
@@ -272,7 +271,7 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
         "A paper fold distinguishes invitation from duty, then can continue, reduce, accept a brace or shared hinge, stop halfway, or close with a tab. Every state resolves into an equally complete composition.",
       accent: "ochre",
     },
-    landing: "Every chosen state lands complete and without evaluation.",
+    landing: "A closed notebook can keep its bookmark.",
   },
   {
     id: "M12",
@@ -280,10 +279,10 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
     title: "The myth remains open",
     kicker: "A useful language must remain revisable and easy to leave.",
     paragraphs: [
-      "This project offers a myth, not a doctrine of superior people. It may give us symbols, stories, repeated practices, and a language for living. It does not require belief.",
-      "There is no guru, secret interpretation, initiation, certificate, flight level, diagnosis, promise of genius, or path to salvation. No author, parent, community, or machine receives the right to measure another person’s inner height. Any term may be questioned, translated into ordinary language, revised, or retired when it becomes an instrument of control.",
-      "Metaphor stops where concrete safety and professional care begin. The source of an idea can be named without becoming an authority that ends inquiry.",
-      "An open myth does not ask to be obeyed. It helps people see, choose, make, and remain free to leave.",
+      "Flight, Ground, Wind, and Compass are the language of this book. A metaphor earns its place by what it lets us notice.",
+      "Any word here can be questioned, changed, translated into ordinary language, or left behind. No keeper of the vocabulary can measure another person’s inner height.",
+      "Metaphor stops where concrete safety, facts, and professional care are needed. The people affected by a choice still have their own voices.",
+      "Keep the map while it helps you look. Set it down when you need both hands."
     ],
     scene: {
       id: "SCENE-M12",
@@ -298,6 +297,6 @@ export const manifestoArticles: readonly ManifestoArticle[] = [
       accent: "graphite",
     },
     landing:
-      "The page remains open without enrollment, badge, next level, or promised salvation.",
+      "The world continues beyond these names.",
   },
 ];

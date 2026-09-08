@@ -21,7 +21,7 @@ const cycle = {
     ["Зов", "Заметьте то, что, возможно, требует ответа."],
     ["Компас", "Выберите направление, границы и меру ответственности."],
     ["Подъём", "Оцените условия, которые есть на самом деле."],
-    ["Создание", "Придайте одному черновому ответу форму."],
+    ["Дело", "Придайте одному черновому ответу форму."],
     ["Полёт", "Позвольте форме встретиться с материалом, местом или человеком."],
     ["Возвращение", "Примите последствия, опыт, пользу или необходимость что-то исправить."],
     ["Земля", "Завершите, позаботьтесь, отдохните, продолжите позже или остановитесь."],
@@ -40,7 +40,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
   const copy = locale === "ru"
     ? {
         doorwayEyebrow: "Начните с той жизни, которая уже есть",
-        doorwayTitle: "Три входа. Ни один не выше другого.",
+        doorwayTitle: "Три входа в одну историю.",
         doorwayIntro: "Можно войти как родитель, который отвечает за условия; как взрослый, заметивший незавершённый вопрос; или как человек, решающий, какую роль дать ИИ — и какую не отдавать.",
         routes: [
           ["01", "Родителям", "Оставить небо открытым", "Держать безопасность и честные границы, не подменяя ими выбор ребёнка.", "/parents", "rust"],
@@ -50,19 +50,19 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         mapEyebrow: "Когда карта становится небом",
         mapTitle: "Карты нужны. Но важно видеть, где они заканчиваются.",
         mapBody: [
-          "Семья, школа, традиции, профессия, рынок и машины предлагают маршруты раньше, чем мы успеваем спросить, куда они ведут. В этих маршрутах есть знание, память, предостережение и забота.",
-          "Проблема начинается, когда знакомый ответ незаметно вытесняет вопрос: правильное исполнение заменяет авторство, а измеримый результат — живую связь человека с тем, что он делает.",
+          "Иногда перемена почти незаметна. Прежде чем выбрать цвет, мы вспоминаем, какой похвалили. Прежде чем начать, спрашиваем, будет ли польза. Свой вопрос ещё не успел прозвучать, а подходящий ответ уже рядом.",
+          "Чужие маршруты помогают учиться и берегут от ошибок. Но постепенно взгляд может привыкнуть к карте настолько, что перестаёт замечать погоду над ней.",
         ],
         cycleEyebrow: "Цикл, из которого можно выйти или вернуться назад",
         cycleTitle: "Один небольшой полёт",
-        cycleIntro: "Это не конвейер продуктивности. Десятиминутная попытка, просьба о помощи, незаметное исправление или решение остановиться тоже могут быть завершённым циклом.",
+        cycleIntro: "Вопрос получает форму, встречается с миром и возвращается изменившимся. Иногда вся эта дуга помещается в один разговор.",
         closingEyebrow: "Летать никто не обязан",
         closingTitle: "Достоинство существует до любого творческого поступка.",
-        closingBody: "Эту книгу можно просто читать. Здесь нет теста, профиля, сохранённой истории и скрытого следующего уровня. Можно остановиться, остаться на Земле или вернуться позже.",
+        closingBody: "Можно читать, задерживаться у рисунков, пропускать страницы. Земля остаётся под ногами, пока мы смотрим в небо.",
       }
     : {
         doorwayEyebrow: "Begin with the life in front of you",
-        doorwayTitle: "Three doorways. No higher route.",
+        doorwayTitle: "Three doorways into one story.",
         doorwayIntro: "Enter as a parent responsible for conditions, as an adult who has noticed an unfinished question, or as someone deciding what AI may—and may not—do.",
         routes: [
           ["01", "Parents", "Keep the sky open", "Hold safety and honest limits without using them to pre-write a child's answer.", "/parents", "rust"],
@@ -72,15 +72,15 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         mapEyebrow: "When a map becomes the sky",
         mapTitle: "We need maps. We also need to see their edges.",
         mapBody: [
-          "Families, schools, traditions, professions, markets, and machines offer routes before we know how to ask where they lead. Those routes carry knowledge, memory, warning, and care.",
-          "The trouble begins when a familiar answer quietly replaces the question—when correct performance replaces authorship, and a measurable result replaces a person's living relation to the work.",
+          "The change can be almost invisible. Before choosing a colour, we remember which one was praised. Before beginning, we ask whether it will be useful. Our own question has barely formed; an acceptable answer is already waiting.",
+          "Borrowed routes help us learn and keep us from old mistakes. But our eyes can grow so used to the map that we stop noticing the weather above it.",
         ],
         cycleEyebrow: "A cycle with ways back and out",
         cycleTitle: "One small Flight",
-        cycleIntro: "This is not a productivity pipeline. A ten-minute attempt, a request for help, a private repair, or a decision to stop can all complete the cycle.",
+        cycleIntro: "A question takes shape, meets the world, and comes back changed. Sometimes the whole arc fits inside one conversation.",
         closingEyebrow: "No one is required to fly",
         closingTitle: "Dignity comes before every act of authorship.",
-        closingBody: "You can simply read this book. There is no test, profile, saved history, or hidden next level. You may stop, remain on Ground, or return another day.",
+        closingBody: "Read, linger over a picture, skip a page. Ground stays beneath our feet while we look at the sky.",
       };
 
   useEffect(() => {

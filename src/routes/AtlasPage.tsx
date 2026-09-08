@@ -11,13 +11,13 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
   const copy = locale === "ru"
     ? {
         eyebrow: "Атлас идей",
-        title: "Выбирайте вопрос, а не тип человека.",
-        deck: "Десять неранжированных способов посмотреть на обычную ситуацию.",
-        intro: "Атлас не диагностирует, кто вы, и не вычисляет следующий шаг. Это десять линз для чтения: задержитесь у той, которая помогает увидеть работу яснее, или просто продолжайте.",
-        all: "Все десять остаются на одной странице",
+        title: "Посмотреть ещё раз.",
+        deck: "Десять вопросов к тому, что казалось знакомым.",
+        intro: "После долгого пути знакомая вещь может показаться другой. Остановитесь у вопроса, который меняет ваш взгляд на неё.",
+        all: "На одном листе",
         question: "Что сейчас перед вами?",
-        lens: "Что помогает увидеть",
-        boundary: "Чего из этого не следует",
+        lens: "Другой ракурс",
+        boundary: "Граница",
         contractEyebrow: "Договор с читателем",
         contractTitle: "Книга никого не оценивает.",
         contract: [
@@ -30,13 +30,13 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
       }
     : {
         eyebrow: "An atlas of ideas",
-        title: "Choose the question, not a type.",
-        deck: "Ten unranked ways to look at an ordinary situation.",
-        intro: "The Atlas does not diagnose who you are or compute a next step. These are ten lenses to read: pause where one clarifies the work, or simply continue.",
-        all: "All ten remain on one page",
+        title: "Look again.",
+        deck: "Ten questions for what seemed familiar.",
+        intro: "After a long journey, a familiar thing can look different. Pause at the question that changes how you see it.",
+        all: "On one sheet",
         question: "What is in front of you?",
-        lens: "What it helps reveal",
-        boundary: "What does not follow",
+        lens: "Another angle",
+        boundary: "The boundary",
         contractEyebrow: "A contract with the reader",
         contractTitle: "The book evaluates no one.",
         contract: [

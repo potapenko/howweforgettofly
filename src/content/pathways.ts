@@ -208,8 +208,8 @@ const parentSections = [
     plain:
       "A child is a person in the room now, not the first draft of a future adult.",
     paragraphs: [
-      "Creativity is not a trait for a parent to extract. Flight is a moment of noticing, choosing, forming, meeting reality, and taking part in what follows.",
-      "The parent becomes a Keeper of Conditions: holding safety, time, materials, limits, rest, craft, conversation, and gradual responsibility while leaving the child's question and form alive.",
+      "Imagine a child drawing a house. Someone loves the red roof. The next house has a red roof too. After a while, the child looks up before choosing a colour.",
+      "Praise can be warm and sincere. Yet the glance toward the adult may slowly take the place of looking at the picture. A Keeper notices that glance and makes room for a roof nobody has asked for.",
     ],
   },
   {
@@ -230,7 +230,7 @@ const parentSections = [
     plain:
       "Good conditions do not guarantee a result; they make making, refusal, help, and rest more possible.",
     paragraphs: [
-      "A condition is not a recipe for a creative child. It is a concrete part of the Ground that an adult can hold honestly.",
+      "A clear corner of the table, time to linger, someone who knows how to hold the scissors: the conditions are often ordinary things.",
     ],
     cards: [
       { id: "safety", title: "Safety", body: "Name the hazard and act directly; reopen choice when it becomes real again." },
@@ -240,7 +240,7 @@ const parentSections = [
       { id: "craft", title: "Craft and instruction", body: "Teach the safe or useful map, then return destination and whole action to the maker." },
       { id: "boundaries", title: "Boundaries", body: "State limits around cost, noise, privacy, consent, and shared belongings plainly." },
       { id: "conversation", title: "Conversation", body: "Make questions and help available without demanding explanation or commentary." },
-      { id: "return", title: "Consequences and Return", body: "Meet effects through repair, learning, return, sharing, privacy, or an honest ending—not compulsory publicity." },
+      { id: "return", title: "Consequences and Return", body: "Return borrowed things, mend what was damaged, listen to an answer. A drawing can also stay in its drawer." },
     ],
   },
   {
@@ -263,23 +263,23 @@ const parentSections = [
   {
     id: "family-cycle",
     eyebrow: "One small family Flight",
-    title: "A map, not a compliance system",
+    title: "The bridge bends",
     plain:
-      "Call, Compass, Lift, Making, Flight, Return, and Ground can move backward, become smaller, or end.",
+      "Making begins to move when the material answers back.",
     paragraphs: [
-      "A family may notice a possible question, name intention and limits, check present capacity, give the question a small form, let it meet reality, answer what happened, and close or rest.",
-      "No cycle today is a valid result. Less Lift never means less worth.",
+      "Imagine a paper bridge between two cups. A toy car reaches the middle and the road sags. The adult reaches for thicker card. The child folds the fallen sheet like a fan and tries again.",
+      "This time the car crosses. Then another goes on, and both fall into the river below. Someone laughs. The bridge gets a new fold; the river gets a name. Later, the cups go back to the kitchen.",
     ],
   },
   {
     id: "refusal-feedback",
     eyebrow: "No altitude score",
-    title: "Refusal and feedback preserve personhood",
+    title: "Before the next suggestion",
     plain:
-      "A child may refuse an optional activity, and feedback can meet a form without appointing a kind of child.",
+      "The maker may still be listening to what the work has done.",
     paragraphs: [
-      "For unavoidable obligations, refusal may not cancel what must happen, but it can still inform how. Ending a chosen project can remain separate from returning borrowed items or repairing effects.",
-      "Observe the form, ask about intention, name the encounter, ask what response is wanted, and leave revision with the maker when safety permits.",
+      "A child leaves a drawing on the table. You can see a way to improve it. Before speaking, there is time to look: where the line grew darker, what was rubbed out, which part the child returns to. Ask whether they want to tell you about it.",
+      "If they want to finish, the drawing can be finished. Returning borrowed pens or making space for dinner is a separate responsibility.",
     ],
   },
   {
@@ -289,8 +289,7 @@ const parentSections = [
     plain:
       "AI may support a bounded operation; it does not judge the child, choose a worthy future, or absorb responsibility.",
     paragraphs: [
-      "Name the human question first, give AI one role, keep purpose and adoption human, protect privacy as an adult duty, never ask it to profile the child, and name material assistance simply.",
-      "Where choice is real, a child may choose a non-AI route. Using Wind is not lesser authorship; refusing it is not moral purity.",
+      "A child asks for three possible names for a creature, then invents a fourth from two of them. The parent helps with the tool and protects private information. The story can keep growing in the child’s voice, with or without the screen."
     ],
   },
   {
@@ -303,197 +302,130 @@ const parentSections = [
       "The aim is not perfect parenting. It is to make responsibility visible and repair the next part that can be repaired.",
     ],
     cards: [
-      { id: "imagined-child", title: "The imagined child", body: "A future identity replaces the child present now.", repair: "Describe what is happening now and remove future identity as prize or threat." },
-      { id: "hidden-brief", title: "The hidden brief", body: "Make anything secretly means make my answer.", repair: "Name the constraint; call a required form instruction and accept surprise when it is truly open." },
-      { id: "forced-takeoff", title: "Forced takeoff", body: "Creativity, enthusiasm, or sharing becomes compulsory performance.", repair: "Restore no, not now, or differently; separate the obligation from optional Flight." },
-      { id: "safety-expands", title: "Safety covers every uncertainty", body: "Mess, failure, judgment, or wasted money is renamed danger.", repair: "Name the concrete risk, hold that boundary, and reopen choices outside it." },
-      { id: "absent-keeper", title: "The absent Keeper", body: "It is your choice transfers adult burdens to the child.", repair: "Take back adult responsibility for risk, cost, time, cleanup, and consequences." },
-      { id: "altitude-scoring", title: "Altitude scoring", body: "Originality, speed, awards, visibility, or output becomes a measure of a person.", repair: "Discuss the form and effects specifically; remove labels and leaderboards." },
-      { id: "map-sky", title: "The map becomes the sky", body: "One method or example becomes the only legitimate route.", repair: "Teach what the map is for, then return whole action and safe adaptation to the child." },
-      { id: "explanation-interrupts", title: "Explanation interrupts action", body: "Questions and corrections arrive before the child can complete a movement.", repair: "Ask when input is wanted; offer one relevant technique and return to the whole." },
-      { id: "ground-shame", title: "Ground shame", body: "Care, cleanup, repetition, boredom, or rest is treated as lesser life.", repair: "Close, care, and rest without promising a more productive tomorrow." },
-      { id: "return-performance", title: "Return becomes performance", body: "Public display is used to prove the activity mattered.", repair: "Ask permission and offer private or addressed Return without making visibility a fee." },
-      { id: "wind-drift", title: "Wind drift", body: "AI's polished form arrives before a human direction and becomes the route.", repair: "Restate the human question, tool role, and remaining choices; keep, change, or discard." },
+      {
+        "id": "hidden-brief",
+        "title": "The hidden brief",
+        "body": "Make anything secretly means make my answer.",
+        "repair": "Name the constraint; call a required form instruction and accept surprise when it is truly open."
+      },
+      {
+        "id": "safety-expands",
+        "title": "Safety covers every uncertainty",
+        "body": "Mess, failure, judgment, or wasted money is renamed danger.",
+        "repair": "Name the concrete risk, hold that boundary, and reopen choices outside it."
+      },
+      {
+        "id": "absent-keeper",
+        "title": "The absent Keeper",
+        "body": "It is your choice transfers adult burdens to the child.",
+        "repair": "Take back adult responsibility for risk, cost, time, cleanup, and consequences."
+      },
+      {
+        "id": "explanation-interrupts",
+        "title": "Explanation interrupts action",
+        "body": "Questions and corrections arrive before the child can complete a movement.",
+        "repair": "Ask when input is wanted; offer one relevant technique and return to the whole."
+      }
     ],
   },
 ] as const satisfies readonly PathwaySection[];
 
 const parentPractices = [
   {
-    id: "parent-what-grounds-flight",
-    title: "What Grounds Flight?",
-    summary:
-      "Separate a recurring conflict into visible facts, adult responsibility, possible Gravity, a fixed frame, and an open part.",
-    action:
-      "Write one next-time sentence naming what the adult must hold and what the child can truly author.",
-    completion: "One specific, revisable Ground agreement exists—or the distinction remains honestly unresolved.",
-    guardrail:
-      "Use after the moment, never instead of immediate safety action; the result is not a family diagnosis or score.",
-    prompts: ["What I must hold…", "What the child can truly author…"],
-    atlasExperienceId: "EXP-01",
-    href: "/atlas/what-grounds-flight",
+    "id": "parent-what-grounds-flight",
+    "title": "What Grounds Flight?",
+    "summary": "Separate a recurring conflict into visible facts, adult responsibility, possible Gravity, a fixed frame, and an open part.",
+    "action": "Write one next-time sentence naming what the adult must hold and what the child can truly author.",
+    "completion": "You can name what is fixed and what remains open, or the part you still need to discuss.",
+    "guardrail": "Use after the moment, never instead of immediate safety action; the result is not a family diagnosis or score.",
+    "prompts": [
+      "What I must hold…",
+      "What the child can truly author…"
+    ],
+    "atlasExperienceId": "EXP-01",
+    "href": "/atlas/what-grounds-flight"
   },
   {
-    id: "parent-instruction-invitation",
-    title: "Instruction or Invitation?",
-    summary:
-      "Test one familiar sentence against what is required, why it is required, what is open, and whether no can survive.",
-    action: "Rewrite the sentence in the honest mode and name the behaviour that will make the openness real.",
-    completion: "The words and the actual distribution of choice agree.",
-    guardrail:
-      "Do not soften an unavoidable instruction into manipulation or weaken a necessary safety boundary.",
-    prompts: ["What is required?", "Why?", "What is genuinely open?", "Can no survive?"],
-    atlasExperienceId: "EXP-03",
-    href: "/atlas/instruction-or-invitation",
+    "id": "parent-instruction-invitation",
+    "title": "Instruction or Invitation?",
+    "summary": "Test one familiar sentence against what is required, why it is required, what is open, and whether no can survive.",
+    "action": "Rewrite the sentence in the honest mode and name the behaviour that will make the openness real.",
+    "completion": "The words and the actual distribution of choice agree.",
+    "guardrail": "Do not soften an unavoidable instruction into manipulation or weaken a necessary safety boundary.",
+    "prompts": [
+      "What is required?",
+      "Why?",
+      "What is genuinely open?",
+      "Can no survive?"
+    ],
+    "atlasExperienceId": "EXP-03",
+    "href": "/atlas/instruction-or-invitation"
   },
   {
-    id: "parent-creative-climate-map",
-    title: "Creative Climate Map",
-    summary:
-      "Look at safety, time, rest, materials, freedom of form, craft, conversation, and possible Return for one attempt.",
-    action: "Use ordinary condition words, then choose at most one support worth changing—or none.",
-    completion: "One condition is clearer without producing a total, profile, or verdict.",
-    guardrail:
-      "Map one situation, never the child, parent, or family. The child may disagree and may not want the attempt.",
-    atlasExperienceId: "EXP-07",
-    href: "/atlas/creative-climate-map",
-  },
-  {
-    id: "parent-one-small-flight",
-    title: "One Small Flight",
-    summary:
-      "Help a real Call become one reversible form: a rough model, question, rearrangement, test, or conversation.",
-    action: "Agree on one safety boundary, one stop point, and one possible Return before beginning.",
-    completion: "The small form meets what it needs to meet, or the family chooses not to proceed.",
-    guardrail:
-      "The small form is not bait for a larger programme and does not create a debt to continue.",
-  },
-  {
-    id: "parent-ground-landing",
-    title: "Ground Landing",
-    summary:
-      "Close, pause, care, repair, ask for help, or rest at the end of a family attempt.",
-    action:
-      "Name only what should be put away, returned, cleaned, kept safely, repaired, helped, or left undecided.",
-    completion: "The present cycle no longer demands hidden attention.",
-    guardrail: "Close with no next project required; rest is not a productivity technique.",
-    atlasExperienceId: "EXP-09",
-    href: "/atlas/ground-landing",
-  },
+    "id": "parent-ground-landing",
+    "title": "Ground Landing",
+    "summary": "Close, pause, care, repair, ask for help, or rest at the end of a family attempt.",
+    "action": "Name only what should be put away, returned, cleaned, kept safely, repaired, helped, or left undecided.",
+    "completion": "The present cycle no longer demands hidden attention.",
+    "guardrail": "Close with no next project required; rest is not a productivity technique.",
+    "atlasExperienceId": "EXP-09",
+    "href": "/atlas/ground-landing"
+  }
 ] as const satisfies readonly PracticeCard[];
 
 const parentScenes = [
   {
-    id: "parent-scene-01",
-    title: "Choosing an activity",
-    situation: "A parent notices a recurring interest and can offer access, time, or a trial.",
-    unhelpfulPattern: "Assign a future identity, enrol first, and call the decision gratitude later.",
-    groundedResponse:
-      "Name what was observed, offer real options including open time, and explain cost, schedule, and commitment before deciding.",
-    principle: "The adult holds money and logistics; a trial is not a contract for a future self.",
+    "id": "parent-scene-02",
+    "title": "Starting a home project",
+    "situation": "“Make anything,” says the adult, pausing a video beside the materials. The child makes the roof crooked. A hand reaches over to straighten it.",
+    "unhelpfulPattern": "Say make anything while requiring the example from a video.",
+    "groundedResponse": "The hand can stop. “I was expecting the one in the video. What are you making?” The child may turn the screen away. The table still needs to be clear in forty minutes.",
+    "principle": "The material and boundary are real; the example remains a map, not the hidden answer."
   },
   {
-    id: "parent-scene-02",
-    title: "Starting a home project",
-    situation: "Materials and forty minutes are available before a shared table is needed.",
-    unhelpfulPattern: "Say make anything while requiring the example from a video.",
-    groundedResponse:
-      "Offer several genuinely different forms, the child's own idea, or nothing today; name cleanup and offer one technique or company.",
-    principle: "The material and boundary are real; the example remains a map, not the hidden answer.",
+    "id": "parent-scene-04",
+    "title": "A tool becomes unsafe",
+    "situation": "A fastening has come loose and the tool can hurt someone.",
+    "unhelpfulPattern": "Use a false invitation while expecting immediate compliance.",
+    "groundedResponse": "Stop the action directly, make the tool safe, then reopen continue, demonstration, another tool, or ending.",
+    "principle": "The adult owns the safety duty; choice returns when it becomes real."
   },
   {
-    id: "parent-scene-03",
-    title: "Refusing to continue",
-    situation: "A child wants to stop a chosen project that still touches borrowed pieces or a collaborator.",
-    unhelpfulPattern: "Treat stopping as evidence of weak character.",
-    groundedResponse:
-      "Ask whether this is pause, different version, or ending; help meet the limited remaining responsibility.",
-    principle: "Ending a form and meeting a consequence are different decisions.",
+    "id": "parent-scene-08",
+    "title": "A fort occupies shared space",
+    "situation": "A blanket fort reaches across the doorway. Someone carrying dinner cannot get through. From inside comes a voice: “But that is the sea.”",
+    "unhelpfulPattern": "Let the creative project erase consent and shared access.",
+    "groundedResponse": "The passage has to open. The adult names that limit and waits. Perhaps the sea acquires a ferry, perhaps the fort moves, perhaps the building ends for today. Other people still need their way through.",
+    "principle": "Authorship does not cancel consent."
   },
   {
-    id: "parent-scene-04",
-    title: "A tool becomes unsafe",
-    situation: "A fastening has come loose and the tool can hurt someone.",
-    unhelpfulPattern: "Use a false invitation while expecting immediate compliance.",
-    groundedResponse:
-      "Stop the action directly, make the tool safe, then reopen continue, demonstration, another tool, or ending.",
-    principle: "The adult owns the safety duty; choice returns when it becomes real.",
+    "id": "parent-scene-10",
+    "title": "The parent has no Lift",
+    "situation": "The adult lacks enough attention or energy for the planned activity.",
+    "unhelpfulPattern": "Push through to perform availability and become unsafe or resentful.",
+    "groundedResponse": "Name the limit and offer a smaller paper version, preparation, help, another time, or stopping.",
+    "principle": "The parent is part of the conditions; low Lift changes the attempt, not anyone's worth."
   },
   {
-    id: "parent-scene-05",
-    title: "Homework or another unavoidable task",
-    situation: "A task must be completed or submitted.",
-    unhelpfulPattern: "Turn compliance into a judgment about being responsible.",
-    groundedResponse:
-      "Name the obligation and offer honest choices of order, environment, break, company, or clarification.",
-    principle: "An obligation can contain authorship without pretending to be a Call.",
-  },
-  {
-    id: "parent-scene-06",
-    title: "Paint, noise, and a shared room",
-    situation: "An expressive activity affects equipment, surfaces, noise, or other people.",
-    unhelpfulPattern: "Romanticise mess or ban the whole medium because uncertainty feels unsafe.",
-    groundedResponse:
-      "Name the mat, water, noise, and cleanup boundaries; leave picture and method open; offer dry material or no project.",
-    principle: "Ground gives imagination somewhere to land.",
-  },
-  {
-    id: "parent-scene-07",
-    title: "Responding to a drawing",
-    situation: "A child offers or leaves visible a particular form.",
-    unhelpfulPattern: "Use praise to appoint the child as a natural artist.",
-    groundedResponse:
-      "Describe a visible choice, ask about intention, and ask whether the child wants noticing, questions, suggestions, or a witness.",
-    principle: "Warmth can meet this form without assigning a role the child must keep performing.",
-  },
-  {
-    id: "parent-scene-08",
-    title: "A fort occupies shared space",
-    situation: "A child-authored construction blocks a walkway or uses another person's belongings.",
-    unhelpfulPattern: "Let the creative project erase consent and shared access.",
-    groundedResponse:
-      "Keep design open while naming the walkway and permission boundaries; adapt, relocate, or close if no version fits.",
-    principle: "Authorship does not cancel consent.",
-  },
-  {
-    id: "parent-scene-09",
-    title: "Using AI for a story",
-    situation: "AI could suggest titles, ask plot questions, or help check spelling.",
-    unhelpfulPattern: "Ask AI to make it better—or claim any AI help makes the story unreal.",
-    groundedResponse:
-      "Name the child's purpose, offer one bounded role or no AI, keep private information out, and make adoption visible.",
-    principle: "The child keeps direction; the adult keeps the privacy duty.",
-  },
-  {
-    id: "parent-scene-10",
-    title: "The parent has no Lift",
-    situation: "The adult lacks enough attention or energy for the planned activity.",
-    unhelpfulPattern: "Push through to perform availability and become unsafe or resentful.",
-    groundedResponse:
-      "Name the limit and offer a smaller paper version, preparation, help, another time, or stopping.",
-    principle: "The parent is part of the conditions; low Lift changes the attempt, not anyone's worth.",
-  },
-  {
-    id: "parent-scene-11",
-    title: "Sharing the result",
-    situation: "A parent wants to show, post, or narrate a child's form.",
-    unhelpfulPattern: "Treat public praise as proof that the activity mattered.",
-    groundedResponse:
-      "Offer privacy, one person, a specific question, or wider sharing; do not post without agreement.",
-    principle: "Return can be real without compulsory publicity; actual effects still receive care.",
-  },
+    "id": "parent-scene-11",
+    "title": "Sharing the result",
+    "situation": "A parent wants to show, post, or narrate a child's form.",
+    "unhelpfulPattern": "Treat public praise as proof that the activity mattered.",
+    "groundedResponse": "Offer privacy, one person, a specific question, or wider sharing; do not post without agreement.",
+    "principle": "Return can be real without compulsory publicity; actual effects still receive care."
+  }
 ] as const satisfies readonly SceneCard[];
 
 const adultSections = [
   {
     id: "invariant",
-    eyebrow: "Before any practice",
+    eyebrow: "An old question",
     title: "Flight is an event, not a kind of person",
     plain:
-      "Output, originality, income, visibility, refusal, help, and rest never decide human worth.",
+      "A long season on Ground can hold more than anyone sees.",
     paragraphs: [
-      "A form may succeed, fail, or cause harm. It can be criticised, repaired, or ended. None of those outcomes creates a ladder of more-human and less-human people.",
-      "A long season on Ground is not a lesser life, and assistance does not dilute authorship.",
+      "Imagine finding an old notebook while looking for a receipt. Half a page of a story; a sentence crossed out twice. You remember the room in which you wrote it before you remember what the story was about.",
+      "The notebook can stay open beside tonight’s bills. Neither page has to explain away the other.",
     ],
   },
   {
@@ -503,8 +435,8 @@ const adultSections = [
     plain:
       "Purpose is a way of meeting what is unfinished, not one mission buried inside you.",
     paragraphs: [
-      "Notice what asks for attention; decide whether it is yours; choose direction and boundary; give it a form; meet reality; receive what happened; return; and land.",
-      "A purpose may last ten minutes or a decade, appear in work or care, remain private, or end honestly as facts and relationships change.",
+      "An old question may return in a different shape. The story you wanted to publish becomes a letter to one person. A wish to build something becomes a shelf that finally fits an awkward corner. The answer can matter at this size.",
+      "Some questions stay with us for decades. Others finish their work in one afternoon.",
     ],
   },
   {
@@ -544,8 +476,7 @@ const adultSections = [
     plain:
       "Outside knowledge can protect and teach; authorship does not require purity from influence.",
     paragraphs: [
-      "A borrowed map shows a route. A temporary scaffold supports a named part and can be reviewed. An authored direction is one you can presently choose, explain, revise, and answer for.",
-      "Ask who drew the route, what it enables, what it hides, who is affected, and which part to keep, adapt, refuse, or revisit.",
+      "A teacher’s way of holding a tool may still serve you well. A sentence about what “people like us” should want may no longer fit. They can be examined separately. Gratitude leaves room for disagreement."
     ],
   },
   {
@@ -553,10 +484,10 @@ const adultSections = [
     eyebrow: "A revisable arc",
     title: "Call → Compass → Lift → Making → Flight → Return → Ground",
     plain:
-      "The cycle is a set of questions with doors backward and outward, not a productivity pipeline.",
+      "A question takes shape, meets the world, and comes back changed.",
     paragraphs: [
-      "Notice without obeying. Choose without demanding certainty. Size the attempt to real capacity. Make the smallest honest form. Let it meet something beyond intention. Meet effects. Close, care, and restore.",
-      "A ten-minute correction, a refusal, a private form, or an intentionally incomplete cycle can be real.",
+      "Call draws attention. Compass finds a direction among real limits and other lives. Lift is the support that makes a beginning possible. Making gives the answer a body; Flight lets it meet something beyond intention. Return receives what happened. Ground holds what comes after.",
+      "The path can turn back, wait, or end. Its shape is easier to see after the encounter.",
     ],
   },
   {
@@ -566,135 +497,60 @@ const adultSections = [
     plain:
       "Learning how material behaves does not make imagination less free.",
     paragraphs: [
-      "Repetition is not the enemy of originality. Boredom is not proof that a route is wrong. Difficulty is not proof that it is right. Error is information about an encounter, not a maker's verdict.",
-      "Ask whether there is a small answerable form, whether contact may change it, who it may affect, and whether you can revise, repair, stop, or keep it private.",
+      "A line wobbles. A joint will not fit. You try again, adjusting the pressure, and suddenly your hand understands something the instructions could only describe. For a moment, the work holds your whole attention.",
+      "Repetition can bring that pleasure. It can also tire you. Boredom is not proof that a route is wrong; difficulty is not proof that it is right.",
     ],
   },
 ] as const satisfies readonly PathwaySection[];
 
 const adultPractices = [
   {
-    id: "adult-problem-finder",
-    title: "Problem Finder",
-    summary: "Turn one noticed mismatch into a possible question—or an honest refusal.",
-    time: "10 minutes",
-    action: "Finish: I notice…, I care because…, A possible question is…. Then answer yes, no, not now, or differently.",
-    completion: "The mismatch becomes one possible question or a complete non-answer.",
-    guardrail: "Pain, fear, and irritation are not automatically Calls. Safety, rest, or help may come first.",
-    atlasExperienceId: "EXP-02",
-    href: "/atlas/problem-finder",
+    "id": "adult-problem-finder",
+    "title": "Problem Finder",
+    "summary": "Turn one noticed mismatch into a possible question—or an honest refusal.",
+    "time": "10 minutes",
+    "action": "Finish: I notice…, I care because…, A possible question is…. Then answer yes, no, not now, or differently.",
+    "completion": "The mismatch becomes one possible question or a complete non-answer.",
+    "guardrail": "Pain, fear, and irritation are not automatically Calls. Safety, rest, or help may come first.",
+    "atlasExperienceId": "EXP-02",
+    "href": "/atlas/problem-finder"
   },
   {
-    id: "adult-borrowed-map",
-    title: "Borrowed Map, Living Compass",
-    summary: "Examine one inherited rule without rejecting expertise, care, or commitment by reflex.",
-    time: "15 minutes",
-    action: "Name who gave the map, what it once carried, what it costs now, then choose keep, adapt, borrow temporarily, or refuse for one situation.",
-    completion: "The next use of the map is conscious and revisable.",
-    guardrail: "Outside origin alone does not make a map Gravity.",
-    atlasExperienceId: "EXP-10",
-    href: "/atlas/borrowed-map-living-compass",
+    "id": "adult-one-day-form",
+    "title": "One-Day Form",
+    "summary": "Give one question a small form that reality can answer.",
+    "time": "20–60 minutes; never more than one day",
+    "action": "Choose a note, sketch, repair, request, conversation, arrangement, boundary, small test, or decision; define the stop point first.",
+    "completion": "Someone can read it, use it, try it, or answer it.",
+    "guardrail": "This is not a compulsory first instalment of a large project."
   },
   {
-    id: "adult-template-escape",
-    title: "Template Escape",
-    summary: "Change one variable in a recurring task and observe what the variation reveals.",
-    time: "20 minutes",
-    action: "Change order, material, audience, scale, question, location, or definition of done once.",
-    completion: "One reversible variation has met reality.",
-    guardrail: "Difference is not automatically improvement, and routine is not automatically Gravity.",
-    atlasExperienceId: "EXP-04",
-    href: "/atlas/template-escape",
+    "id": "adult-boring-hinge",
+    "title": "The Boring Hinge",
+    "summary": "Practise the small craft operation on which a larger action turns.",
+    "time": "15 minutes",
+    "action": "Practise one hinge slowly, then perform or view the whole action once and keep only what helps it.",
+    "completion": "Technique has returned to the living form.",
+    "guardrail": "Mastery is not a moral rank, and exhaustion is not disciplined practice."
   },
   {
-    id: "adult-one-day-form",
-    title: "One-Day Form",
-    summary: "Give one question a small form that reality can answer.",
-    time: "20–60 minutes; never more than one day",
-    action: "Choose a note, sketch, repair, request, conversation, arrangement, boundary, small test, or decision; define the stop point first.",
-    completion: "The form is encounterable, not perfect.",
-    guardrail: "This is not a compulsory first instalment of a large project.",
+    "id": "adult-relationship-check",
+    "title": "Relationship and Obligation Check",
+    "summary": "Make freedom and responsibility visible before a consequential change.",
+    "time": "15 minutes",
+    "action": "List affected people, real promises and dependencies, needed consent, negotiable parts, and what remains yours; plan one conversation or reduce the stakes.",
+    "completion": "The experiment is responsibly bounded or deliberately paused.",
+    "guardrail": "Do not call every tie Gravity or every constraint sacred Ground; seek outside help when power makes conversation dangerous."
   },
   {
-    id: "adult-boring-hinge",
-    title: "The Boring Hinge",
-    summary: "Practise the small craft operation on which a larger action turns.",
-    time: "15 minutes",
-    action: "Practise one hinge slowly, then perform or view the whole action once and keep only what helps it.",
-    completion: "Technique has returned to the living form.",
-    guardrail: "Mastery is not a moral rank, and exhaustion is not disciplined practice.",
-  },
-  {
-    id: "adult-flight-log",
-    title: "Flight Log",
-    summary: "Remember one cycle without turning it into a personality label, surveillance record, or productivity report.",
-    time: "5 minutes",
-    action: "Record any useful parts of Call, Compass, Lift, Making, Flight, feedback, Return, and Ground.",
-    completion: "The cycle is legible enough to revisit or release, including an intentionally incomplete page.",
-    guardrail: "No scores, streaks, totals, personality profiles, comparisons, or obligation to document every phase.",
-    atlasExperienceId: "EXP-06",
-    href: "/atlas/flight-log",
-  },
-  {
-    id: "adult-return",
-    title: "The Return",
-    summary: "Choose the relationship, repair, learning, privacy, value, or ending that fits what happened.",
-    time: "10–30 minutes",
-    action: "Meet one relevant person, effect, question, influence, repair, lesson, or honest private ending.",
-    completion: "The relevant relationship or consequence has been met at a fitting scale.",
-    guardrail: "Return does not require publicity, market value, gratitude, or self-disclosure.",
-    atlasExperienceId: "EXP-08",
-    href: "/atlas/the-return",
-  },
-  {
-    id: "adult-ground-landing",
-    title: "Ground Landing",
-    summary: "Close or pause the current cycle without creating a future productivity debt.",
-    time: "As needed",
-    action: "Put away, keep a promise, eat, sleep, move, ask for support, record what remains open, or state that the cycle is finished or paused.",
-    completion: "The cycle no longer demands hidden attention.",
-    guardrail: "Rest does not need to justify itself through later output.",
-    atlasExperienceId: "EXP-09",
-    href: "/atlas/ground-landing",
-  },
-  {
-    id: "adult-ask-for-lift",
-    title: "Ask for Lift",
-    summary: "Name one concrete condition that could make a right-sized attempt possible.",
-    time: "10 minutes",
-    action: "Ask for time, transport, a witness, translation, childcare, instruction, access, company, assistance, or permission to reduce scope—or decide the request is unsafe or unavailable.",
-    completion: "The need and available next step are clearer, even if the answer is no.",
-    guardrail: "Help does not cancel authorship, and nobody is obliged to provide what they cannot give.",
-  },
-  {
-    id: "adult-relationship-check",
-    title: "Relationship and Obligation Check",
-    summary: "Make freedom and responsibility visible before a consequential change.",
-    time: "15 minutes",
-    action: "List affected people, real promises and dependencies, needed consent, negotiable parts, and what remains yours; plan one conversation or reduce the stakes.",
-    completion: "The experiment is responsibly bounded or deliberately paused.",
-    guardrail: "Do not call every tie Gravity or every constraint sacred Ground; seek outside help when power makes conversation dangerous.",
-  },
-  {
-    id: "adult-set-the-wind",
-    title: "Set the Wind",
-    summary: "Give AI one visible role while keeping direction, adoption, consent, and responsibility human.",
-    time: "5 minutes before and after AI use",
-    action: "Name Call, Compass, one Wind role, decisions not delegated, and private material withheld; then mark output accept, change, reject, or verify.",
-    completion: "The tool's role and the human adoption are explicit—or AI is not used.",
-    guardrail: "Speed is not direction. Using or refusing AI changes no person's worth.",
-    atlasExperienceId: "EXP-05",
-    href: "/atlas/set-the-wind",
-  },
-  {
-    id: "adult-honorable-refusal",
-    title: "Honorable Refusal",
-    summary: "Give no, not now, or differently a real form.",
-    time: "5–20 minutes",
-    action: "Complete: I will not answer this Call now because…. Communicate, offer another form, name a reconsideration condition, or close privately as needed.",
-    completion: "The refusal has closed the relevant loop.",
-    guardrail: "Refusal does not erase unavoidable obligations or their effects.",
-  },
+    "id": "adult-honorable-refusal",
+    "title": "Honorable Refusal",
+    "summary": "Give no, not now, or differently a real form.",
+    "time": "5–20 minutes",
+    "action": "Complete: I will not answer this Call now because…. Communicate, offer another form, name a reconsideration condition, or close privately as needed.",
+    "completion": "The people who need to know have heard your answer.",
+    "guardrail": "Refusal does not erase unavoidable obligations or their effects."
+  }
 ] as const satisfies readonly PracticeCard[];
 
 const adultScenes = [
@@ -702,21 +558,16 @@ const adultScenes = [
     id: "adult-scene-a",
     title: "Too many Calls",
     situation: "Many lively ideas together prevent any one of them from meeting reality.",
-    groundedResponse: "Place them on one map without ranking their human importance; choose one question or tiny form that fits present commitments, review the others later, or choose none.",
+    groundedResponse: "Write the ideas where you can return to them. One may fit the time and commitments you have now. Choosing it leaves the others on the page.",
     principle: "Unchosen ideas are not failed destinies; the aim is one authored encounter or honest Ground.",
-    steps: [
-      "Map the ideas without turning them into a personal ranking.",
-      "Ask which fits present commitments and who is affected.",
-      "Choose one, reduce one, place the rest on Ground, or choose none.",
-    ],
   },
   {
     id: "adult-scene-b",
     title: "The tired adult",
     situation: "A wanted question appears after work and care when the adult can barely stay awake.",
     unhelpfulPattern: "Call exhaustion fear, prescribe discipline as proof of desire, or allow rest only as fuel for output.",
-    groundedResponse: "Treat low Lift as information; choose sleep, food, prescribed care, an ordinary chore, help, one line, a smaller form, or no form.",
-    principle: "Ground Landing is complete. One line creates no debt to continue tomorrow. Worth is unchanged in every branch.",
+    groundedResponse: "The notebook is open, but the same sentence has been read three times. Close it and leave a scrap of paper at the line. Eat, sleep, ask for help if you need it. The scrap can keep the place.",
+    principle: "Rest belongs to this life, whether the notebook opens tomorrow or much later.",
   },
   {
     id: "adult-scene-c",
@@ -730,42 +581,42 @@ const adultScenes = [
 
 const adultInvitationDeck = {
   id: "adult-thirty-invitations",
-  title: "Thirty invitations, not a challenge",
+  title: "Thirty invitations",
   introduction:
-    "A card may take a day, six months, remain unfinished, be replaced by Ground, or be left unopened.",
+    "A page to wander through. A question may stay with you after the book is closed.",
   guardrail:
-    "No streaks, scores, catch-up days, completion badges, ranking, or requirement to continue.",
+    "Read in any order; there is nothing to complete.",
   cards: [
-    { id: "adult-card-01", number: 1, phase: "Notice", prompt: "Name one ordinary irritation without solving it." },
-    { id: "adult-card-02", number: 2, phase: "Notice", prompt: "Name one thing you care for that is not a project." },
-    { id: "adult-card-03", number: 3, phase: "Notice", prompt: "Notice one desire that would remain if no audience knew about it." },
-    { id: "adult-card-04", number: 4, phase: "Notice", prompt: "Write one recurring ‘a person like me should…’." },
-    { id: "adult-card-05", number: 5, phase: "Notice", prompt: "Name one real Ground condition without judging it." },
-    { id: "adult-card-06", number: 6, phase: "Notice", prompt: "Take a Ground day; record nothing unless you want to." },
-    { id: "adult-card-07", number: 7, phase: "Choose", prompt: "Turn one observation into a possible Call—or decline it." },
-    { id: "adult-card-08", number: 8, phase: "Choose", prompt: "Write one sentence about why it matters now." },
-    { id: "adult-card-09", number: 9, phase: "Choose", prompt: "Name everyone directly affected by a response." },
-    { id: "adult-card-10", number: 10, phase: "Choose", prompt: "Name one boundary of consent, safety, time, or care." },
-    { id: "adult-card-11", number: 11, phase: "Choose", prompt: "Name one condition that would make you revise or stop." },
-    { id: "adult-card-12", number: 12, phase: "Choose", prompt: "Choose one map to keep, adapt, borrow temporarily, or refuse." },
-    { id: "adult-card-13", number: 13, phase: "Give form", prompt: "Check today's Lift without comparing it with yesterday's." },
-    { id: "adult-card-14", number: 14, phase: "Give form", prompt: "Ask for one condition or reduce the scope." },
-    { id: "adult-card-15", number: 15, phase: "Give form", prompt: "Choose a form possible in one day or less." },
-    { id: "adult-card-16", number: 16, phase: "Give form", prompt: "Make a rough version that reality can answer." },
-    { id: "adult-card-17", number: 17, phase: "Give form", prompt: "Practise one boring hinge, then return to the whole." },
-    { id: "adult-card-18", number: 18, phase: "Give form", prompt: "Put the materials away and rest without earning it." },
-    { id: "adult-card-19", number: 19, phase: "Meet and Return", prompt: "Let the form meet one material, fact, place, or consenting witness." },
-    { id: "adult-card-20", number: 20, phase: "Meet and Return", prompt: "Receive one response without turning it into a verdict on yourself." },
-    { id: "adult-card-21", number: 21, phase: "Meet and Return", prompt: "Separate feedback about the form from worth of the maker." },
-    { id: "adult-card-22", number: 22, phase: "Meet and Return", prompt: "Revise, repair, stop, or keep the form private." },
-    { id: "adult-card-23", number: 23, phase: "Meet and Return", prompt: "Choose a fitting Return: value, learning, repair, gratitude, or closure." },
-    { id: "adult-card-24", number: 24, phase: "Meet and Return", prompt: "Complete that Return at the smallest honest scale." },
-    { id: "adult-card-25", number: 25, phase: "Land", prompt: "Name what the cycle changed and what it did not." },
-    { id: "adult-card-26", number: 26, phase: "Land", prompt: "Give full attention to one ordinary obligation or act of care." },
-    { id: "adult-card-27", number: 27, phase: "Land", prompt: "Use AI in one named Wind role—or consciously do not use it." },
-    { id: "adult-card-28", number: 28, phase: "Land", prompt: "Revisit one borrowed map and decide its place for now." },
-    { id: "adult-card-29", number: 29, phase: "Land", prompt: "Choose a next small Call, not now, or no next Call." },
-    { id: "adult-card-30", number: 30, phase: "Land", prompt: "Read the covenant and rewrite one line in your own words." },
+    { id: "adult-card-01", number: 1, phase: "Notice", prompt: "Which small inconvenience have you stopped noticing?" },
+    { id: "adult-card-02", number: 2, phase: "Notice", prompt: "What do you care for that has never appeared on a list of ambitions?" },
+    { id: "adult-card-03", number: 3, phase: "Notice", prompt: "What would you still want to make if nobody knew who made it?" },
+    { id: "adult-card-04", number: 4, phase: "Notice", prompt: "Whose voice do you hear in “someone like me should…”?" },
+    { id: "adult-card-05", number: 5, phase: "Notice", prompt: "What is quietly holding up your day?" },
+    { id: "adult-card-06", number: 6, phase: "Notice", prompt: "What catches your eye when you have nowhere to hurry?" },
+    { id: "adult-card-07", number: 7, phase: "Choose", prompt: "Which question has returned more than once?" },
+    { id: "adult-card-08", number: 8, phase: "Choose", prompt: "What makes it matter at this moment?" },
+    { id: "adult-card-09", number: 9, phase: "Choose", prompt: "Who else would live with the answer?" },
+    { id: "adult-card-10", number: 10, phase: "Choose", prompt: "What must remain safe while you try?" },
+    { id: "adult-card-11", number: 11, phase: "Choose", prompt: "What discovery would make you change direction?" },
+    { id: "adult-card-12", number: 12, phase: "Choose", prompt: "Which old instruction still helps your hands?" },
+    { id: "adult-card-13", number: 13, phase: "Give form", prompt: "What is within reach today: a whole afternoon, ten minutes, another person?" },
+    { id: "adult-card-14", number: 14, phase: "Give form", prompt: "Which part could become possible with help?" },
+    { id: "adult-card-15", number: 15, phase: "Give form", prompt: "How small could this idea become and still interest you?" },
+    { id: "adult-card-16", number: 16, phase: "Give form", prompt: "What could you put on the table for a first encounter?" },
+    { id: "adult-card-17", number: 17, phase: "Give form", prompt: "Where does your hand hesitate? Try that movement slowly." },
+    { id: "adult-card-18", number: 18, phase: "Give form", prompt: "What would let you put the work down for tonight?" },
+    { id: "adult-card-19", number: 19, phase: "Meet and Return", prompt: "Who might want to see this? Ask before handing it over." },
+    { id: "adult-card-20", number: 20, phase: "Meet and Return", prompt: "What surprised you in the answer?" },
+    { id: "adult-card-21", number: 21, phase: "Meet and Return", prompt: "What did the material teach you that the plan could not?" },
+    { id: "adult-card-22", number: 22, phase: "Meet and Return", prompt: "Which part would you like to change, and which part can stay strange?" },
+    { id: "adult-card-23", number: 23, phase: "Meet and Return", prompt: "What has come back: a question, a useful thing, a laugh, a need to repair?" },
+    { id: "adult-card-24", number: 24, phase: "Meet and Return", prompt: "Who needs an answer from you now?" },
+    { id: "adult-card-25", number: 25, phase: "Land", prompt: "What remains different after the materials are put away?" },
+    { id: "adult-card-26", number: 26, phase: "Land", prompt: "What ordinary act of care is waiting here?" },
+    { id: "adult-card-27", number: 27, phase: "Land", prompt: "Where did the Wind help, and where did you turn away from it?" },
+    { id: "adult-card-28", number: 28, phase: "Land", prompt: "Which edge of your old map can you see now?" },
+    { id: "adult-card-29", number: 29, phase: "Land", prompt: "What can remain unfinished without keeping you awake?" },
+    { id: "adult-card-30", number: 30, phase: "Land", prompt: "Which image from these pages would you carry into tomorrow?" },
   ],
 } as const satisfies CardDeck;
 
@@ -777,8 +628,8 @@ const aiSections = [
     plain:
       "AI can change speed, options, resistance, and reach without gaining authority over purpose or consequence.",
     paragraphs: [
-      "Wind can lift, resist, redirect, and make some routes easier to see. It is powerful and not neutral, but fluency, novelty, confidence, and speed do not turn output into instruction.",
-      "Human-first does not mean human alone. It means purpose, consent, judgment, adoption, and responsibility remain human assignments.",
+      "Perhaps the tool found the sentence you had been reaching for. Perhaps it quietly supplied a feeling you do not have. Both can happen in the same paragraph. The work is to recognise the difference.",
+      "Wind is powerful and uneven: some routes become easy to see, others disappear in its wake. Compass stays with the people who will live with the choice.",
     ],
   },
   {
@@ -788,17 +639,29 @@ const aiSections = [
     plain:
       "AI may contribute material, critique, and craft; it does not receive authority over dignity, purpose, consent, or Return.",
     paragraphs: [
-      "Generation is not adoption. A person adopts a form by deciding to use, share, rely on, or act through it with enough understanding to accept, change, reject, or verify it.",
+      "Generation is not adoption. Sending the letter means choosing its words and promises. You can keep a phrase, change another, check a claim, or leave the draft unsent.",
     ],
     cards: [
-      { id: "worth", title: "Human worth", body: "No output, speed, originality, market use, rest, refusal, or assistance determines value." },
-      { id: "worthy-call", title: "The worthy Call", body: "AI may surface questions; it cannot announce a true purpose, child destiny, or moral mission." },
-      { id: "consent", title: "Consent", body: "A simulation cannot consent for a maker, collaborator, child, audience, or represented person." },
-      { id: "care", title: "Care", body: "Generated signs of attention do not replace noticing, listening, remaining reachable, and responding." },
-      { id: "compass", title: "Compass", body: "AI can supply arguments; values, limits, affected relations, revision, and choice remain human." },
-      { id: "adoption", title: "Adoption", body: "An output becomes part of a form only through an explicit human accept, change, reject, or verify decision." },
-      { id: "responsibility", title: "Responsibility and Return", body: "The people or institutions that adopt and act remain answerable for effects." },
-      { id: "child-identity", title: "A child's identity", body: "AI must not diagnose, score, type, rank, or predict a child's life." },
+      {
+        "id": "consent",
+        "title": "Consent",
+        "body": "A simulation cannot consent for a maker, collaborator, child, audience, or represented person."
+      },
+      {
+        "id": "care",
+        "title": "Care",
+        "body": "Generated signs of attention do not replace noticing, listening, remaining reachable, and responding."
+      },
+      {
+        "id": "compass",
+        "title": "Compass",
+        "body": "AI can supply arguments; values, limits, affected relations, revision, and choice remain human."
+      },
+      {
+        "id": "responsibility",
+        "title": "Responsibility and Return",
+        "body": "The people or institutions that adopt and act remain answerable for effects."
+      }
     ],
   },
   {
@@ -816,10 +679,10 @@ const aiSections = [
     eyebrow: "Wind can enter; it is never an eighth stage",
     title: "AI through the Flight cycle",
     plain:
-      "At every stage, AI may assist a bounded operation while a human question closes the gap.",
+      "The letter leaves the screen and enters a relationship.",
     paragraphs: [
-      "At Call, restate the observation and keep refusal open. At Compass, name values, affected people, consent, and stop conditions. At Lift, choose realistic scale and support. During Making, inspect each adoption. Flight requires real contact. Return requires real effects. Ground includes stopping the system.",
-      "A simulated audience is preparation, not Return. An AI-assisted form becomes Flight only when people adopt it and it meets something beyond the generation loop.",
+      "The recipient may notice the sentence you almost removed. They may answer a day later, or ask something no rehearsal predicted. That reply belongs to the encounter. No generated audience can supply it in advance.",
+      "Return begins with attending to what actually came back, including silence or a promise that now needs keeping.",
     ],
   },
   {
@@ -829,18 +692,27 @@ const aiSections = [
     plain:
       "A process may begin with an AI draft and use extensive assistance while remaining human-first.",
     paragraphs: [
-      "Human-first keeps the observation, role, criteria, affected relationships, adoption, real contact, Return, and stopping decision visible. AI-first drift hides those decisions inside defaults, fluency, popularity, or machine confidence.",
-      "The distinction is not a percentage of words made by hand. It is whether a person can explain what was chosen, what changed, what still needs reality, and who remains answerable.",
+      "An AI draft can be the beginning of the work. The important question is whether you can recognise and explain what you choose to keep. A page made with extensive help can carry a considered decision; a sentence typed by hand can repeat someone else’s unexamined answer."
     ],
     cards: [
-      { id: "pattern-start", title: "Starting", body: "A person names an observation, care, duty, or tentative question.", detail: "Drift asks the system what the person should want." },
-      { id: "pattern-role", title: "Role", body: "One contribution is assigned and can be revised.", detail: "Drift lets the system become planner, judge, maker, and approver at once." },
-      { id: "pattern-criteria", title: "Criteria", body: "People name or negotiate criteria and affected relationships.", detail: "Drift imports criteria from defaults, popularity, or confidence." },
-      { id: "pattern-options", title: "Options", body: "Generated routes remain candidates alongside refusal and delay.", detail: "Drift treats the visible option set as the boundary of imagination." },
-      { id: "pattern-making", title: "Making", body: "The adopter understands enough to select, alter, explain, and verify the form.", detail: "Drift accepts polish because it feels difficult to challenge." },
-      { id: "pattern-contact", title: "Contact", body: "Simulation prepares for a suitable real encounter.", detail: "Drift treats simulation as audience consent or evidence of effect." },
-      { id: "pattern-return", title: "Return", body: "The responsible people meet effects and repair what they adopt.", detail: "Drift assigns responsibility to the instrument afterward." },
-      { id: "pattern-stopping", title: "Stopping", body: "No AI, less AI, pause, and Ground remain available.", detail: "Drift makes use compulsory or refusal a badge of purity." },
+      {
+        "id": "pattern-criteria",
+        "title": "Criteria",
+        "body": "People name or negotiate criteria and affected relationships.",
+        "detail": "Drift imports criteria from defaults, popularity, or confidence."
+      },
+      {
+        "id": "pattern-options",
+        "title": "Options",
+        "body": "Generated routes remain candidates alongside refusal and delay.",
+        "detail": "Drift treats the visible option set as the boundary of imagination."
+      },
+      {
+        "id": "pattern-making",
+        "title": "Making",
+        "body": "The adopter understands enough to select, alter, explain, and verify the form.",
+        "detail": "Drift accepts polish because it feels difficult to challenge."
+      }
     ],
   },
   {
@@ -850,18 +722,29 @@ const aiSections = [
     plain:
       "Give AI a visible role before fluency becomes direction.",
     paragraphs: [
-      "Name the human Call, write a Compass note, assign one role, limit the material, make one inspectable request, run the adoption pass, meet reality at an appropriate scale, then Return and Ground.",
-      "The protocol may be skipped, kept as an offline card, or ended at any step. It does not make unsafe use safe or turn output into evidence.",
+      "A brief note can hold the question while you work. Give the tool one job, protect private material, and keep the answer small enough to examine. The note is useful for as long as it helps you see your decisions."
     ],
     cards: [
-      { id: "step-1", title: "1 · Name the Call", body: "Write the observation and possible reason to respond before asking AI. No or not now remains valid." },
-      { id: "step-2", title: "2 · Make a Compass note", body: "Name affected people, consent and privacy, revision conditions, decisions kept human, and what is unknown." },
-      { id: "step-3", title: "3 · Assign one role", body: "Choose one canonical Wind role and name what it must not decide." },
-      { id: "step-4", title: "4 · Set the material boundary", body: "Use the minimum necessary context; prefer generic, fictionalised, or person-created material." },
-      { id: "step-5", title: "5 · Make one request", body: "Ask for an output small enough to inspect; if purpose or criteria shift, return to Compass." },
-      { id: "step-6", title: "6 · Run the adoption pass", body: "Mark possible material Accept, Change, Reject, or Verify." },
-      { id: "step-7", title: "7 · Meet reality", body: "Choose a material test, reliable source, trusted reader, collaborator, affected person, professional review, or real environment suited to the stakes." },
-      { id: "step-8", title: "8 · Return and Ground", body: "Name Wind's contribution, human adoption, remaining uncertainty or effect, and whether the cycle is complete, paused, or returned for repair." },
+      {
+        "id": "step-1",
+        "title": "The question",
+        "body": "What are you trying to say or make, and who may be affected?"
+      },
+      {
+        "id": "step-3",
+        "title": "The help",
+        "body": "What one task can the tool help with? Which decisions stay with you?"
+      },
+      {
+        "id": "step-4",
+        "title": "The material",
+        "body": "Use the minimum necessary context; prefer generic, fictionalised, or person-created material."
+      },
+      {
+        "id": "step-6",
+        "title": "The answer",
+        "body": "What will you accept, change, reject, or verify before using it?"
+      }
     ],
   },
   {
@@ -871,7 +754,7 @@ const aiSections = [
     plain:
       "An appealing AI proposal is a candidate map, not a discovered purpose.",
     paragraphs: [
-      "Label the proposal as Wind, recover what existed before it, open quieter and no-action alternatives, use Compass, choose explicitly, and own the next real contact.",
+      "You asked about a small neighbourhood problem. The reply offers a name, a business, a launch plan. It is easy to begin polishing that plan and forget the person whose difficulty first caught your attention. Put the original question beside the proposal. See whether they still belong together.",
     ],
   },
   {
@@ -888,25 +771,55 @@ const aiSections = [
   {
     id: "drift-repairs",
     eyebrow: "Failures belong to an encounter, not a person",
-    title: "Twelve Wind drifts and repairs",
+    title: "Where the course begins to shift",
     plain:
-      "A drift names where governing judgment moved out of view; its repair restores a concrete human decision.",
+      "A familiar failure can become easier to notice the next time.",
     paragraphs: [
       "The repair is not trust yourself instead. Compass may require evidence, collaborators, affected people, expertise, traditions, or rules.",
     ],
     cards: [
-      { id: "drift-01", title: "AI proposes the direction", body: "A generated goal feels like discovered purpose.", repair: "Label it a candidate route, recover the prior observation, open alternatives, consult affected people, and choose or defer." },
-      { id: "drift-02", title: "A parent asks AI to assess a child", body: "Output assigns talent, motivation, type, diagnosis, or destiny.", repair: "Discard the classification and ask only about adult-controlled conditions or specific artefact criteria without profiling." },
-      { id: "drift-03", title: "An unexamined output is published", body: "The publisher cannot explain or defend the polished form.", repair: "Pause; run Accept, Change, Reject, Verify; check sources and relationships; revise, attribute, or do not publish." },
-      { id: "drift-04", title: "Options become an avalanche", body: "More generation feels productive while no choice is made.", repair: "Stop, restate the Call, choose two criteria, keep a small set, or return to Ground." },
-      { id: "drift-05", title: "The critic becomes a judge", body: "Feedback is read as a verdict on ability or worth.", repair: "Separate fact, ethics, craft, and taste; choose legitimate criteria and reject the rank." },
-      { id: "drift-06", title: "Speed outruns consent", body: "Material is shared or transformed before boundaries are checked.", repair: "Stop distribution, identify affected interests, seek real consent where required, limit use, and repair effects." },
-      { id: "drift-07", title: "Simulation replaces contact", body: "Plausible reactions are treated as evidence or approval.", repair: "Label hypotheses, meet an appropriate real person or environment, and revise from actual feedback." },
-      { id: "drift-08", title: "Completion replaces learning", body: "A craft aid performs the operation the person intended to practise.", repair: "Choose learning or delivery consciously, then narrow assistance or change the aim." },
-      { id: "drift-09", title: "One route becomes invisible normality", body: "Repeated outputs narrow style, assumptions, or represented lives.", repair: "Name the pattern, vary sources and constraints, invite affected perspectives, and keep rejection open." },
-      { id: "drift-10", title: "Responsibility is laundered", body: "The AI said so is used after harm.", repair: "Name who chose, approved, and acted; meet the effect; repair the form or process." },
-      { id: "drift-11", title: "AI use becomes compulsory", body: "Refusal is treated as backwardness or failure.", repair: "Restore a workable non-AI route where choice is real and judge only the relevant form." },
-      { id: "drift-12", title: "Purity becomes a badge", body: "Unaided work is treated as morally superior or fully self-created.", repair: "Name teachers, tools, traditions, collaborators, and conditions; choose assistance by purpose and boundary." },
+      {
+        "id": "drift-03",
+        "title": "An unexamined output is published",
+        "body": "The publisher cannot explain or defend the polished form.",
+        "repair": "Pause; run Accept, Change, Reject, Verify; check sources and relationships; revise, attribute, or do not publish."
+      },
+      {
+        "id": "drift-04",
+        "title": "Options become an avalanche",
+        "body": "More generation feels productive while no choice is made.",
+        "repair": "Stop, restate the Call, choose two criteria, keep a small set, or return to Ground."
+      },
+      {
+        "id": "drift-05",
+        "title": "The critic becomes a judge",
+        "body": "Feedback is read as a verdict on ability or worth.",
+        "repair": "Separate fact, ethics, craft, and taste; choose legitimate criteria and reject the rank."
+      },
+      {
+        "id": "drift-06",
+        "title": "Speed outruns consent",
+        "body": "Material is shared or transformed before boundaries are checked.",
+        "repair": "Stop distribution, identify affected interests, seek real consent where required, limit use, and repair effects."
+      },
+      {
+        "id": "drift-08",
+        "title": "Completion replaces learning",
+        "body": "A craft aid performs the operation the person intended to practise.",
+        "repair": "Choose learning or delivery consciously, then narrow assistance or change the aim."
+      },
+      {
+        "id": "drift-09",
+        "title": "One route becomes invisible normality",
+        "body": "Repeated outputs narrow style, assumptions, or represented lives.",
+        "repair": "Name the pattern, vary sources and constraints, invite affected perspectives, and keep rejection open."
+      },
+      {
+        "id": "drift-10",
+        "title": "“The AI said so”",
+        "body": "The AI said so is used after harm.",
+        "repair": "Name who chose, approved, and acted; meet the effect; repair the form or process."
+      }
     ],
   },
   {
@@ -916,8 +829,7 @@ const aiSections = [
     plain:
       "Attribution says where material came from; adoption says who chose to use it and remains answerable.",
     paragraphs: [
-      "Before consequential use, name AI's role and contribution, what people accepted or changed, what was verified, which rights and uncertainties remain, and who will respond if the form is wrong.",
-      "Private exploration may need only a short note. Shared or public work requires the relevant source, legal, professional, venue, credit, and trust practices. A fluent claim is not evidence.",
+      "For work you share, explain the relevant help you used, check what others will rely on, and name who can respond if something is wrong. Public and professional settings may require more: permissions, sources, credit, and the rules of the place where the work will appear."
     ],
   },
   {
@@ -927,49 +839,30 @@ const aiSections = [
     plain:
       "Craft matters because it helps intention meet material honestly, not because it protects a competitive human advantage.",
     paragraphs: [
-      "Ask what craft carries meaning, what merely blocks contact, what must be understood to verify the result, what is worth learning even if slower, and which assistance improves access without removing another person's choice.",
-      "AI as Wind is a normative open myth, not a diagnosis, forecast, professional rule, or guarantee about a particular system.",
+      "Sometimes assistance opens a door: a translation reaches someone you could not address; a prototype lets you try an idea while it is still vivid. Sometimes you want to learn the slow operation yourself. Its resistance is part of what you came for.",
+      "Choose the help that serves this encounter. Leave room to discover that you need a different kind.",
     ],
   },
 ] as const satisfies readonly PathwaySection[];
 
 const aiPractices = [
   {
-    id: "ai-set-the-wind",
-    title: "AI as Wind: Set the Wind",
-    summary: "Choose one AI role and keep purpose, consent, adoption, judgment, and responsibility visible.",
-    time: "A short pass before and after AI use",
-    action: "Name the Call and Compass, choose one of six roles, limit material, write one request, inspect output, mark adoption, then meet reality and Return.",
-    completion: "Wind's contribution, human choices, unresolved uncertainty, and responsibility can be stated—or AI is not used.",
-    guardrail: "No protocol turns generated text into evidence, consent, diagnosis, professional judgment, or transferred responsibility.",
-    atlasExperienceId: "EXP-05",
-    href: "/atlas/set-the-wind",
-  },
-  {
-    id: "ai-direction-test",
-    title: "The Direction Test",
-    summary: "Recover human direction when AI proposes an attractive destination.",
-    action: "Label the route, recover the original observation, open alternatives, consult Compass, choose explicitly, and own the next contact.",
-    completion: "The proposal is rejected, retained as reference, transformed into an authored direction, or left undecided.",
-    guardrail: "Predicted demand, fluency, confidence, or scale is not a mandate.",
-  },
-  {
-    id: "ai-adoption-test",
-    title: "The Adoption Test",
-    summary: "Check whether an AI-assisted form is ready to enter a consequential setting.",
-    action: "Answer: What role did AI play? What did it contribute? What was accepted, changed, rejected, or verified? Who and what remain relevant? Who responds if it is wrong?",
-    completion: "The adopter can answer—or reduces the stakes, seeks review, revises, or does not adopt yet.",
-    guardrail: "Attribution does not transfer responsibility, and disclosure does not make unsafe use safe.",
-  },
+    "id": "ai-adoption-test",
+    "title": "The Adoption Test",
+    "summary": "Check whether an AI-assisted form is ready to enter a consequential setting.",
+    "action": "Answer: What role did AI play? What did it contribute? What was accepted, changed, rejected, or verified? Who and what remain relevant? Who responds if it is wrong?",
+    "completion": "The adopter can answer—or reduces the stakes, seeks review, revises, or does not adopt yet.",
+    "guardrail": "Attribution does not transfer responsibility, and disclosure does not make unsafe use safe."
+  }
 ] as const satisfies readonly PracticeCard[];
 
 const aiScenes = [
   {
     id: "ai-scene-assistance-without-erasure",
     title: "Assistance without self-erasure",
-    situation: "An adult asks AI to improve a difficult letter; the result is graceful, decisive, and more certain than the adult feels.",
+    situation: "The letter is ready. One sentence remains: “I know exactly how you feel.” The writer stops over it.",
     unhelpfulPattern: "Send it because it sounds competent—or delete it because any assistance would make the letter false.",
-    groundedResponse: "Name Wind as Mirror or Craft aid; mark claims about feeling, promise, fact, and boundary; keep only what can be adopted; restore lived uncertainty; consider the recipient; send, revise, delay, or stop.",
+    groundedResponse: "The sentence becomes: “I keep wondering how this has been for you.” The letter is less certain now. It leaves room for an answer the writer does not yet know. Before sending, the writer checks the other claims and promises too.",
     principle: "Authorship is not a percentage of human-made words. It is a form the person can recognise, explain, and answer for.",
   },
 ] as const satisfies readonly SceneCard[];
@@ -981,38 +874,25 @@ export const pathways = {
     eyebrow: "For parents and responsible caregivers",
     title: "Keep the Sky Open",
     lede:
-      "A child is not a project. Hold the safety, care, and honest limits that belong to the adult; leave the emerging form genuinely open.",
+      "There is a child beside you, making something you cannot yet recognise. There is also a table that everyone needs for dinner. Both belong in this story.",
     plainThesis:
-      "A parent is a Keeper of Conditions, not an engineer of the child's future; equal dignity coexists with unequal adult responsibility.",
+      "A Keeper of Conditions leaves room for surprise while holding the safety, care, and limits that belong to the adult.",
     readerOutcome:
-      "Distinguish direct instruction, a boundary with choice, and a genuine invitation, then rewrite one real family moment without scoring parent or child.",
+      "Sometimes the important change is in a sentence the adult was about to say.",
     nextStep:
-      "Begin with Instruction or Invitation?, explore What Grounds Flight?, or simply carry the two-line distinction into tomorrow.",
+      "What is already decided here, and what can the child still change?",
     sections: parentSections,
     practices: parentPractices,
     sceneCards: parentScenes,
     cardDecks: [],
     guardrails: [
-      "The child is never a product, proof of parenting, future labour-market strategy, or data source for a score.",
-      "Equal dignity never removes the adult's greater duty for safety, care, privacy, limits, and consequences.",
-      "An invitation is genuine only when refusal can survive without relational punishment.",
-      "An unavoidable obligation or emergency is named directly; false choice is not creative freedom.",
-      "Feedback describes forms, intentions, and effects without assigning creative identity, rank, diagnosis, or destiny.",
-      "No practice asks for a child's name, diagnosis, image, school, private history, or identifying work sample.",
-      "Public sharing is optional; actual effects on other people still require attention and repair.",
-      "The metaphor stops where danger or medical, psychological, educational, legal, or social help is needed.",
+      "The adult holds safety, care, privacy, and consequences the child cannot carry. Emergencies and unavoidable duties are named directly.",
+      "A real invitation allows refusal without withdrawing affection. Sharing a child’s work requires their agreement; AI must not be used to profile or rank them.",
+      "When a family needs medical, psychological, educational, legal, or social help, the metaphor gives way to concrete care."
     ],
     covenant: [
-      "Treat the child as a person now, not a project for later.",
-      "Hold safety, care, and consequences without owning the child's inner form.",
-      "Name what is required and offer only choices that can be honoured.",
-      "Let maps teach without letting them choose the whole sky.",
-      "Make room for yes, no, not now, and differently where those answers are real.",
-      "Offer feedback about forms and effects without ranking the person.",
-      "Count rest, help, repetition, and honest endings as Ground.",
-      "Use AI as Wind, never as judge of worth or substitute for consent and responsibility.",
-      "Repair when care becomes control and take back burdens that belong to the adult.",
-      "No height, originality, achievement, refusal, or future usefulness changes a child's worth.",
+      "Keep a place at the table for the child who is here now.",
+      "When care turns into control, notice it, repair what you can, and make room again."
     ],
     routeLinks: [
       { label: "Instruction or Invitation?", href: "/atlas/instruction-or-invitation", description: "Rewrite one real adult sentence in its honest mode.", kind: "primary" },
@@ -1031,38 +911,25 @@ export const pathways = {
     eyebrow: "For adults beginning from the life already here",
     title: "Remembering Flight",
     lede:
-      "You do not have to abandon your life, discover one true calling, or condemn your past in order to author one responsible next form.",
+      "An unfinished question can travel quietly through years of work, meals, errands, and sleep. One day something ordinary brings it back within reach.",
     plainThesis:
-      "An adult can resume authorship from present life through small, revisable cycles without finding one hidden purpose.",
+      "The life you have gives this question its material: experience, people, limits, and whatever time can be found.",
     readerOutcome:
-      "Distinguish Ground from Gravity and name one possible Call, honest refusal, request for help, or right-sized form.",
+      "The first opening may be smaller than the change you once imagined.",
     nextStep:
-      "Begin with Problem Finder, choose any voluntary practice or invitation card, or remain on Ground with nothing to prove.",
+      "A page, a conversation, a repaired object. Something close enough to begin with.",
     sections: adultSections,
     practices: adultPractices,
     sceneCards: adultScenes,
     cardDecks: [adultInvitationDeck],
     guardrails: [
-      "Flight names an event, never a human type, rank, identity, or obligation to produce.",
-      "Present-life purpose does not require one destiny, a dramatic reinvention, or condemnation of the past.",
-      "Ground includes body, money, facts, relationships, craft, care, obligations, maintenance, and rest; naming it is not approving injustice.",
-      "A borrowed map is not automatically Gravity, and every commitment is not automatically sacred Ground.",
-      "No practice creates a score, streak, diagnosis, forecast, personality result, or comparative measure.",
-      "No, not now, differently, ask for help, keep private, and end are complete authored branches.",
-      "Consequential choices attend to consent, affected relationships, real expertise, evidence, and repair.",
-      "This is speculative philosophy and voluntary practice, not treatment, diagnosis, professional advice, or a forecast.",
+      "Care, income, health, and obligations are real conditions. Naming them does not make an unjust arrangement acceptable.",
+      "Changes that affect other people need consent, conversation, and attention to consequences. Where power makes conversation unsafe, seek appropriate outside help.",
+      "These pages offer reflection, not diagnosis, treatment, or a promise about your future."
     ],
     covenant: [
-      "Begin with this life, not an imaginary life without limits or ties.",
-      "Treat a Call as an invitation, never proof of destiny.",
-      "Use maps without mistaking them for the sky.",
-      "Choose a form small enough for the Lift actually present.",
-      "Let craft, care, repetition, limits, and rest belong to Ground.",
-      "Meet what actions change and make a fitting Return.",
-      "Ask for help, change direction, refuse, pause, or end a cycle.",
-      "Use Wind without asking speed to choose what is worthy.",
-      "Never measure a person by height, output, usefulness, or originality.",
-      "There is nothing to prove; author the next responsible form only if and when one is possible.",
+      "Begin where life is already happening.",
+      "Let what you make return to it, carrying whatever the encounter has taught you."
     ],
     routeLinks: [
       { label: "Problem Finder", href: "/atlas/problem-finder", description: "Turn one observation into a possible Call or honest non-answer.", kind: "primary" },
@@ -1079,41 +946,29 @@ export const pathways = {
   ai: {
     id: "ai",
     route: "/ai",
-    eyebrow: "A human-first practice of amplified making",
+    eyebrow: "When the answer arrives first",
     title: "Set the Wind",
     lede:
-      "AI can widen options, accelerate craft, resist a draft, and simulate contact. These are powers, not a purpose.",
+      "A difficult letter comes back from the machine clear, graceful, and certain. You read it twice. It says more than you meant.",
     plainThesis:
-      "AI changes what is easy, visible, and fast, while purpose, consent, adoption, judgment, and responsibility remain human assignments.",
+      "Wind can give a thought reach. Its fluency can also carry a promise you never made.",
     readerOutcome:
-      "Name the human question, one bounded Wind role, decisions not delegated, material kept private, and responsibility for anything adopted.",
+      "Before sending, there is still a moment to hear your own uncertainty.",
     nextStep:
-      "Read Set the Wind as a planning note, or follow the complete no-AI route, then continue with the Parent or Adult chapter.",
+      "What in this answer can you stand behind when another person reads it?",
     sections: aiSections,
     practices: aiPractices,
     sceneCards: aiScenes,
     cardDecks: [],
     guardrails: [
-      "Human worth does not depend on using AI, refusing it, outperforming it, or producing anything.",
-      "AI is influential and not neutral, but it is not an oracle, moral authority, Compass, hidden pilot, or bearer of Return.",
-      "No output supplies consent, evidence, factual verification, professional judgment, or lived feedback by itself.",
-      "Children are never profiled, diagnosed, ranked, forecast, or used as private data sources for personalised inference.",
-      "Use only necessary material and check the actual system, venue, source, legal, privacy, and professional conditions that apply.",
-      "Simulation is preparation, not relationship; generation is material, not adoption.",
-      "A no-AI route, human help, pause, Ground, and an unanswered Call remain valid.",
-      "The Wind metaphor is a practical open myth, not a technical capability claim or labour-market forecast.",
+      "Consent comes from the people involved. A simulation cannot grant it or establish what happened in the world.",
+      "Keep private material out of unnecessary requests. Children must not be profiled, diagnosed, or ranked by the system.",
+      "Those who choose and use an answer remain responsible for its consequences. Check claims, rights, and professional requirements before others rely on them.",
+      "Wind is a metaphor for a relationship with a tool, not a guarantee of any system’s abilities. Human help and a route without AI remain available."
     ],
     covenant: [
-      "Worth is invariant.",
-      "Wind receives one visible role.",
-      "An offered route is not a destiny or mandate.",
-      "Compass remains human.",
-      "Wind's non-neutral pulls remain visible and reviewable.",
-      "Children are not profiles.",
-      "Adoption is explicit: accept, change, reject, or verify.",
-      "Simulation is not consent, evidence, or relationship.",
-      "Return cannot be outsourced.",
-      "Ground remains open: pause, work without AI, ask for human help, or leave the Call unanswered.",
+      "Let the Wind widen what can be made.",
+      "Keep listening for the question beneath the answer."
     ],
     routeLinks: [
       { label: "Set the Wind", href: "/atlas/set-the-wind", description: "Create a bounded Wind agreement and human adoption note.", kind: "primary" },

@@ -52,19 +52,17 @@ describe("Final Sky illustrated cadence", () => {
       "/scenes/FINAL01-960.webp 960w, /scenes/FINAL01.webp 1672w",
     );
     expect(screen.getByText("The page ends here. The Sky does not.")).toBeVisible();
-    expect(screen.getByText(
-      "We have not forgotten how to fly. The Sky is still here.",
-      { selector: ".final-sky-cadence" },
-    )).toHaveClass("final-sky-cadence");
+    expect(container.querySelector(".final-sky-copy > p:last-child"))
+      .toHaveTextContent("The page ends here. The Sky does not.");
+    expect(container.querySelector(".final-sky-cadence")).toBeNull();
   });
 
   it("keeps the independent Russian cadence", () => {
-    renderFinalSky("/ru/#final-sky");
+    const { container } = renderFinalSky("/ru/#final-sky");
 
     expect(screen.getByText("Здесь заканчивается страница. Не небо.")).toBeVisible();
-    expect(screen.getByText(
-      "Мы не забыли, как летать. Небо всё ещё здесь.",
-      { selector: ".final-sky-cadence" },
-    )).toHaveClass("final-sky-cadence");
+    expect(container.querySelector(".final-sky-copy > p:last-child"))
+      .toHaveTextContent("Здесь заканчивается страница. Не небо.");
+    expect(container.querySelector(".final-sky-cadence")).toBeNull();
   });
 });

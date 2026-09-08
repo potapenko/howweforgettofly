@@ -15,7 +15,6 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
           "Одни Полёты возвращаются формой. Другие — вопросом, который изменила погода. Некоторые Зовы остаются без ответа и тихо возвращаются на Землю.",
           "Здесь заканчивается страница. Не небо.",
         ],
-        cadence: "Мы не забыли, как летать. Небо всё ещё здесь.",
       }
     : {
         eyebrow: "After the Return",
@@ -25,7 +24,6 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
           "Some Flights return as a form. Others return as questions changed by the weather. Some Calls go unanswered and settle quietly back on Ground.",
           "The page ends here. The Sky does not.",
         ],
-        cadence: "We have not forgotten how to fly. The Sky is still here.",
       };
 
   return (
@@ -47,7 +45,6 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
             {copy.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            <p className="final-sky-cadence">{copy.cadence}</p>
           </div>
         </div>
         <div className="theatre-reserve" aria-hidden="true" />
