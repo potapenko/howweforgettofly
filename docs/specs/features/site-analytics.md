@@ -1,7 +1,7 @@
 # Site analytics
 
-**Status:** Active, revision 1, 2026-09-08.
-**Contract:** `reader.analytics@1`.
+**Status:** Active, revision 2, 2026-09-08.
+**Contract:** `reader.analytics@2`.
 
 ## Goal and authority
 
@@ -40,8 +40,11 @@ and no-assessment boundaries remain protected.
 - Google may use its standard first-party analytics cookies for measurement.
   Google Signals and advertising personalization are disabled in tag config;
   no Ads links, advertising features, or custom marketing events are added.
-- No new reading UI, copy rewrite, animation change, or consent UI is included
-  in this bounded integration. This contract does not assert legal compliance
+- The user's follow-up publication instruction accepts the proposed narrow
+  Atlas heading correction: “The book evaluates no one.” / “Книга никого не
+  оценивает.” This removes the now-inaccurate no-collection promise. All other
+  copy remains protected; no new reading UI, general rewrite, animation change,
+  or consent UI is included. This contract does not assert legal compliance
   or treat analytics as necessary for reading.
 
 ## Failure policy and protected behavior
@@ -50,8 +53,9 @@ and no-assessment boundaries remain protected.
   analytics initialization failure must not prevent the app from rendering,
   navigating, switching language, or controlling motion.
 - The tag is initialized once per document. Loading it never blocks rendering.
-- Existing EN/RU text, chapter order, motion, hydration, and static deployment
-  remain unchanged. Scene-local progress never becomes analytics input.
+- Except for the two explicitly allowed Atlas heading strings, existing EN/RU
+  text, chapter order, motion, hydration, and static deployment remain unchanged.
+  Scene-local progress never becomes analytics input.
 
 ## Verification mapping
 
@@ -72,6 +76,5 @@ the existing no-analytics behavior is changed only within this contract.
 
 ## Unknowns requiring confirmation
 
-The pre-existing Atlas heading says the book collects nothing. Publication is
-pending the requested narrow EN/RU correction; the editorial preservation
-contract requires that explicit scope approval before changing the heading.
+None. The requested Atlas correction and publication were approved on
+2026-09-08. Its editorial contract is revision 2.

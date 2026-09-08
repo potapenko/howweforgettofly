@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, first pass 2026-07-20.
+**Status:** Active, revision 2, 2026-09-08.
 
 ## Goal
 
@@ -63,6 +63,11 @@ acknowledgment at the end of the completed journey.
 - Approved rendered EN/RU copy is the golden master except for explicitly
   authorized editorial work and the removal of the standalone explanatory
   panels named above.
+- The 2026-09-08 approved analytics publication permits exactly the Atlas
+  heading correction to “The book evaluates no one.” / “Книга никого не
+  оценивает.” The removed no-collection promise conflicts with the newly
+  authorized GA4 integration in [site-analytics.md](site-analytics.md), revision
+  2. All other editorial copy and the source colophon remain protected.
 - Flight is situated authorship, not human rank; Ground includes care, limits,
   craft, obligation, repair, routine, and rest.
 - AI is Wind, not pilot, moral authority, or a replacement for consent, care,

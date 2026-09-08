@@ -19,7 +19,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
         lens: "Что помогает увидеть",
         boundary: "Чего из этого не следует",
         contractEyebrow: "Договор с читателем",
-        contractTitle: "Книга ничего не собирает и никого не оценивает.",
+        contractTitle: "Книга никого не оценивает.",
         contract: [
           "Нет аккаунта, профиля ребёнка, анкеты, рейтинга и скрытой рекомендации.",
           "На странице нельзя ввести или отправить личный текст.",
@@ -38,7 +38,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
         lens: "What it helps reveal",
         boundary: "What does not follow",
         contractEyebrow: "A contract with the reader",
-        contractTitle: "The book collects nothing and evaluates no one.",
+        contractTitle: "The book evaluates no one.",
         contract: [
           "No account, child profile, questionnaire, ranking, or hidden recommendation.",
           "There is nowhere to enter or submit personal writing.",
