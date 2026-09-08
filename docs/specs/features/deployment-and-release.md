@@ -1,6 +1,6 @@
 # Static deployment and release
 
-**Status:** Active, first pass 2026-07-20.
+**Status:** Active, revision 2, 2026-09-08.
 
 ## Goal
 
@@ -20,7 +20,7 @@ second product artifact.
 
 ## Non-goals
 
-- application servers, databases, runtime environment variables, analytics, or
+- application servers, databases, runtime environment variables, or
   a custom CI-to-DigitalOcean token path;
 - publishing internal provenance materials or repository documentation as
   public application content.
@@ -44,6 +44,9 @@ second product artifact.
   records and TLS certificates after nameserver propagation.
 - The deployment contains only the static build output. Internal `docs/source/`
   and `docs/governance/` content remains repository-only.
+- Production GA4 measurement follows [site-analytics.md](site-analytics.md).
+  Its public measurement ID ships in the static client bundle; it needs no
+  deployment secret or server runtime.
 
 ## Invariants
 

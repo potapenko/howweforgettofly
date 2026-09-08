@@ -113,9 +113,12 @@ typography, visible content, and hierarchy.
   `https://www.patreon.com/c/playphraseme`, and
   `https://github.com/potapenko/howweforgettofly`.
 - This is a reading experience. Do not add forms, questionnaires, editable
-  exercises, accounts, profiles, saved histories, analytics, databases, or
+  exercises, accounts, profiles, saved histories, databases, or
   live AI calls. Reflective questions may appear as prose, never as a hidden
   assessment or data-collection flow.
+- The explicitly approved GA4 integration is the sole analytics exception;
+  follow `docs/specs/features/site-analytics.md`. Do not turn scene progress
+  or reflective content into visitor profiles or assessment events.
 - Keep editorial text and every meaningful control in semantic HTML.
 
 ## Independent editorial identity

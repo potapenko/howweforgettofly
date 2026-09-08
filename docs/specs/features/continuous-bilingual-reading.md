@@ -1,6 +1,6 @@
 # Continuous bilingual reading
 
-**Status:** Active, first pass 2026-07-20.
+**Status:** Active, revision 2, 2026-09-08.
 
 ## Goal
 
@@ -38,7 +38,9 @@ experience rather than a collection of products, exercises, or separate apps.
 - Meaningful controls and content use semantic HTML and work with keyboard,
   pointer, and touch. A skip route reaches the reading content.
 - The work contains no forms, questionnaires, accounts, profiles, saved
-  histories, analytics, live AI calls, or hidden assessment behavior.
+  histories, live AI calls, or hidden assessment behavior. The user-approved
+  production traffic analytics exception is governed by
+  [site-analytics.md](site-analytics.md).
 
 ## Invariants
 
@@ -71,5 +73,6 @@ experience rather than a collection of products, exercises, or separate apps.
 
 ## Unknowns requiring confirmation
 
-None for the current long-form contract. Add a deployment spec before changing
-hosting, analytics, persistence, or external integrations.
+None. Hosting follows [deployment-and-release.md](deployment-and-release.md);
+traffic measurement follows [site-analytics.md](site-analytics.md). Other
+persistence or external integrations require an explicit contract first.

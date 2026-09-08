@@ -12,6 +12,7 @@ governs the task.
 | [`features/editorial-independence-and-colophon.md`](features/editorial-independence-and-colophon.md) | changing public copy, metadata, accessible text, end matter, source references, or editorial structure | independent bilingual editorial framing and source-boundary rules |
 | [`features/illustrated-story-and-motion.md`](features/illustrated-story-and-motion.md) | changing scenes, visual layers, responsive behavior, motion, hydration, or performance guards | authored paper-world illustration and interaction behavior |
 | [`features/deployment-and-release.md`](features/deployment-and-release.md) | changing hosting, build/release commands, GitHub deployment integration, public domains, or deployment verification | static DigitalOcean App Platform release behavior |
+| [`features/site-analytics.md`](features/site-analytics.md) | changing Google Analytics, traffic measurement, or analytics data collection | the bounded production GA4 integration |
 
 If a task spans more than one row, all affected active specs apply. If no row
 covers the task, create a spec first using the template.

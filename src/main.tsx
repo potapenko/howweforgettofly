@@ -9,6 +9,7 @@ import "@fontsource/source-sans-3/cyrillic-400.css";
 import "@fontsource/source-sans-3/cyrillic-500.css";
 import "@fontsource/source-sans-3/cyrillic-600.css";
 import { App } from "./App";
+import { ReadingAnalytics } from "./analytics/ReadingAnalytics";
 import "./styles.css";
 import "./home-story.css";
 
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <ReadingAnalytics />
     </BrowserRouter>
   </React.StrictMode>,
 );
