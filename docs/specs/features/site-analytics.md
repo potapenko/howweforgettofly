@@ -78,3 +78,8 @@ the existing no-analytics behavior is changed only within this contract.
 
 None. The requested Atlas correction and publication were approved on
 2026-09-08. Its editorial contract is revision 2.
+
+## Released baseline
+
+The 2026-09-08 implementation and acceptance baseline is recorded in
+[`GA4_RELEASE.md`](../../reports/GA4_RELEASE.md).
