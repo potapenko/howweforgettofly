@@ -1,6 +1,7 @@
+import { cardSpots, invitationSpots, pathwaySpots } from "../components/readingIllustrations";
 import { translateCopy } from "../i18n/translate";
 import { SceneObserver } from "../components/SceneObserver";
-import { EditorialSpot, sectionSpots, windSpots } from "../components/EditorialSpot";
+import { EditorialSpot, ReadingParagraphs, sectionSpots, windSpots } from "../components/EditorialSpot";
 import {
   pathways,
   windRoles,
@@ -30,6 +31,7 @@ function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: import("../i
     <section className="invitation-deck page-width">
       <div className="section-heading compact-heading">
         <p className="eyebrow">{deck.title}</p>
+        <EditorialSpot name="open-horizon" size="reading" />
         <h2>
           {locale === "ru"
             ? "Вопрос, который можно взять с собой."
@@ -43,6 +45,7 @@ function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: import("../i
             <span>{String(card.number).padStart(2, "0")}</span>
             <small>{card.phase}</small>
             <p>{card.prompt}</p>
+            <EditorialSpot name={invitationSpots[card.number - 1]} size="small" />
           </li>
         ))}
       </ol>
@@ -81,6 +84,7 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: impo
         <p className="eyebrow">{labels.eyebrow}</p>
         <h2>{labels.title}</h2>
         <p>{labels.intro}</p>
+        <EditorialSpot name="wind-anchor" size="reading" />
       </div>
       <div className="wind-role-reading-grid">
         {roles.map((role) => (
@@ -93,11 +97,12 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: impo
               <div><dt>{labels.contribution}</dt><dd>{role.usefulContribution}</dd></div>
               <div><dt>{labels.pull}</dt><dd>{role.nonNeutralPull}</dd></div>
               <div><dt>{labels.decision}</dt><dd>{role.humanDecision}</dd></div>
-              <div><dt>{labels.prompt}</dt><dd>{role.starterPrompt}</dd></div>
+              <div><dt>{labels.prompt}</dt><dd>{(role.id === "critic" || role.id === "simulator") && <EditorialSpot name={role.id === "critic" ? "return-repair" : "paper-letter"} size="small" />}{role.starterPrompt}</dd></div>
             </dl>
           </article>
         ))}
         <article className="no-ai-card">
+          <EditorialSpot name="old-notebook" size="small" />
           <h3>{labels.noAiTitle}</h3>
           <p>{labels.noAi}</p>
         </article>
@@ -174,13 +179,14 @@ export function PathwayPage({
           <p className="eyebrow">{pathway.eyebrow}</p>
           <ChapterHeading className="chapter-title">{pathway.title}</ChapterHeading>
           <p className="hero-deck">{pathway.lede}</p>
+          <EditorialSpot name={pathwaySpots[pathwayId]} size="reading" />
           <p>{pathway.plainThesis}</p>
         </div>
         <div className="theatre-reserve" aria-hidden="true" />
       </SceneObserver>
 
       <section className="path-outcome page-width">
-        <p className="eyebrow">{labels.outcome}</p>
+        <div><p className="eyebrow">{labels.outcome}</p><EditorialSpot name="open-gate" size="small" /></div>
         <p>{pathway.readerOutcome}</p>
         <p>{pathway.nextStep}</p>
       </section>
@@ -195,18 +201,20 @@ export function PathwayPage({
             : "path-section";
           const content = (
             <div className={`page-width path-section-grid${spot ? " path-section-grid--illustrated" : ""}`}>
-              <div>
+              <div className="illustrated-section-lead">
                 <p className="eyebrow">{section.eyebrow}</p>
                 <h2 id={headingId}>{section.title}</h2>
-                <p className="section-plain">{section.plain}</p>
                 {spot ? <EditorialSpot name={spot} /> : null}
+                <p className="section-plain">{section.plain}</p>
               </div>
               <div className="path-section-copy">
-                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                <ReadingParagraphs paragraphs={section.paragraphs} name={spot ?? pathwaySpots[pathwayId]} />
+                {section.paragraphs.length === 1 && !section.cards && <EditorialSpot name={pathwayId === "ai" ? "compass-hands" : "open-horizon"} size="small" />}
                 {section.cards && (
                   <div className="editorial-reading-grid">
                     {section.cards.map((card) => (
                       <article key={card.id}>
+                        <EditorialSpot name={cardSpots[card.id] ?? spot ?? pathwaySpots[pathwayId]} size="small" />
                         <h3>{card.title}</h3>
                         <p>{card.body}</p>
                         {card.detail && <p className="fold-detail">{card.detail}</p>}
@@ -268,6 +276,7 @@ export function PathwayPage({
           <p className="eyebrow">{labels.practicesEyebrow}</p>
           <h2>{labels.practicesTitle}</h2>
           <p>{labels.practicesIntro}</p>
+          <EditorialSpot name="making-space" size="reading" />
         </div>
         <div className="practice-card-grid reading-grid">
           {pathway.practices.map((practice, index) => (
@@ -278,10 +287,11 @@ export function PathwayPage({
               </div>
               <h3>{practice.title}</h3>
               <p>{practice.summary}</p>
+              <EditorialSpot name={cardSpots[practice.id] ?? pathwaySpots[pathwayId]} size="reading" />
               <dl className="reading-note-list">
                 <div><dt>{labels.action}</dt><dd>{practice.action}</dd></div>
                 <div><dt>{labels.complete}</dt><dd>{practice.completion}</dd></div>
-                <div><dt>{labels.guardrail}</dt><dd>{practice.guardrail}</dd></div>
+                <div><dt>{labels.guardrail}</dt><dd><EditorialSpot name="compass-hands" size="small" />{practice.guardrail}</dd></div>
               </dl>
               {practice.prompts && <ul>{practice.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ul>}
             </article>
@@ -295,6 +305,7 @@ export function PathwayPage({
             <p className="eyebrow">{labels.scenesEyebrow}</p>
             <h2>{labels.scenesTitle}</h2>
             <p>{labels.scenesIntro}</p>
+            <EditorialSpot name="shared-table" size="reading" />
           </div>
           <div className="scene-reading-grid">
             {pathway.sceneCards.map((card, index) => (
@@ -303,7 +314,9 @@ export function PathwayPage({
                 <div>
                   <p><strong>{labels.situation}:</strong> {card.situation}</p>
                   {card.unhelpfulPattern && <p><strong>{labels.pattern}:</strong> {card.unhelpfulPattern}</p>}
+                  <EditorialSpot name={cardSpots[card.id] ?? pathwaySpots[pathwayId]} size="reading" />
                   <p><strong>{labels.response}:</strong> {card.groundedResponse}</p>
+                  {card.unhelpfulPattern && <EditorialSpot name={pathwayId === "ai" ? "compass-hands" : "shared-table"} size="small" />}
                   <p><strong>{labels.principle}:</strong> {card.principle}</p>
                   {card.steps && <ol>{card.steps.map((step) => <li key={step}>{step}</li>)}</ol>}
                 </div>
@@ -318,17 +331,19 @@ export function PathwayPage({
       <section className="path-covenant page-width" aria-labelledby={`${pathwayId}-guardrails-title`}>
         <div>
           <p className="eyebrow">{labels.guardrailsEyebrow}</p>
+          <EditorialSpot name="open-gate" size="reading" />
           <h2 id={`${pathwayId}-guardrails-title`}>{labels.guardrailsTitle}</h2>
         </div>
-        <ol>{pathway.guardrails.map((guardrail) => <li key={guardrail}>{guardrail}</li>)}</ol>
+        <ol>{pathway.guardrails.map((guardrail, index) => <li key={guardrail}>{guardrail}{index === 2 && <EditorialSpot name="compass-hands" size="small" />}</li>)}</ol>
       </section>
 
       <section className="path-covenant page-width">
         <div>
           <p className="eyebrow">{labels.covenantEyebrow}</p>
           <h2>{labels.covenantTitle}</h2>
+          <EditorialSpot name="shared-table" size="reading" />
         </div>
-        <ol>{pathway.covenant.map((line) => <li key={line}>{line}</li>)}</ol>
+        <ol>{pathway.covenant.map((line, index) => <li key={line}>{line}{index === 2 && <EditorialSpot name="care-basket" size="small" />}</li>)}</ol>
       </section>
     </Root>
   );

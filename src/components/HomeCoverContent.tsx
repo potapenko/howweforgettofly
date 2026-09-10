@@ -1,3 +1,4 @@
+import { EditorialSpot } from "./EditorialSpot";
 import { translateCopy } from "../i18n/translate";
 import { ArrowDown } from "@phosphor-icons/react/ArrowDown";
 import { ArrowRight } from "@phosphor-icons/react/ArrowRight";
@@ -118,6 +119,7 @@ export function HomeMobileIntro() {
       <h1>
         {locale === "ru" ? "Как мы забываем летать" : translateCopy("How We Forget to Fly", locale)}
       </h1>
+      <EditorialSpot name="open-horizon" size="reading" />
       <p className="hero-deck">
         {locale === "ru"
           ? "О детском любопытстве, взрослом авторстве и искусственном интеллекте, который может быть ветром — но не пилотом."

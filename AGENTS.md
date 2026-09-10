@@ -314,3 +314,12 @@ limits, not the poetic, visual or ethical invariants. New translations use
 `de-ai-writing` without flattening metaphor. Arabic uses RTL text/navigation,
 not mirrored artwork. The approved implementation boundary and progress live
 in `docs/product/MULTILINGUAL_PLAN.md`. Single-agent, current branch, no deploy.
+
+## Screen-by-screen illustration density — 2026-09-10
+
+The user clarified that “page” means one viewport while scrolling: each reading
+screen should contain an illustration, not necessarily a full-screen image.
+Avoid uninterrupted screenfuls of paragraphs even after a large living scene.
+Illustrate continuations, repeated card groups and transitions throughout the
+book; judge visual presence while scrolling rather than a target asset count.
+Preserve the approved prose and native mobile scrolling.

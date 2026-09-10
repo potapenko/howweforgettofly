@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, revision 3, 2026-09-10.
+**Status:** Active, revision 4, 2026-09-10.
 
 ## Goal
 
@@ -100,6 +100,33 @@ Revision 3 expands the set to eighteen distinct spots.
 
 Supporting asset inventory and generation prompts:
 [`../../visual/SPOT_ILLUSTRATIONS.md`](../../visual/SPOT_ILLUSTRATIONS.md).
+
+### Illustration presence during reading — revision 4
+
+Authority: the user clarified that a “page” means the visible viewport during
+scrolling, and every such reading screen should contain an illustration.
+The eighteen-spot count is therefore a baseline, not an acceptance criterion.
+
+- Cover the entire journey, including Home introductions/cycle, Manifesto
+  reading after animated scenes, every pathway section and its long card
+  groups, practices, situations, invitations, covenants and all Atlas cards.
+- Place meaningful paper images among long prose and repeated cards, so the
+  reader does not scroll through a complete screen of text without artwork.
+  On desktop, a section-local sticky illustration may accompany long copy;
+  mobile artwork remains in natural document flow, with no scroll capture or
+  viewport-fixed decorative overlay.
+- New vignettes and deliberate recurrence of existing motifs follow the
+  adjacent prose. Do not fill gaps with arbitrary cycling images or CSS art.
+- Preserve every authored word, semantic order, anchor and living scene.
+  Change spacing and image placement where needed to maintain the reading
+  rhythm. Images retain reserved dimensions, empty alt and lazy decoding.
+- Review continuous scroll and transitions at 1440×1000 and 390×844 in RU/EN,
+  plus representative RTL and Safari desktop/mobile. Measure text-only gaps
+  as supporting evidence, then inspect the longest gaps visually. A raw image
+  count or images just outside the viewport do not prove this criterion.
+
+Placement audit, final assets and prompts:
+[`../../visual/READING_ILLUSTRATION_DENSITY.md`](../../visual/READING_ILLUSTRATION_DENSITY.md).
 
 ### Living chapter scenes
 

@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import { EditorialSpot, ReadingParagraphs } from "../components/EditorialSpot";
+import { manifestoSpots, manifestoEchoSpots } from "../components/readingIllustrations";
 import { translateCopy } from "../i18n/translate";
 import { Link } from "react-router-dom";
 import { SceneObserver } from "../components/SceneObserver";
@@ -31,18 +34,18 @@ function ManifestoSpread({
         </p>
         <h2>{article.title}</h2>
         <p className="article-kicker">{article.kicker}</p>
+        <EditorialSpot name={manifestoSpots[article.id]} size="reading" />
         <div className="article-body">
-          {article.paragraphs.map((paragraph, index) =>
-            /[→←]/.test(paragraph) ? (
-              <p className="cycle-inline" key={`${article.id}-${index}`}>
-                {paragraph}
-              </p>
-            ) : (
-              <p key={`${article.id}-${index}`}>{paragraph}</p>
-            ),
-          )}
+          {article.paragraphs.map((paragraph, index) => (
+            <Fragment key={`${article.id}-${index}`}>
+              <p className={/[→←]/.test(paragraph) ? "cycle-inline" : undefined}>{paragraph}</p>
+              {index % 2 === 1 && index < article.paragraphs.length - 1 &&
+                <EditorialSpot name={manifestoSpots[article.id]} size="reading" />}
+            </Fragment>
+          ))}
         </div>
         <aside className="article-landing">
+          <EditorialSpot name={manifestoEchoSpots[article.id]} size="small" />
           <p className="eyebrow">{locale === "ru" ? "Если приложить к жизни" : translateCopy("In ordinary life", locale)}</p>
           <p>{article.landing}</p>
         </aside>
@@ -115,9 +118,10 @@ export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
         <div>
           <p className="eyebrow">{copy.eyebrow}</p>
           <ChapterHeading className="chapter-title">{copy.title}</ChapterHeading>
+          <EditorialSpot name="open-horizon" size="reading" />
         </div>
         <div className="manifesto-opening">
-          {copy.opening.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          <ReadingParagraphs paragraphs={copy.opening} name="question-window" />
         </div>
       </header>
 
@@ -141,10 +145,12 @@ export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
       <section className="covenant-section page-width">
         <p className="eyebrow">{copy.covenantEyebrow}</p>
         <h2>{copy.covenantTitle}</h2>
+        <EditorialSpot name="dignity-bench" size="reading" />
         <div className="covenant-lines">
-          {copy.covenant.map((line) => <p key={line}>{line}</p>)}
+          <ReadingParagraphs paragraphs={copy.covenant} name="care-basket" />
         </div>
         <div className="manifesto-opening">
+          <EditorialSpot name="open-horizon" size="reading" />
           <p>{copy.invitation[0]}</p>
           <p className="article-kicker">{copy.invitation[1]}</p>
           <p>{copy.invitation[2]}</p>

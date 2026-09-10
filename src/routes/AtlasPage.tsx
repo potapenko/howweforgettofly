@@ -57,6 +57,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
           <p className="eyebrow">{copy.eyebrow}</p>
           <ChapterHeading className="chapter-title">{copy.title}</ChapterHeading>
           <p className="hero-deck">{copy.deck}</p>
+          <EditorialSpot name="borrowed-map" size="reading" />
           <p>{copy.intro}</p>
         </div>
         <div className="theatre-reserve" aria-hidden="true" />
@@ -66,6 +67,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
         <div className="section-heading">
           <p className="eyebrow">{copy.all}</p>
           <h2>{copy.question}</h2>
+          <EditorialSpot name="question-window" size="reading" />
         </div>
         <div className="experience-grid">
           {cards.map((card, index) => (
@@ -75,7 +77,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
                 <span>{card.doorway}</span>
               </div>
               <div>
-                {atlasSpots[card.id] ? <EditorialSpot name={atlasSpots[card.id]!} /> : null}
+                {atlasSpots[card.id] ? <EditorialSpot name={atlasSpots[card.id]!} size="reading" /> : null}
                 <h3>{card.title}</h3>
                 <p>{card.invitation}</p>
               </div>
@@ -92,6 +94,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
         <div className="page-width atlas-contract-grid">
           <div>
             <p className="eyebrow">{copy.contractEyebrow}</p>
+            <EditorialSpot name="dignity-bench" size="reading" />
             <h2>{copy.contractTitle}</h2>
           </div>
           <ul>{copy.contract.map((line) => <li key={line}>{line}</li>)}</ul>

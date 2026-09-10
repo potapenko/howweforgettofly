@@ -1,3 +1,4 @@
+import { EditorialSpot } from "../components/EditorialSpot";
 import { translateCopy } from "../i18n/translate";
 import { SceneObserver } from "../components/SceneObserver";
 import { pageScenesFor } from "../content/pages";
@@ -42,6 +43,7 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
           <p className="eyebrow">{copy.eyebrow}</p>
           <ChapterHeading className="chapter-title">{copy.title}</ChapterHeading>
           <p className="hero-deck">{copy.deck}</p>
+          <EditorialSpot name="open-horizon" size="reading" />
           <div className="final-sky-copy">
             {copy.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

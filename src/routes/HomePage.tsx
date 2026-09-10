@@ -1,3 +1,5 @@
+import { EditorialSpot, ReadingParagraphs } from "../components/EditorialSpot";
+import { cycleSpots } from "../components/readingIllustrations";
 import { translateCopy } from "../i18n/translate";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -106,6 +108,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         <div className="section-heading">
           <p className="eyebrow">{copy.doorwayEyebrow}</p>
           <h2>{copy.doorwayTitle}</h2>
+          <EditorialSpot name="parents-doorway" size="small" />
           <p>{copy.doorwayIntro}</p>
         </div>
         <div className="route-card-grid three-up">
@@ -120,9 +123,10 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
           <div>
             <p className="eyebrow">{copy.mapEyebrow}</p>
             <h2>{copy.mapTitle}</h2>
+            <EditorialSpot name="borrowed-map" size="reading" />
           </div>
           <div className="long-copy">
-            {copy.mapBody.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <ReadingParagraphs paragraphs={copy.mapBody} name="question-window" />
           </div>
         </div>
       </section>
@@ -132,6 +136,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
           <p className="eyebrow">{copy.cycleEyebrow}</p>
           <h2>{copy.cycleTitle}</h2>
           <p>{copy.cycleIntro}</p>
+          <EditorialSpot name="paper-bridge" size="reading" />
         </div>
         <ol className="cycle-rail">
           {(locale === "ru" ? cycle.ru : translateCopy(cycle.en, locale)).map(([term, meaning], index) => (
@@ -139,6 +144,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{term}</h3>
               <p>{meaning}</p>
+              <EditorialSpot name={cycleSpots[index]} size="small" />
             </li>
           ))}
         </ol>
@@ -148,6 +154,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         <div>
           <p className="eyebrow">{copy.closingEyebrow}</p>
           <h2>{copy.closingTitle}</h2>
+          <EditorialSpot name="dignity-bench" size="reading" />
         </div>
         <p>{copy.closingBody}</p>
       </section>
