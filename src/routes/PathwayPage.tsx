@@ -305,7 +305,7 @@ export function PathwayPage({
             <p className="eyebrow">{labels.scenesEyebrow}</p>
             <h2>{labels.scenesTitle}</h2>
             <p>{labels.scenesIntro}</p>
-            <EditorialSpot name="shared-table" size="reading" />
+            <EditorialSpot name="shared-table" size="reading" surface="blue" />
           </div>
           <div className="scene-reading-grid">
             {pathway.sceneCards.map((card, index) => (
@@ -314,9 +314,9 @@ export function PathwayPage({
                 <div>
                   <p><strong>{labels.situation}:</strong> {card.situation}</p>
                   {card.unhelpfulPattern && <p><strong>{labels.pattern}:</strong> {card.unhelpfulPattern}</p>}
-                  <EditorialSpot name={cardSpots[card.id] ?? pathwaySpots[pathwayId]} size="reading" />
+                  <EditorialSpot name={cardSpots[card.id] ?? pathwaySpots[pathwayId]} size="reading" surface="blue" />
                   <p><strong>{labels.response}:</strong> {card.groundedResponse}</p>
-                  {card.unhelpfulPattern && <EditorialSpot name={pathwayId === "ai" ? "compass-hands" : "shared-table"} size="small" />}
+                  {card.unhelpfulPattern && <EditorialSpot name={pathwayId === "ai" ? "compass-hands" : "shared-table"} size="small" surface="blue" />}
                   <p><strong>{labels.principle}:</strong> {card.principle}</p>
                   {card.steps && <ol>{card.steps.map((step) => <li key={step}>{step}</li>)}</ol>}
                 </div>

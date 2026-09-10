@@ -323,3 +323,10 @@ Avoid uninterrupted screenfuls of paragraphs even after a large living scene.
 Illustrate continuations, repeated card groups and transitions throughout the
 book; judge visual presence while scrolling rather than a target asset count.
 Preserve the approved prose and native mobile scrolling.
+
+## Illustrations on blue — 2026-09-10
+
+The user wants paper illustrations directly on the blue section background,
+without white rectangular image mats. Preserve the white paper subjects and
+their colors; use matching blue-background variants on blue and existing originals on light
+surfaces. This is a background treatment, not a change to prose or scene motion.

@@ -68,16 +68,21 @@ export const atlasSpots: Partial<Record<string, EditorialSpotName>> = {
 
 // Adjacent authored prose carries the meaning. Stable ids keep the same
 // decorative composition in every edition without adding translated labels.
-export function EditorialSpot({ name, size }: { name: EditorialSpotName; size?: "reading" | "small" }) {
+export function EditorialSpot({ name, size, surface = "paper" }: {
+  name: EditorialSpotName;
+  size?: "reading" | "small";
+  surface?: "paper" | "blue";
+}) {
   const kind = spotKinds[name];
   const section = kind === "section";
   const width = section ? 1200 : kind === "doorway" ? 900 : 600;
+  const source = `/illustrations/${surface === "blue" ? "blue/" : ""}${name}`;
   return (
     <img
-      className={`editorial-spot editorial-spot--${kind} editorial-spot--${name}${size ? ` editorial-spot--${size}` : ""}`}
-      src={`/illustrations/${name}.webp`}
+      className={`editorial-spot editorial-spot--${kind} editorial-spot--${name} editorial-spot--${surface}${size ? ` editorial-spot--${size}` : ""}`}
+      src={`${source}.webp`}
       srcSet={section
-        ? `/illustrations/${name}-600.webp 600w, /illustrations/${name}.webp 1200w`
+        ? `${source}-600.webp 600w, ${source}.webp 1200w`
         : undefined}
       sizes={section ? (size === "small" ? "180px" : size === "reading" ? "(max-width: 900px) 300px, 420px" : "(max-width: 860px) calc(100vw - 48px), 520px") : undefined}
       width={width}
@@ -92,15 +97,16 @@ export function EditorialSpot({ name, size }: { name: EditorialSpotName; size?: 
 
 
 /** Normal-flow artwork between authored paragraphs; no text splitting or state. */
-export function ReadingParagraphs({ paragraphs, name }: {
+export function ReadingParagraphs({ paragraphs, name, surface }: {
   paragraphs: readonly string[];
+  surface?: "paper" | "blue";
   name: EditorialSpotName;
 }) {
   return <>{paragraphs.map((paragraph, index) => (
     <Fragment key={index}>
       <p>{paragraph}</p>
       {index < paragraphs.length - 1
-        ? <EditorialSpot name={name} size="reading" /> : null}
+        ? <EditorialSpot name={name} size="reading" surface={surface} /> : null}
     </Fragment>
   ))}</>;
 }

@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, revision 4, 2026-09-10.
+**Status:** Active, revision 5, 2026-09-10.
 
 ## Goal
 
@@ -127,6 +127,23 @@ The eighteen-spot count is therefore a baseline, not an acceptance criterion.
 
 Placement audit, final assets and prompts:
 [`../../visual/READING_ILLUSTRATION_DENSITY.md`](../../visual/READING_ILLUSTRATION_DENSITY.md).
+
+### Paper illustrations on blue surfaces — revision 5
+
+Authority: the user requested that illustrations in blue sections share the
+section background, with paper subjects directly on blue rather than white mats.
+
+- Use variants composed on the matching blue background in the recognition, situation and
+  reader-contract sections. Preserve opaque white paper, colored subjects,
+  framing and placement; remove the surrounding white raster background. A
+  subtle outer-edge blend may join the raster ground to the section surface.
+- Keep the existing light-surface versions, prose, density, image dimensions,
+  lazy loading, accessibility semantics and living-scene motion unchanged.
+- Verify subject edges and white paper against the actual blue surface in
+  desktop/mobile browsers, including Safari. No white rectangular mat remains.
+
+Assets and prompts:
+[`../../visual/BLUE_SURFACE_ILLUSTRATIONS.md`](../../visual/BLUE_SURFACE_ILLUSTRATIONS.md).
 
 ### Living chapter scenes
 

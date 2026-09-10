@@ -94,7 +94,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
         <div className="page-width atlas-contract-grid">
           <div>
             <p className="eyebrow">{copy.contractEyebrow}</p>
-            <EditorialSpot name="dignity-bench" size="reading" />
+            <EditorialSpot name="dignity-bench" size="reading" surface="blue" />
             <h2>{copy.contractTitle}</h2>
           </div>
           <ul>{copy.contract.map((line) => <li key={line}>{line}</li>)}</ul>

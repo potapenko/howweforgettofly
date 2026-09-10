@@ -123,10 +123,10 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
           <div>
             <p className="eyebrow">{copy.mapEyebrow}</p>
             <h2>{copy.mapTitle}</h2>
-            <EditorialSpot name="borrowed-map" size="reading" />
+            <EditorialSpot name="borrowed-map" size="reading" surface="blue" />
           </div>
           <div className="long-copy">
-            <ReadingParagraphs paragraphs={copy.mapBody} name="question-window" />
+            <ReadingParagraphs paragraphs={copy.mapBody} name="question-window" surface="blue" />
           </div>
         </div>
       </section>

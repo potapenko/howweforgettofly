@@ -92,9 +92,16 @@
 }
 .editorial-spot--reading { width: min(100%, 360px); }
 .editorial-spot--small { width: min(100%, 180px); }
-.full-bleed-night .editorial-spot {
+.editorial-spot--blue {
   mix-blend-mode: normal;
-  border-radius: 12px;
+  /* Calibrate the generated blue to #063d96 while keeping paper white. */
+  filter: saturate(.9142) hue-rotate(1.6521deg) brightness(.9823) contrast(1.0366);
+  /* Join the generated blue ground to the section without a rectangular edge.
+     The narrow fade stays in the vignette's outer background margin. */
+  mask-image:
+    linear-gradient(to right, transparent, #000 2%, #000 98%, transparent),
+    linear-gradient(to bottom, transparent, #000 3%, #000 97%, transparent);
+  mask-composite: intersect;
 }
 
 .book-section .path-section { padding-block: clamp(48px, 5vw, 80px); }
