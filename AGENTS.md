@@ -330,3 +330,16 @@ The user wants paper illustrations directly on the blue section background,
 without white rectangular image mats. Preserve the white paper subjects and
 their colors; use matching blue-background variants on blue and existing originals on light
 surfaces. This is a background treatment, not a change to prose or scene motion.
+
+## Practical purpose within the poetic manifesto — 2026-09-10
+
+The user wants the poetic manifesto to help readers develop creative thinking:
+notice a problem, move beyond familiar answers, discover through action, and
+develop an idea. Keep the poetic form, with concrete situations and visible
+reasoning. Connect AI to that practical purpose and treat parenting as an
+application rather than the main subject. The first approved step is three
+connected Russian draft fragments: opening, creative mechanism, product example.
+Use de-ai-writing for this new prose. The scope and source distinctions are in
+`docs/product/RU_CREATIVE_THINKING_PILOT_NOTES.md`; the reading draft is
+`docs/product/RU_CREATIVE_THINKING_PILOT.md`. This stage preserves current site
+copy, other editions and artwork pending review of the pilot.

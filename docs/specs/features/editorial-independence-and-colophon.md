@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, revision 4, 2026-09-10.
+**Status:** Active, revision 5, 2026-09-10.
 
 ## Goal
 
@@ -118,6 +118,41 @@ acknowledgment at the end of the completed journey.
   Update exact-copy test expectations only where this authorization changes
   their contract. Browser case changes are required only for an affected
   existing behavior case, not to add tests of static prose alone.
+
+## Russian practical editorial pilot — 2026-09-10
+
+- Change ID: `RU-CREATIVE-PILOT-2026-09-10`; mode: Evolve. The user clarified
+  that the poetic manifesto must serve a practical creative-thinking purpose,
+  then approved preparing three connected Russian fragments: an opening, a
+  central account of the creative mechanism, and a developed product example.
+- The practical aim is to help a reader notice a task, examine a familiar
+  answer, generate and test a different approach, and learn from the result.
+  Preserve the poetic paper-world voice. Explain the relevance of AI through
+  concrete creative work; present parenting as an application of this shared
+  mechanism rather than the dominant subject.
+- Deliver the reading draft in
+  [RU_CREATIVE_THINKING_PILOT.md](../../product/RU_CREATIVE_THINKING_PILOT.md).
+  Its internal scope, source interpretation and editorial verification live in
+  [RU_CREATIVE_THINKING_PILOT_NOTES.md](../../product/RU_CREATIVE_THINKING_PILOT_NOTES.md).
+  These documents are not public runtime content or accepted replacement copy.
+- This authorization permits original new Russian prose and a de-ai-writing
+  pass on these fragments. The former emphasis on avoiding practical
+  explanation does not bar this explicitly approved pilot. Source mechanisms
+  inform the work; the project's practical sequence and AI/product scenarios
+  must not be attributed to the source authors.
+- Imagined examples are identified as such. No invented testimony, research,
+  business results, medical mechanism, guaranteed creative breakthrough, or
+  claim that AI cannot produce novel work. Energy is a working editorial
+  concept, not a clinical measure or a prescription.
+- Protected: current rendered copy in every locale, source colophon and public
+  source boundary, chapter anchors/order, scene narration, artwork, motion,
+  layout, analytics and deployment. Broader rewriting, translations and runtime
+  integration follow review of this pilot; this checkpoint does not perform them.
+- Acceptance for this document-only stage: read all three fragments together;
+  verify an explicit reader purpose, causal steps and a failed/revised attempt;
+  distinguish source claims from original interpretation; check poetic and
+  ethical continuity, lint new prose, review the scoped diff and checkpoint it.
+  No browser or application test run is required while runtime files are unchanged.
 
 ## Edge cases and failure policy
 
