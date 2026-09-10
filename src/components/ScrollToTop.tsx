@@ -1,8 +1,7 @@
 import { translateCopy } from "../i18n/translate";
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
-import { manifestoArticles } from "../content/manifesto";
-import { manifestoArticlesRu } from "../content/manifesto.ru";
+import { creativeEdition } from "../content/creativeEdition";
 import {
   isBookRootPathname,
   localeFromPathname,
@@ -42,9 +41,8 @@ function titleForLocation(pathname: string, hash: string) {
     atlas: `${locale === "ru" ? "Атлас идей" : translateCopy("Atlas of Ideas", locale)} | ${siteName}`,
     "final-sky": `${locale === "ru" ? "Небо остаётся открытым" : translateCopy("The Sky Remains Open", locale)} | ${siteName}`,
   };
-  const articleId = bookAnchorFromHash(hash).toUpperCase();
-  const articles = locale === "ru" ? manifestoArticlesRu : translateCopy(manifestoArticles, locale);
-  const article = articles.find(({ id }) => id === articleId);
+  const articleId = bookAnchorFromHash(hash).match(/^M(\d{2})(?:-reading)?$/i);
+  const article = articleId ? creativeEdition(locale).chapters[1].parts[Number(articleId[1])] : undefined;
   if (article) return `${article.title} — ${sectionTitles.manifesto}`;
 
   if (isBookRootPathname(pathname)) {

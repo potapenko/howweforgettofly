@@ -1,0 +1,42 @@
+.creative-reader { --creative-ink: #142948; }
+.creative-chapter, .creative-part { scroll-margin-top: calc(var(--header-height) + 24px); }
+.creative-chapter-heading { padding-block: clamp(48px, 6vw, 88px) 24px; }
+.creative-chapter-heading > .page-width { max-width: 1040px; }
+.creative-chapter-heading h2 { max-width: 22ch; font-size: clamp(36px, 4.4vw, 64px); line-height: 1.07; text-wrap: balance; margin-block: 18px 24px; }
+.creative-chapter-heading .editorial-spot { margin-inline: 0; }
+.creative-number { font-size: 15px; font-weight: 750; letter-spacing: .12em; opacity: .65; }
+.creative-part { padding-block: 36px 56px; }
+.creative-part:nth-child(2n + 1):not(.full-bleed-night) { background: #f7faff; }
+.creative-part-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 88px); align-items: start; max-width: 1120px; }
+.creative-part-lead { position: sticky; top: calc(var(--header-height) + 32px); }
+.creative-part-lead :is(h2, h3) { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.15; text-wrap: balance; margin-block: 12px 24px; overflow-wrap: break-word; }
+.creative-part-lead .editorial-spot { width: min(100%, 380px); margin-inline: 0; }
+.creative-prose { font-size: 19px; line-height: 1.7; min-width: 0; }
+.creative-prose p { margin: 0 0 1.25em; }
+.creative-prose ul { padding-inline-start: 1.3em; margin-block: 0 1.5em; }
+.creative-prose li { margin-block: .6em; }
+.creative-prose blockquote { margin: 24px 0; padding: 22px 24px; border-inline-start: 4px solid #a7d936; background: rgb(255 255 255 / .1); font-size: 1.05em; }
+.creative-prose blockquote p { margin: 0; }
+.creative-prose .editorial-spot { width: min(100%, 300px); margin-block: 24px; }
+.creative-reader .full-bleed-night { background: #063d96; color: white; }
+.creative-reader .full-bleed-night :is(h2,h3,p,li,strong,em) { color: inherit; }
+.creative-reader .full-bleed-night + .full-bleed-night { margin-top: 0; }
+@media (max-width: 900px) {
+  .creative-part-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 650px; }
+  .creative-part-lead { position: static; }
+  .creative-part { padding-block: 24px 32px; }
+  .creative-part-lead .editorial-spot { width: min(100%, 300px); margin: 16px auto; }
+  .creative-chapter-heading { padding-block: 40px 12px; }
+  .creative-chapter-heading h2 { font-size: clamp(32px, 6vw, 46px); }
+  .creative-prose { font-size: 18px; line-height: 1.65; }
+  .creative-prose .editorial-spot { margin-block: 18px; }
+}
+:lang(ja) .creative-prose, :lang(zh-Hans) .creative-prose { line-height: 1.9; }
+:lang(ar) .creative-prose { line-height: 1.9; }
+
+.creative-part-lead h2 { font-size: clamp(32px, 3.4vw, 48px); }
+
+/* The sticky lead accompanies desktop prose; inline repeats carry mobile reading. */
+@media (min-width: 901px) {
+  .creative-prose > .editorial-spot { display: none; }
+}

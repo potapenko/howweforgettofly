@@ -1,6 +1,6 @@
 # Continuous bilingual reading
 
-**Status:** Active, revision 3, 2026-09-10.
+**Status:** Active, revision 4, 2026-09-10.
 
 ## Goal
 
@@ -49,6 +49,17 @@ experience rather than a collection of products, exercises, or separate apps.
   is not failure.
 - Visitors can read, navigate, change locale, reduce motion, or leave without
   providing personal information.
+
+## Creative edition reading order — 2026-09-10
+
+The user authorized integration of the accepted Russian manuscript and all
+nine translations. Read in its order: Cover/opening → Manifesto → creative
+mechanism → dinner product example → adult life → AI → Parents → Atlas →
+Final Sky. The three central chapters form the Adults navigation destination.
+Keep major anchors, M01–M12, legacy routes and semantic language continuity.
+Superseded subsection hashes resolve to the corresponding new passage, and
+all locales share those identities. Navigation follows the new chapter order.
+No new application mode, persistence or interactive exercise is introduced.
 
 ## Edge cases and failure policy
 

@@ -1,11 +1,12 @@
+import { creativeAnchorAliases } from "../content/creativePlacements";
 import { localeFromPathname, stripLocale } from "../i18n/locales";
 import { localeRoot, type Locale } from "../i18n/LocaleContext";
 
 export const bookSections = [
   { id: "manifesto", en: "Manifesto", ru: "Манифест" },
-  { id: "parents", en: "Parents", ru: "Родителям" },
   { id: "adults", en: "Adults", ru: "Взрослым" },
   { id: "ai", en: "Set the Wind", ru: "ИИ как ветер" },
+  { id: "parents", en: "Parents", ru: "Родителям" },
   { id: "atlas", en: "Atlas", ru: "Атлас" },
   { id: "final-sky", en: "Sky", ru: "Небо" },
 ] as const;
@@ -22,7 +23,7 @@ export function bookAnchorFromHash(hash: string) {
     if (anchor === "source" || anchor.startsWith("source-")) {
       return "final-sky";
     }
-    return /^M\d{2}$/i.test(anchor) ? anchor.toUpperCase() : anchor;
+    return creativeAnchorAliases[anchor] ?? (anchor.replace(/^m(\d{2})(?=-reading$|$)/i, "M$1"));
   } catch {
     return "";
   }
@@ -70,7 +71,7 @@ export function canonicalBookHref(href: string, locale: Locale = "en") {
 
 export function sectionForHash(hash: string): BookSectionId | "home" {
   const anchor = bookAnchorFromHash(hash);
-  if (/^M\d{2}$/.test(anchor) || anchor === "manifesto") return "manifesto";
+  if (/^M\d{2}(?:-reading)?$/.test(anchor) || anchor === "manifesto" || anchor.startsWith("manifesto-")) return "manifesto";
   if (anchor === "parents" || anchor.startsWith("parents-")) return "parents";
   if (anchor === "adults" || anchor.startsWith("adults-")) return "adults";
   if (anchor === "ai" || anchor.startsWith("ai-")) return "ai";

@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, revision 6, 2026-09-10.
+**Status:** Active, revision 7, 2026-09-10.
 
 ## Goal
 
@@ -181,6 +181,22 @@ acknowledgment at the end of the completed journey.
   in the final approved colophon, and examples make no invented factual claims.
   Apply de-ai-writing, review only task-owned document changes and checkpoint
   the current branch. Application tests and browser QA belong to integration.
+
+## Accepted creative edition integration — 2026-09-10
+
+Change `CREATIVE-EDITION-2026-09-10`, Evolve: the user explicitly accepted
+runtime transfer of the complete Russian manuscript and translations into all
+nine other supported languages. This supersedes the document-only limits of
+both Russian drafting stages and the previous-copy preservation requirement
+for the reading body. The accepted manuscript is the new Russian source of
+truth; preserve its full wording and meaning. All other editions adapt its
+complete content, not a summary, including imagined examples and qualifications.
+Preserve the existing project title, single footer colophon, public source
+boundary and ethical invariants. Existing scene narration and art descriptions
+remain where consistent; no new claims or instructions are required around them.
+The manuscript order and condensed invitations supersede the old order and
+thirty-prompt requirement. Supporting implementation and acceptance scope:
+[CREATIVE_EDITION_INTEGRATION_PLAN.md](../../product/CREATIVE_EDITION_INTEGRATION_PLAN.md).
 
 ## Edge cases and failure policy
 

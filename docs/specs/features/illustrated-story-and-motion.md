@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, revision 5, 2026-09-10.
+**Status:** Active, revision 6, 2026-09-10.
 
 ## Goal
 
@@ -159,6 +159,18 @@ Assets and prompts:
 - While a mobile scene is eligible and its layers are ready, the poster yields
   atomically to those live layers. The poster remains only a loading/error
   fallback and must not visually cover a successfully hydrated animation.
+
+## Creative edition placement — revision 6
+
+The user authorized the new complete manuscript and all translations. Earlier
+prose-preservation clauses do not freeze the superseded reading text. Reconcile
+illustration placement with the accepted manuscript order and its subheadings.
+Preserve every living mechanism, authored beat track, layer asset, hydration
+policy and responsive motion behavior. Preserve small illustrations and their
+semantic associations; recurrence accompanies long passages in normal mobile
+flow and may use a section-local sticky lead on desktop. Blue surfaces continue
+to use the matching blue assets. Judge density in actual reading viewports,
+not against the old placement count. Do not add artwork explanations.
 
 ## Edge cases and failure policy
 

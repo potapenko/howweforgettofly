@@ -13,9 +13,9 @@ import { App } from "./App";
 const majorSections = [
   "home",
   "manifesto",
-  "parents",
   "adults",
   "ai",
+  "parents",
   "atlas",
   "final-sky",
 ] as const;

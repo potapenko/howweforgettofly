@@ -72,6 +72,8 @@ describe("sectionForHash", () => {
   it("treats every manifesto chapter anchor as part of the Manifesto", () => {
     expect(sectionForHash("#M01")).toBe("manifesto");
     expect(sectionForHash("#m12")).toBe("manifesto");
+    expect(sectionForHash("#m12-reading")).toBe("manifesto");
+    expect(sectionForHash("#manifesto-introduction")).toBe("manifesto");
   });
 
   it("tracks namespaced anchors inside each top-level section", () => {

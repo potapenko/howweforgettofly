@@ -351,3 +351,12 @@ next authorized stage is the complete Russian reading manuscript in
 fragments, develop the remaining chapters with practical examples, and keep the
 source colophon. This manuscript can condense and reorder prose; it does not
 itself alter the running site's order, copy, artwork or other editions.
+
+## Accepted creative edition integration — 2026-09-10
+
+The user explicitly authorized transferring the complete accepted Russian
+manuscript to the site and translating it into all nine other supported
+languages. This supersedes earlier document-only and old-copy preservation
+limits for this integration. Follow docs/product/CREATIVE_EDITION_INTEGRATION_PLAN.md.
+The manuscript order now governs reading; preserve legacy semantic destinations,
+all living artwork and dense static illustrations, motion and the final colophon.

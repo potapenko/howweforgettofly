@@ -109,7 +109,7 @@ export function HomeCoverContent() {
   );
 }
 
-export function HomeMobileIntro() {
+export function HomeMobileIntro({ showDeck = true }: { showDeck?: boolean } = {}) {
   const locale = useLocale();
   return (
     <header className="home-mobile-intro page-width">
@@ -120,11 +120,11 @@ export function HomeMobileIntro() {
         {locale === "ru" ? "Как мы забываем летать" : translateCopy("How We Forget to Fly", locale)}
       </h1>
       <EditorialSpot name="open-horizon" size="reading" />
-      <p className="hero-deck">
+      {showDeck ? <p className="hero-deck">
         {locale === "ru"
           ? "О детском любопытстве, взрослом авторстве и искусственном интеллекте, который может быть ветром — но не пилотом."
           : translateCopy("On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot.", locale)}
-      </p>
+      </p> : null}
     </header>
   );
 }
