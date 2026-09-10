@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, revision 5, 2026-09-10.
+**Status:** Active, revision 6, 2026-09-10.
 
 ## Goal
 
@@ -153,6 +153,34 @@ acknowledgment at the end of the completed journey.
   distinguish source claims from original interpretation; check poetic and
   ethical continuity, lint new prose, review the scoped diff and checkpoint it.
   No browser or application test run is required while runtime files are unchanged.
+
+## Complete Russian manuscript — 2026-09-10
+
+- Change ID: `RU-CREATIVE-MANUSCRIPT-2026-09-10`; mode: Evolve. The user
+  accepted the three-fragment pilot (“мне очень нравится”) and instructed
+  continuation in the same voice. This opens the remaining Russian manuscript.
+- Keep the accepted pilot wording in the complete reading draft. Add a concise
+  manifesto, an adult application beyond product development, practical AI
+  collaboration, a developed family example, ten distinct Atlas invitations,
+  and the independent poetic ending with the existing source colophon.
+- Practical creative work remains central. The family chapter applies the same
+  mechanism, rather than taking over the work. Preserve poetic language and
+  clearly distinguish imagined examples, hypotheses and real observations.
+- The manuscript may reorder and condense editorial material to build this
+  reading arc; it need not replicate every existing repeated card or thirty
+  adult prompts. Runtime chapter order, ids, translations, scene text, layouts,
+  assets, controls, analytics and deployment remain unchanged in this stage.
+- Deliver
+  [RU_CREATIVE_THINKING_BOOK.md](../../product/RU_CREATIVE_THINKING_BOOK.md)
+  with [editorial notes](../../product/RU_CREATIVE_THINKING_BOOK_NOTES.md).
+  The notes record the accepted source distinctions and editorial handoff;
+  they are not public content. The pilot remains the accepted voice reference.
+- Acceptance: read the complete manuscript; verify the pilot is preserved,
+  twelve manifesto propositions and ten useful Atlas entries are present,
+  the reader can follow observation through revision, the source appears only
+  in the final approved colophon, and examples make no invented factual claims.
+  Apply de-ai-writing, review only task-owned document changes and checkpoint
+  the current branch. Application tests and browser QA belong to integration.
 
 ## Edge cases and failure policy
 

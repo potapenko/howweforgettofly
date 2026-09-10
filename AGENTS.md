@@ -343,3 +343,11 @@ Use de-ai-writing for this new prose. The scope and source distinctions are in
 `docs/product/RU_CREATIVE_THINKING_PILOT_NOTES.md`; the reading draft is
 `docs/product/RU_CREATIVE_THINKING_PILOT.md`. This stage preserves current site
 copy, other editions and artwork pending review of the pilot.
+
+The user subsequently accepted the pilot's voice and asked to continue. The
+next authorized stage is the complete Russian reading manuscript in
+`docs/product/RU_CREATIVE_THINKING_BOOK.md`, with scope and editorial mapping in
+`docs/product/RU_CREATIVE_THINKING_BOOK_NOTES.md`. Preserve the accepted three
+fragments, develop the remaining chapters with practical examples, and keep the
+source colophon. This manuscript can condense and reorder prose; it does not
+itself alter the running site's order, copy, artwork or other editions.
