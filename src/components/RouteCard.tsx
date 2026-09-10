@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "@phosphor-icons/react/ArrowUpRight";
 import { Link } from "react-router-dom";
-import { EditorialSpot } from "./EditorialSpot";
+import { EditorialSpot, doorwaySpots } from "./EditorialSpot";
 import { useLocale } from "../i18n/LocaleContext";
 import { canonicalBookHref } from "../navigation/bookNavigation";
 
@@ -22,6 +22,7 @@ export function RouteCard({
   tone = "quiet",
 }: RouteCardProps) {
   const locale = useLocale();
+  const spot = doorwaySpots[href];
   return (
     <Link
       className={`route-card tone-${tone}`}
@@ -32,7 +33,7 @@ export function RouteCard({
         <span>{number ?? eyebrow}</span>
         <ArrowUpRight weight="thin" aria-hidden="true" />
       </div>
-      {href === "/parents" ? <EditorialSpot name="parents-doorway" /> : null}
+      {spot ? <EditorialSpot name={spot} /> : null}
       <div>
         <p className="eyebrow">{eyebrow}</p>
         <h3>{title}</h3>

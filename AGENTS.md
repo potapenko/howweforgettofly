@@ -286,7 +286,9 @@ large living scenes: Parents doorway, the paper-bridge family passage, and
 the Mirror role of Wind. Match the close human scale, paper material, light
 and palette of the approved advertising banners. Preserve all prose and
 existing scene motion. Small spots may depict a fragment of this world without
-a complete open-book frame. Scope and prompts: `docs/visual/SPOT_ILLUSTRATIONS.md`.
+a complete open-book frame. The user subsequently requested a significantly denser set: eighteen unique
+spots across all doorways, selected Parents/Adults passages, every Wind role
+and two Atlas cards. Scope and prompts: `docs/visual/SPOT_ILLUSTRATIONS.md`.
 
 - Compare public copy against the pre-change baseline. Outside an explicit
   source-removal allowlist and the new final scene, approved text must remain

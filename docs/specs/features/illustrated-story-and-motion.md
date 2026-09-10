@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, revision 2, 2026-09-10.
+**Status:** Active, revision 3, 2026-09-10.
 
 ## Goal
 
@@ -67,14 +67,20 @@ confusion, or a performance burden.
 
 ## Invariants
 
-### Static editorial spots — revision 2
+### Static editorial spots — revision 3
 
-Authority: on 2026-09-10 the user approved the proposed three-image pilot
-after reviewing the current page and recent paper-world banners.
+Authority: on 2026-09-10 the user approved the three-image pilot and then
+explicitly requested substantially more illustrations throughout the page.
+Revision 3 expands the set to eighteen distinct spots.
 
-- Add three small, text-free raster illustrations: the Parents doorway after
-  the cover, the existing `parents-family-cycle` paper-bridge passage, and the
-  Mirror entry in the six Wind roles. Preserve every existing word and anchor.
+- Keep the three pilot spots and add fifteen: the Adults and AI doorways;
+  Parents present-child, keeper-conditions and refusal-feedback passages;
+  Adults invariant, maps and craft passages; the five remaining Wind roles;
+  and Atlas A04 and A09. Preserve every existing word and anchor.
+- Use consistent image slots within each repeated group. The three doorway
+  cards and six Wind roles each have a complete family of illustrations.
+  Section vignettes sit beneath the premise beside the existing prose; Atlas
+  spots remain compact within their cards. Avoid adding large empty bands.
 - These are static editorial supplements, distinct from the living chapter
   scenes. They do not replace a scene, its motion, its poster or layer pack.
   Their stillness is intentional in both normal and Quiet/reduced-motion modes.
@@ -87,9 +93,9 @@ after reviewing the current page and recent paper-world banners.
   with empty alternative text. No additional locale copy is required. Artwork
   is not mirrored in RTL editions.
 - Reserve image dimensions, serve appropriately sized compressed assets, and
-  lazy-load below the cover. On small screens all three stay in normal flow
+  lazy-load below the cover. On small screens all spots stay in normal flow
   without horizontal overflow or a minimum viewing time.
-- Validate the three placements on EN/RU desktop/mobile and verify the Parents
+- Validate all added placements on EN/RU desktop/mobile and verify the Parents
   link by pointer and keyboard. The existing scene-motion contract is protected.
 
 Supporting asset inventory and generation prompts:

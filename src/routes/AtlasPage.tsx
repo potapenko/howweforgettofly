@@ -1,4 +1,5 @@
 import { translateCopy } from "../i18n/translate";
+import { EditorialSpot, atlasSpots } from "../components/EditorialSpot";
 import { SceneObserver } from "../components/SceneObserver";
 import { atlasReading } from "../content/atlasReading";
 import { pageScenesFor } from "../content/pages";
@@ -74,6 +75,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
                 <span>{card.doorway}</span>
               </div>
               <div>
+                {atlasSpots[card.id] ? <EditorialSpot name={atlasSpots[card.id]!} /> : null}
                 <h3>{card.title}</h3>
                 <p>{card.invitation}</p>
               </div>
