@@ -92,9 +92,11 @@ invented.
 
 ### 2.3. Motion envelope
 
-- Internal desktop scenes: approximately `240vh`, five beats, stable forward
-  and reverse scroll, no dead zone.
-- `FINAL-01`: approximately `380vh`, five beats, slower landing.
+- Desktop scenes, including `FINAL-01`, use the brief 120–180px sticky travel
+  approved in illustrated-story-and-motion revision 7. Their five authored
+  beats play across viewport entry, the short hold and exit, with stable
+  reverse scroll. This supersedes the former 240–380vh desktop lengths;
+  beat offsets and layer poses below remain unchanged.
 - Scroll owns the transformation. Pointer adds depth only: approximately
   0–4 px background, 0–12 px primary, 0–18 px secondary, and 0–22 px optional
   atmosphere at the 1672 × 941 artboard scale; rotation stays below 0.9°.

@@ -31,7 +31,7 @@ interface SceneObserverProps extends HTMLAttributes<HTMLElement> {
 
 /**
  * Turns every route or chapter into the same two-part rhythm:
- * a pinned, layered paper story first, then its readable text and controls.
+ * a briefly held paper story first, then its readable text and controls.
  * The old theatre context remains only as UI state for existing instruments;
  * no Canvas or WebGL host is mounted.
  */

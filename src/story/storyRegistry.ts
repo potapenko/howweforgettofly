@@ -56,7 +56,6 @@ function posterStory(
     posterSizes: responsiveStageSizes,
     ariaLabel,
     aspectRatio: 1672 / 941,
-    scrollLengthVh: 320,
     layers: [
       {
         id: backgroundId,
@@ -153,8 +152,6 @@ const adoptionFolds: RasterStory = {
   ariaLabel:
     "An open pop-up book receives several wind-carried paper forms. Four equal folds remain available while human hands deliberately change one form.",
   aspectRatio: 1672 / 941,
-  // Five beats over the upper edge of the plan's 220-260vh internal hold.
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 0.72,
@@ -274,7 +271,6 @@ const candidateMap: RasterStory = {
   ariaLabel:
     "A polished paper route expands into a wall and attracts an avalanche of alternatives, then folds down into one candidate map beside equally visible quiet and no-action paths.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 1,
@@ -365,7 +361,6 @@ const returnThreshold: RasterStory = {
   ariaLabel:
     "A paper form leaves a consequence-free simulation, meets a small real condition, and returns visibly changed while the human-held landing area remains open to revision, repair, privacy, or stopping.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 1,
@@ -447,7 +442,6 @@ const honestModeRail: RasterStory = {
   ariaLabel:
     "A blank sentence reveals whether it is carried by a fixed instruction, a boundary with workable choice, or an invitation whose refusal remains fully open. None is ranked.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 1,
@@ -528,7 +522,6 @@ const groundOrGravity: RasterStory = {
   ariaLabel:
     "A supported paper landscape remains intact as translucent inherited labels are removed. A small reversible fold may open, close, or wait beside a genuinely locked door that is not treated as personal failure.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 0.72,
@@ -616,7 +609,6 @@ const equalLenses: RasterStory = {
   ariaLabel:
     "One continuous paper sheet unfolds into ten equally weighted windows. None is higher, brighter, preselected, locked, or connected to a progress path.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 260,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 0.72,
@@ -698,7 +690,6 @@ const openHorizon: RasterStory = {
   ariaLabel:
     "An open paper book unfolds into a wide bright horizon. Flying, sailing, resting, returning, remaining blank, and staying on Ground share the scene without hierarchy.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 380,
   scrollParallaxStrength: 1.25,
   pointerParallaxStrength: 1.2,
   inlineProgress: 0.72,
@@ -787,7 +778,6 @@ const home: RasterStory = {
   ariaLabel:
     "An open paper book becomes a bright landscape of wind, boats, aircraft, a kite, and a pinwheel.",
   aspectRatio: 1672 / 941,
-  scrollLengthVh: 480,
   scrollParallaxStrength: 1.5,
   pointerParallaxStrength: 1.5,
   layers: [

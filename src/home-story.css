@@ -39,7 +39,6 @@ html[data-home-cover-active="true"] #main-content {
 }
 
 .home-story {
-  --story-scroll-length: 480svh;
   --home-artboard-ratio: 1.7768331562;
   --home-approved-opacity: 1;
   --home-live-opacity: 0;

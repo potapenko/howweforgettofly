@@ -43,7 +43,6 @@ const story: RasterStory = {
   mechanism: "map-sky",
   poster: "/poster.webp",
   ariaLabel: "A complete open paper landscape with moving wind and a small boat.",
-  scrollLengthVh: 300,
   layers: [
     { id: "ground", src: "/ground.png", depth: 0 },
     { id: "boat", src: "/boat.png", depth: 1 },
@@ -546,7 +545,7 @@ describe("ParallaxStage", () => {
     });
     vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
       function storyRect(this: HTMLElement) {
-        const top = this.dataset.storyMechanism ? -200 : 0;
+        const top = this.dataset.storyMechanism ? -300 : 0;
         const height = this.dataset.storyMechanism ? 300 : 100;
         return {
           bottom: top + height,

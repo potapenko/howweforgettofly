@@ -25,11 +25,12 @@ function defaultStickyGeometry(viewportHeight: number): StickyStoryGeometry {
   return { top: 0, height: viewportHeight };
 }
 
-/** Exact geometry contract for a tall section and its configured sticky child. */
+/** Animate through entry, a brief sticky hold, and exit with native scrolling. */
 export function stickyStoryProgress(
   rect: Pick<DOMRect, "top" | "height">,
   viewportHeight: number,
   stickyGeometry: StickyStoryGeometry = defaultStickyGeometry(viewportHeight),
+  documentTop = Number.POSITIVE_INFINITY,
 ) {
   const stickyTop = Number.isFinite(stickyGeometry.top)
     ? stickyGeometry.top
@@ -38,8 +39,15 @@ export function stickyStoryProgress(
       stickyGeometry.height > 0
     ? stickyGeometry.height
     : viewportHeight;
-  const travel = Math.max(rect.height - stickyHeight, 1);
-  return clampProgress((stickyTop - rect.top) / travel);
+  // A cover already at the top has no offscreen entry. Starting it halfway
+  // through the timeline would skip the authored opening composition.
+  const entry = Math.min(
+    Math.max(viewportHeight - stickyTop, 0),
+    Math.max(documentTop - stickyTop, 0),
+  );
+  const hold = Math.max(rect.height - stickyHeight, 0);
+  const travel = Math.max(entry + hold + stickyHeight, 1);
+  return clampProgress((entry + stickyTop - rect.top) / travel);
 }
 
 /**
@@ -381,6 +389,7 @@ class StickyStoryScheduler {
             rect,
             viewportHeight,
             registration.stickyGeometry,
+            rect.top + window.scrollY,
           );
       if (progress === registration.lastProgress) continue;
 

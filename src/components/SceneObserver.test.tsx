@@ -168,7 +168,7 @@ describe("SceneObserver", () => {
     expect(state).toHaveAttribute("data-active-scene", scene.id);
     expect(state).toHaveAttribute("data-visible", "true");
 
-    storyTop = -1000;
+    storyTop = -1500;
     act(() => {
       window.dispatchEvent(new Event("scroll"));
       flushFrame();

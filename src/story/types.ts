@@ -69,7 +69,6 @@ export interface RasterStory {
   layers: readonly RasterLayer[];
   beats: readonly StoryBeat[];
   aspectRatio?: number;
-  scrollLengthVh?: number;
   /** Multiplies scroll-driven movement around each layer's opening pose. */
   scrollParallaxStrength?: number;
   /** Multiplies pointer movement without changing the idle animation. */

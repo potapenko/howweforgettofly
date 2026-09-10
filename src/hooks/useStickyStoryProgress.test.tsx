@@ -84,6 +84,7 @@ describe("useStickyStoryProgress", () => {
       configurable: true,
       value: 1000,
     });
+    Object.defineProperty(window, "scrollY", { configurable: true, value: 5000 });
     vi.spyOn(window, "requestAnimationFrame").mockImplementation((callback) => {
       const id = ++nextFrame;
       frames.set(id, callback);
@@ -96,13 +97,14 @@ describe("useStickyStoryProgress", () => {
 
   afterEach(() => {
     cleanup();
+    Object.defineProperty(window, "scrollY", { configurable: true, value: 0 });
     vi.restoreAllMocks();
     vi.unstubAllGlobals();
   });
 
-  it("emits exact 0, .5, and 1 positions across the sticky travel", () => {
+  it("emits exact 0, .5, and 1 through desktop entry, hold and exit", () => {
     const onProgress = vi.fn();
-    let storyRect = rect(0);
+    let storyRect = rect(1000);
     const view = render(<Harness onProgress={onProgress} />);
     vi.spyOn(view.getByTestId("story"), "getBoundingClientRect")
       .mockImplementation(() => storyRect);
@@ -117,7 +119,7 @@ describe("useStickyStoryProgress", () => {
     });
     expect(onProgress).toHaveBeenLastCalledWith(0.5);
 
-    storyRect = rect(-2000);
+    storyRect = rect(-3000);
     act(() => {
       window.dispatchEvent(new Event("scroll"));
       flushFrame();
@@ -130,13 +132,13 @@ describe("useStickyStoryProgress", () => {
       label: "header",
       stickyTop: 78,
       stickyHeight: 922,
-      positions: [78, -961, -2000],
+      positions: [1000, -961, -2922],
     },
     {
       label: "manifesto header and index",
       stickyTop: 136,
       stickyHeight: 864,
-      positions: [136, -932, -2000],
+      positions: [1000, -932, -2864],
     },
   ])(
     "maps the $label sticky geometry to exact 0, .5, and 1 progress",
@@ -166,8 +168,38 @@ describe("useStickyStoryProgress", () => {
     ).toEqual([0, focalProgress, 1, focalProgress, 0]);
   });
 
+  it.each([120, 150, 180])("keeps animation moving before and after a %ipx hold", (hold) => {
+    const geometry = { top: 78, height: 922 };
+    const height = geometry.height + hold;
+    const progressAt = (top: number) => stickyStoryProgress(rect(top, height), 1000, geometry);
+    const entering = progressAt(500);
+    const pinStart = progressAt(78);
+    const pinEnd = progressAt(78 - hold);
+    const exiting = progressAt(78 - hold - 461);
+
+    expect(progressAt(1000)).toBe(0);
+    expect(entering).toBeGreaterThan(0);
+    expect(pinStart).toBeGreaterThan(entering);
+    expect(pinEnd).toBeGreaterThan(pinStart);
+    expect(pinEnd - pinStart).toBeLessThan(0.1);
+    expect(exiting).toBeGreaterThan(pinEnd);
+    expect(progressAt(78 - height)).toBe(1);
+    expect([78 - height, 78 - hold, 78, 1000].map(progressAt))
+      .toEqual([1, pinEnd, pinStart, 0]);
+  });
+
+  it("starts the cover at zero and plays through its short hold and exit", () => {
+    const geometry = { top: 0, height: 1000 };
+    const progressAt = (top: number) => stickyStoryProgress(rect(top, 1150), 1000, geometry, 0);
+    expect(progressAt(0)).toBe(0);
+    expect(progressAt(-150)).toBeCloseTo(150 / 1150);
+    expect(progressAt(-575)).toBe(0.5);
+    expect(progressAt(-1150)).toBe(1);
+    expect(progressAt(0)).toBe(0);
+  });
+
   it("caches sticky geometry across scroll frames and refreshes it on resize", () => {
-    let sectionTop = 78;
+    let sectionTop = 1000;
     let stickyTop = 78;
     let stickyHeight = 922;
     const computedStyle = vi.spyOn(window, "getComputedStyle")
@@ -204,7 +236,7 @@ describe("useStickyStoryProgress", () => {
 
     stickyTop = 136;
     stickyHeight = 864;
-    sectionTop = 136;
+    sectionTop = 1000;
     act(() => {
       window.dispatchEvent(new Event("resize"));
       flushFrame();

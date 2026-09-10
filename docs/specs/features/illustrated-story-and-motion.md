@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, revision 6, 2026-09-10.
+**Status:** Active, revision 7, 2026-09-10.
 
 ## Goal
 
@@ -173,6 +173,22 @@ to use the matching blue assets. Judge density in actual reading viewports,
 not against the old placement count. Do not add artwork explanations.
 
 ## Edge cases and failure policy
+
+### Brief desktop hold — revision 7
+
+Change `SCENE-PACING-2026-09-10`, Evolve: the user approved replacing long
+desktop illustration holds with 120–180 CSS pixels of scroll travel. This
+supersedes the old 260–480vh scene lengths, including the cover and final scene.
+The frame retains its existing size and composition; its section adds only
+`clamp(120px, 15svh, 180px)` of sticky travel. The authored timeline advances
+through entry, the brief hold and exit, rather than playing entirely in the
+hold. Reverse scroll reverses it. The opening cover starts at its opening pose
+at scroll zero, without assuming an offscreen entry before the document.
+Pointer depth and ambient motion remain available while the reader pauses.
+There are no timers, wheel interception, snapping or forced viewing intervals.
+Mobile normal-flow playback, authored beats/layers, text, navigation, hydration
+limits and Quiet/reduced-motion are protected. Quiet adds no hold distance.
+Implementation and verification: [SCENE_SCROLL_PACING_PLAN.md](../../product/SCENE_SCROLL_PACING_PLAN.md).
 
 - If a heavy layer fails to load or decode, retain a coherent poster fallback;
   do not hide the scene or expose broken visual fragments.

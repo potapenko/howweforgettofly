@@ -43,7 +43,8 @@ hold, forced dwell, or scroll-speed takeover.
    its dynamic height. Confirm that the current pose is recalculated without a
    hold, stale layer position, or replayed scroll interval.
 9. Repeat a desktop-width spot check and confirm that the same representative
-   scene retains its sticky desktop playback.
+   scene plays across entry, a brief 120–180px hold and exit (illustrated-story
+   revision 7; `desktop-scenes-brief-hold.md`). No multi-screen hold remains.
 10. Repeat the representative mobile flow in Safari, Chrome, and the in-app
     Browser.
 

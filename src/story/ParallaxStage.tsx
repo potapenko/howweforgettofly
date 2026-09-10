@@ -769,7 +769,6 @@ export function ParallaxStage({
   const outerStyle = {
     ...style,
     "--story-aspect-ratio": story.aspectRatio ?? 16 / 9,
-    "--story-scroll-length": `${story.scrollLengthVh ?? 320}vh`,
   } as CSSProperties;
   const classes = ["parallax-story", className].filter(Boolean).join(" ");
   const editorialNarrationContent =

@@ -360,3 +360,11 @@ languages. This supersedes earlier document-only and old-copy preservation
 limits for this integration. Follow docs/product/CREATIVE_EDITION_INTEGRATION_PLAN.md.
 The manuscript order now governs reading; preserve legacy semantic destinations,
 all living artwork and dense static illustrations, motion and the final colophon.
+
+## Brief illustration holds — 2026-09-10
+
+The user approved shortening every large desktop scene, including cover and
+ending, to a brief 120–180px hold. Animate across entry, hold and exit; preserve
+pointer/idle motion when the reader chooses to pause. Mobile remains unpinned.
+Follow docs/product/SCENE_SCROLL_PACING_PLAN.md; old multi-screen hold lengths
+are superseded, while authored artwork, beats and all copy remain protected.

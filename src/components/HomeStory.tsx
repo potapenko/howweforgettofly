@@ -12,7 +12,7 @@ interface HomeStoryProps {
 
 /**
  * The opening spread is the visual navigation surface, not a decorative hero.
- * It stays pinned while the raster planes play, then releases into the essay.
+ * Its brief hold releases into the essay while the raster planes keep playing.
  */
 export function HomeStory({
   children,

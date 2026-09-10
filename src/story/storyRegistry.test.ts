@@ -81,7 +81,6 @@ describe("raster story registry", () => {
       );
       expect(story.ariaLabel.trim().length).toBeGreaterThan(24);
       expect(story.aspectRatio).toBeCloseTo(1672 / 941, 6);
-      expect(story.scrollLengthVh).toBeGreaterThanOrEqual(240);
       expect(story.layers.length).toBeGreaterThan(0);
       expect(story.posterMobileSrc).toMatch(/-960\.webp$/);
 
@@ -117,7 +116,6 @@ describe("raster story registry", () => {
       "/parallax/home/explorer.png",
       "/parallax/home/banner.png",
     ]);
-    expect(storyRegistry["map-sky"].scrollLengthVh).toBe(480);
     expect(storyRegistry["map-sky"].scrollParallaxStrength).toBe(1.5);
     expect(storyRegistry["map-sky"].pointerParallaxStrength).toBe(1.5);
   });
@@ -146,7 +144,6 @@ describe("raster story registry", () => {
       "adoption-folds-one-form-changes",
       "adoption-folds-candidates-land",
     ]);
-    expect(story.scrollLengthVh).toBe(260);
 
     const responsiveAssets = [
       "/scenes/AI02-960.webp",
@@ -209,9 +206,6 @@ describe("raster story registry", () => {
       )).toBe(true);
       expect(story.beats).toHaveLength(5);
       expect(story.beats.at(-1)?.offset).toBe(1);
-      expect(story.scrollLengthVh).toBe(
-        mechanism === "open-horizon" ? 380 : 260,
-      );
       for (const state of Object.values(story.beats.at(-1)?.layers ?? {})) {
         expect(state).toEqual({
           x: 0,
@@ -223,7 +217,6 @@ describe("raster story registry", () => {
       }
     }
 
-    expect(storyRegistry["open-horizon"].scrollLengthVh).toBe(380);
   });
 
   it("reserves code-native editorial copy positions for every expansion spread", () => {

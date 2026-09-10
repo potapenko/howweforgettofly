@@ -15,7 +15,7 @@ export interface StickyStoryProgressOptions {
   activationKey?: string;
   /** A single authored pose for inline stories that intentionally do not play on scroll. */
   fixedProgress?: number;
-  /** Selects sticky travel or one scene's natural viewport passage. */
+  /** Selects desktop entry/hold/exit or an inline scene's viewport passage. */
   progressMode?: StoryProgressMode;
   /** Authored mobile pose reached when an inline scene is viewport-centred. */
   inlineFocalProgress?: number;
@@ -28,7 +28,7 @@ function clampProgress(value: number) {
 }
 
 /**
- * Emits sticky scroll progress without storing it in React state. One passive
+ * Emits scene-local scroll progress without storing it in React state. One passive
  * listener schedules at most one layout read per animation frame.
  */
 export function useStickyStoryProgress<T extends HTMLElement>(
