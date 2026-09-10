@@ -1,4 +1,5 @@
 import { SceneObserver } from "../components/SceneObserver";
+import { EditorialSpot } from "../components/EditorialSpot";
 import {
   pathways,
   windRoles,
@@ -83,7 +84,12 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en"
       <div className="wind-role-reading-grid">
         {roles.map((role) => (
           <article key={role.id}>
-            <h3>{role.title}</h3>
+            {role.id === "mirror" ? (
+              <div className="wind-role-spot-heading">
+                <h3>{role.title}</h3>
+                <EditorialSpot name="wind-mirror" />
+              </div>
+            ) : <h3>{role.title}</h3>}
             <dl>
               <div><dt>{labels.contribution}</dt><dd>{role.usefulContribution}</dd></div>
               <div><dt>{labels.pull}</dt><dd>{role.nonNeutralPull}</dd></div>
@@ -188,11 +194,14 @@ export function PathwayPage({
             ? "path-section alternate"
             : "path-section";
           const content = (
-            <div className="page-width path-section-grid">
+            <div className={`page-width path-section-grid${pathwayId === "parent" && section.id === "family-cycle" ? " path-section-grid--paper-bridge" : ""}`}>
               <div>
                 <p className="eyebrow">{section.eyebrow}</p>
                 <h2 id={headingId}>{section.title}</h2>
                 <p className="section-plain">{section.plain}</p>
+                {pathwayId === "parent" && section.id === "family-cycle" ? (
+                  <EditorialSpot name="paper-bridge" />
+                ) : null}
               </div>
               <div className="path-section-copy">
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

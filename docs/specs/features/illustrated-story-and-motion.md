@@ -1,6 +1,6 @@
 # Illustrated story and motion
 
-**Status:** Active, first pass 2026-07-20.
+**Status:** Active, revision 2, 2026-09-10.
 
 ## Goal
 
@@ -66,6 +66,36 @@ confusion, or a performance burden.
   without hiding content or changing the reading's meaning.
 
 ## Invariants
+
+### Static editorial spots — revision 2
+
+Authority: on 2026-09-10 the user approved the proposed three-image pilot
+after reviewing the current page and recent paper-world banners.
+
+- Add three small, text-free raster illustrations: the Parents doorway after
+  the cover, the existing `parents-family-cycle` paper-bridge passage, and the
+  Mirror entry in the six Wind roles. Preserve every existing word and anchor.
+- These are static editorial supplements, distinct from the living chapter
+  scenes. They do not replace a scene, its motion, its poster or layer pack.
+  Their stillness is intentional in both normal and Quiet/reduced-motion modes.
+- Use close papercraft vignettes with the approved white stock, cool light,
+  cobalt, lime and orange. A complete open-book frame is not required for a
+  spot. Match the material and character language of the approved banners.
+- Reading order and link semantics stay intact. Spots do not act as new
+  controls, conceal text, assign a rank, or add interpretation panels.
+- Surrounding prose provides their meaning; render them as decorative images
+  with empty alternative text. No additional locale copy is required. Artwork
+  is not mirrored in RTL editions.
+- Reserve image dimensions, serve appropriately sized compressed assets, and
+  lazy-load below the cover. On small screens all three stay in normal flow
+  without horizontal overflow or a minimum viewing time.
+- Validate the three placements on EN/RU desktop/mobile and verify the Parents
+  link by pointer and keyboard. The existing scene-motion contract is protected.
+
+Supporting asset inventory and generation prompts:
+[`../../visual/SPOT_ILLUSTRATIONS.md`](../../visual/SPOT_ILLUSTRATIONS.md).
+
+### Living chapter scenes
 
 - The approved popup-game master image is the visual source of truth.
 - The open book is a stage and world, not an adaptation claim or decorative
