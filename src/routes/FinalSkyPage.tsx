@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { SceneObserver } from "../components/SceneObserver";
 import { pageScenesFor } from "../content/pages";
 import { useLocale } from "../i18n/LocaleContext";
@@ -16,7 +17,7 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
           "Здесь заканчивается страница. Не небо.",
         ],
       }
-    : {
+    : translateCopy({
         eyebrow: "After the Return",
         title: "The Sky Remains Open",
         deck: "A route may end without closing the horizon.",
@@ -24,7 +25,7 @@ export function FinalSkyPage({ embedded = false }: { embedded?: boolean }) {
           "Some Flights return as a form. Others return as questions changed by the weather. Some Calls go unanswered and settle quietly back on Ground.",
           "The page ends here. The Sky does not.",
         ],
-      };
+      }, locale);
 
   return (
     <Root

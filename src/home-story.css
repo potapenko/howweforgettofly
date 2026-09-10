@@ -393,3 +393,11 @@ html[data-home-cover-active="true"] #main-content {
     height: auto;
   }
 }
+
+.home-cover-content:not([data-cover-locale="en"]):not([data-cover-locale="ru"]) .home-cover-copy h1 { font-size: 3.4cqw; line-height: 1.05; text-wrap: balance; }
+.home-cover-content[data-cover-locale="ar"] .home-cover-copy { direction: rtl; }
+html[lang="ar"] .home-cover-content[data-cover-locale="ar"] .home-cover-copy h1 { line-height: 1.35; letter-spacing: normal; }
+
+.home-cover-content:not([data-cover-locale="en"]):not([data-cover-locale="ru"]) .home-cover-section p { max-width: 15em; white-space: normal; }
+
+html[lang="ja"] .home-cover-content[data-cover-locale="ja"] .home-cover-copy h1 { font-size: 2.7cqw; line-height: 1.2; }

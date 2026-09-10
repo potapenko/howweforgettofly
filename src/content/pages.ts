@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import type { SceneDefinition } from "../types";
 import type { Locale } from "../i18n/LocaleContext";
 import type { PathwayId } from "./pathways";
@@ -212,7 +213,7 @@ export const pageScenesRu: Record<string, SceneDefinition> = {
 };
 
 export function pageScenesFor(locale: Locale) {
-  return locale === "ru" ? pageScenesRu : pageScenes;
+  return locale === "ru" ? pageScenesRu : translateCopy(pageScenes, locale);
 }
 
 export interface PathwayScenePlacement {

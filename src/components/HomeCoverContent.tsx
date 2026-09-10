@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { ArrowDown } from "@phosphor-icons/react/ArrowDown";
 import { ArrowRight } from "@phosphor-icons/react/ArrowRight";
 import { Link } from "react-router-dom";
@@ -24,7 +25,7 @@ export function HomeCoverContent() {
         nav: "Переходы по книге",
         sectionAria: "Раздел 01. Схема",
       }
-    : {
+    : translateCopy({
         title: ["How we", "forget", "to fly"],
         ariaTitle: "How we forget to fly",
         deck: "Creativity, agency, and AI",
@@ -34,13 +35,13 @@ export function HomeCoverContent() {
         atlas: "Atlas",
         section: "Section",
         pattern: "The pattern",
-        patternText: <>We learn to look<br />for the expected answer.</>,
+        patternText: locale === "en" ? <>We learn to look<br />for the expected answer.</> : "We learn to look for the expected answer.",
         finalSky: "Last spread",
         continue: "Continue to the Manifesto",
         finish: "Finish the opening scene and continue to the text",
         nav: "Opening routes",
         sectionAria: "Section 01, The Pattern",
-      };
+      }, locale);
   return (
     <div className="home-cover-content" data-cover-locale={locale}>
       <img
@@ -51,7 +52,7 @@ export function HomeCoverContent() {
         draggable="false"
         fetchPriority="high"
         src={
-          locale === "ru"
+          locale !== "en"
             ? "/parallax/home/background-master.png"
             : "/scenes/master-approved.png"
         }
@@ -112,15 +113,15 @@ export function HomeMobileIntro() {
   return (
     <header className="home-mobile-intro page-width">
       <p className="eyebrow">
-        {locale === "ru" ? "Живая книга о творчестве" : "A living book about creativity"}
+        {locale === "ru" ? "Живая книга о творчестве" : translateCopy("A living book about creativity", locale)}
       </p>
       <h1>
-        {locale === "ru" ? "Как мы забываем летать" : "How We Forget to Fly"}
+        {locale === "ru" ? "Как мы забываем летать" : translateCopy("How We Forget to Fly", locale)}
       </h1>
       <p className="hero-deck">
         {locale === "ru"
           ? "О детском любопытстве, взрослом авторстве и искусственном интеллекте, который может быть ветром — но не пилотом."
-          : "On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot."}
+          : translateCopy("On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot.", locale)}
       </p>
     </header>
   );

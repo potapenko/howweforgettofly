@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 import { manifestoArticles } from "../content/manifesto";
@@ -31,28 +32,18 @@ function transferredReadingPosition(value: unknown) {
 
 function titleForLocation(pathname: string, hash: string) {
   const locale = localeFromPathname(pathname);
-  const siteName = locale === "ru" ? "Как мы забываем летать" : "How We Forget to Fly";
-  const sectionTitles = locale === "ru"
-    ? {
-        home: siteName,
-        manifesto: `Манифест | ${siteName}`,
-        parents: `Родителям | ${siteName}`,
-        adults: `Взрослым | ${siteName}`,
-        ai: `ИИ как Ветер | ${siteName}`,
-        atlas: `Атлас идей | ${siteName}`,
-        "final-sky": `Небо остаётся открытым | ${siteName}`,
-      }
-    : {
-        home: siteName,
-        manifesto: `Manifesto | ${siteName}`,
-        parents: `For Parents | ${siteName}`,
-        adults: `For Adults | ${siteName}`,
-        ai: `AI as Wind | ${siteName}`,
-        atlas: `Atlas of Ideas | ${siteName}`,
-        "final-sky": `The Sky Remains Open | ${siteName}`,
-      };
+  const siteName = locale === "ru" ? "Как мы забываем летать" : translateCopy("How We Forget to Fly", locale);
+  const sectionTitles = {
+    home: siteName,
+    manifesto: `${locale === "ru" ? "Манифест" : translateCopy("Manifesto", locale)} | ${siteName}`,
+    parents: `${locale === "ru" ? "Родителям" : translateCopy("For Parents", locale)} | ${siteName}`,
+    adults: `${locale === "ru" ? "Взрослым" : translateCopy("For Adults", locale)} | ${siteName}`,
+    ai: `${locale === "ru" ? "ИИ как Ветер" : translateCopy("AI as Wind", locale)} | ${siteName}`,
+    atlas: `${locale === "ru" ? "Атлас идей" : translateCopy("Atlas of Ideas", locale)} | ${siteName}`,
+    "final-sky": `${locale === "ru" ? "Небо остаётся открытым" : translateCopy("The Sky Remains Open", locale)} | ${siteName}`,
+  };
   const articleId = bookAnchorFromHash(hash).toUpperCase();
-  const articles = locale === "ru" ? manifestoArticlesRu : manifestoArticles;
+  const articles = locale === "ru" ? manifestoArticlesRu : translateCopy(manifestoArticles, locale);
   const article = articles.find(({ id }) => id === articleId);
   if (article) return `${article.title} — ${sectionTitles.manifesto}`;
 
@@ -61,11 +52,11 @@ function titleForLocation(pathname: string, hash: string) {
     if (section === "home") {
       return locale === "ru"
         ? "Как мы забываем летать — Творчество, авторство и ИИ"
-        : "How We Forget to Fly — Creativity, Agency, and AI";
+        : translateCopy("How We Forget to Fly — Creativity, Agency, and AI", locale);
     }
     return sectionTitles[section];
   }
-  return locale === "ru" ? `Страница не найдена | ${siteName}` : `Page not found | ${siteName}`;
+  return locale === "ru" ? `Страница не найдена | ${siteName}` : `${translateCopy("Page not found", locale)} | ${siteName}`;
 }
 
 /**

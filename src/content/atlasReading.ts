@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import type { Locale } from "../i18n/LocaleContext";
 
 export interface AtlasReadingCard {
@@ -176,5 +177,5 @@ const ru: readonly AtlasReadingCard[] = [
 ];
 
 export function atlasReading(locale: Locale) {
-  return locale === "ru" ? ru : en;
+  return locale === "ru" ? ru : translateCopy(en, locale);
 }

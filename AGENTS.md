@@ -303,3 +303,12 @@ a complete open-book frame. Scope and prompts: `docs/visual/SPOT_ILLUSTRATIONS.m
   project.
 - Verify desktop and mobile in Safari as part of final QA. Preserve the
   desktop composition while allowing the mobile story to flow naturally.
+
+## Ten-language implementation — 2026-09-10
+
+The user approved expanding the book to en, es, de, fr, pt-BR, ja, zh-Hans,
+ko, ru and ar, preserving current EN/RU prose. This supersedes two-language
+limits, not the poetic, visual or ethical invariants. New translations use
+`de-ai-writing` without flattening metaphor. Arabic uses RTL text/navigation,
+not mirrored artwork. The approved implementation boundary and progress live
+in `docs/product/MULTILINGUAL_PLAN.md`. Single-agent, current branch, no deploy.

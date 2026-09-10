@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { SceneObserver } from "../components/SceneObserver";
 import { EditorialSpot } from "../components/EditorialSpot";
 import {
@@ -24,7 +25,7 @@ function groundConditionPanels(cards: readonly EditorialCard[] | undefined) {
   }));
 }
 
-function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: "en" | "ru" }) {
+function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: import("../i18n/locales").Locale }) {
   return (
     <section className="invitation-deck page-width">
       <div className="section-heading compact-heading">
@@ -32,7 +33,7 @@ function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: "en" | "ru" 
         <h2>
           {locale === "ru"
             ? "Вопрос, который можно взять с собой."
-            : "A question to carry with you."}
+            : translateCopy("A question to carry with you.", locale)}
         </h2>
         <p>{deck.introduction}</p>
       </div>
@@ -50,7 +51,7 @@ function InvitationDeck({ deck, locale }: { deck: CardDeck; locale: "en" | "ru" 
   );
 }
 
-function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en" | "ru" }) {
+function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: import("../i18n/locales").Locale }) {
   const labels = locale === "ru"
     ? {
         eyebrow: "Шесть видимых ролей",
@@ -63,7 +64,7 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en"
         noAiTitle: "И без ИИ маршрут остаётся целым",
         noAi: "Вопрос, критерии и окончательное решение можно удерживать с помощью блокнота, разговора, источника, ремесленной практики — или вообще без помощника.",
       }
-    : {
+    : translateCopy({
         eyebrow: "Six visible roles",
         title: "Give the Wind one job.",
         intro: "A role defines the help being requested. It does not change the human question, give consent, or decide what to adopt.",
@@ -73,7 +74,7 @@ function WindRoles({ roles, locale }: { roles: readonly WindRole[]; locale: "en"
         prompt: "A possible request",
         noAiTitle: "The route remains complete without AI",
         noAi: "The question, criteria, and final adoption can be held with a notebook, another person, a source, a craft practice—or no assistant at all.",
-      };
+      }, locale);
   return (
     <section className="wind-role-instrument">
       <div className="section-heading compact-heading">
@@ -115,9 +116,9 @@ export function PathwayPage({
   embedded?: boolean;
 }) {
   const locale = useLocale();
-  const localizedPathways = locale === "ru" ? pathwaysRu : pathways;
+  const localizedPathways = locale === "ru" ? pathwaysRu : translateCopy(pathways, locale);
   const pathway: PathwayDefinition = localizedPathways[pathwayId];
-  const roles = locale === "ru" ? windRolesRu : windRoles;
+  const roles = locale === "ru" ? windRolesRu : translateCopy(windRoles, locale);
   const sceneKey = pathwayId === "parent" ? "parents" : pathwayId === "adult" ? "adults" : "ai";
   const sectionId = sceneKey;
   const ideasId = `${sectionId}-ideas`;
@@ -147,7 +148,7 @@ export function PathwayPage({
         covenantEyebrow: "Остаётся с нами",
         covenantTitle: "Пусть отношения остаются честными.",
       }
-    : {
+    : translateCopy({
         outcome: "At the threshold",
         practicesEyebrow: "Ideas you might try",
         practicesTitle: "A place to begin",
@@ -166,7 +167,7 @@ export function PathwayPage({
         guardrailsTitle: "Keep freedom concrete.",
         covenantEyebrow: "What we carry onward",
         covenantTitle: "Keep the relation honest.",
-      };
+      }, locale);
 
   return (
     <Root className={`pathway-page pathway-${pathwayId} book-section`} data-book-section={sectionId} id={embedded ? sectionId : undefined} tabIndex={embedded ? -1 : undefined}>
@@ -212,8 +213,8 @@ export function PathwayPage({
                         <h3>{card.title}</h3>
                         <p>{card.body}</p>
                         {card.detail && <p className="fold-detail">{card.detail}</p>}
-                        {card.prompt && <p><strong>{locale === "ru" ? "Можно спросить:" : "A question to carry:"}</strong> {card.prompt}</p>}
-                        {card.repair && <p><strong>{locale === "ru" ? "Что можно исправить:" : "Possible repair:"}</strong> {card.repair}</p>}
+                        {card.prompt && <p><strong>{locale === "ru" ? "Можно спросить:" : translateCopy("A question to carry:", locale)}</strong> {card.prompt}</p>}
+                        {card.repair && <p><strong>{locale === "ru" ? "Что можно исправить:" : translateCopy("Possible repair:", locale)}</strong> {card.repair}</p>}
                         {card.items && <ul>{card.items.map((item) => <li key={item}>{item}</li>)}</ul>}
                       </article>
                     ))}
@@ -276,7 +277,7 @@ export function PathwayPage({
             <article className="practice-card" key={practice.id}>
               <div className="practice-card-index">
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{practice.time ?? (locale === "ru" ? "В своём темпе" : "At your pace")}</span>
+                <span>{practice.time ?? (locale === "ru" ? "В своём темпе" : translateCopy("At your pace", locale))}</span>
               </div>
               <h3>{practice.title}</h3>
               <p>{practice.summary}</p>

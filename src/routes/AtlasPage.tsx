@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { SceneObserver } from "../components/SceneObserver";
 import { atlasReading } from "../content/atlasReading";
 import { pageScenesFor } from "../content/pages";
@@ -28,7 +29,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
           "В вопросах реальной безопасности метафора заканчивается: нужны ясные действия и подходящая помощь.",
         ],
       }
-    : {
+    : translateCopy({
         eyebrow: "An atlas of ideas",
         title: "Look again.",
         deck: "Ten questions for what seemed familiar.",
@@ -46,7 +47,7 @@ export function AtlasPage({ embedded = false }: { embedded?: boolean }) {
           "Any fragment may be left unread without breaking the route.",
           "Where real safety is at stake, the metaphor ends: use clear action and appropriate help.",
         ],
-      };
+      }, locale);
 
   return (
     <Root className="atlas-page book-section" data-book-section="atlas" id={embedded ? "atlas" : undefined} tabIndex={embedded ? -1 : undefined}>

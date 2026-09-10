@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { HomePage } from "./HomePage";
 import { ManifestoPage } from "./ManifestoPage";
 import { PathwayPage } from "./PathwayPage";
@@ -14,7 +15,7 @@ export function LongformPage() {
   return (
     <main
       className="longform-page"
-      aria-label={locale === "ru" ? "Как мы забываем летать" : "How We Forget to Fly"}
+      aria-label={locale === "ru" ? "Как мы забываем летать" : translateCopy("How We Forget to Fly", locale)}
     >
       <HomePage embedded />
       <ManifestoPage embedded />

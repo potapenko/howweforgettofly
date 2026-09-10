@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { Link } from "react-router-dom";
 import { SceneObserver } from "../components/SceneObserver";
 import { manifestoArticles } from "../content/manifesto";
@@ -11,7 +12,7 @@ function ManifestoSpread({
   locale,
 }: {
   article: ManifestoArticle;
-  locale: "en" | "ru";
+  locale: import("../i18n/locales").Locale;
 }) {
   return (
     <SceneObserver
@@ -26,13 +27,13 @@ function ManifestoSpread({
       </div>
       <div className="manifesto-copy paper-panel">
         <p className="eyebrow">
-          {locale === "ru" ? `Статья ${article.number}` : `Article ${article.number}`}
+          {locale === "ru" ? `Статья ${article.number}` : locale === "ja" || locale === "zh-Hans" ? `第${article.number}条` : locale === "ko" ? `제${article.number}조` : `${translateCopy("Article", locale)} ${article.number}`}
         </p>
         <h2>{article.title}</h2>
         <p className="article-kicker">{article.kicker}</p>
         <div className="article-body">
           {article.paragraphs.map((paragraph, index) =>
-            paragraph.includes("→") ? (
+            /[→←]/.test(paragraph) ? (
               <p className="cycle-inline" key={`${article.id}-${index}`}>
                 {paragraph}
               </p>
@@ -42,7 +43,7 @@ function ManifestoSpread({
           )}
         </div>
         <aside className="article-landing">
-          <p className="eyebrow">{locale === "ru" ? "Если приложить к жизни" : "In ordinary life"}</p>
+          <p className="eyebrow">{locale === "ru" ? "Если приложить к жизни" : translateCopy("In ordinary life", locale)}</p>
           <p>{article.landing}</p>
         </aside>
       </div>
@@ -53,7 +54,7 @@ function ManifestoSpread({
 
 export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
   const locale = useLocale();
-  const articles = locale === "ru" ? manifestoArticlesRu : manifestoArticles;
+  const articles = locale === "ru" ? manifestoArticlesRu : translateCopy(manifestoArticles, locale);
   const Root = embedded ? "section" : "main";
   const ChapterHeading = embedded ? "h2" : "h1";
   const copy = locale === "ru"
@@ -82,7 +83,7 @@ export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
           "Если сегодня ничто не зовёт, страница может подождать."
         ],
       }
-    : {
+    : translateCopy({
         eyebrow: "A memorandum for human authorship",
         title: "What must remain ours",
         opening: [
@@ -106,7 +107,7 @@ export function ManifestoPage({ embedded = false }: { embedded?: boolean }) {
           "A sentence, a folded sheet, a conversation. Something small enough to try and real enough to answer back.",
           "If nothing calls today, the page can wait."
         ],
-      };
+      }, locale);
 
   return (
     <Root className="manifesto-page book-section" data-book-section="manifesto" id={embedded ? "manifesto" : undefined} tabIndex={embedded ? -1 : undefined}>

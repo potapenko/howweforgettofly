@@ -1,6 +1,6 @@
 # Static deployment and release
 
-**Status:** Active, revision 2, 2026-09-08.
+**Status:** Active, revision 3, 2026-09-10.
 
 ## Goal
 
@@ -88,3 +88,12 @@ second product artifact.
   auto-deploy, static output, successful deployment, technical ingress, custom
   domain/TLS state, `/ru` normalization, localized `/ru/` source HTML, and
   direct `robots.txt`, sitemap, and social-image responses.
+
+## Ten-language build extension — 2026-09-10
+
+The user approved expanding the static artifact to the ten complete locale
+roots in the reading contract. Generate locale entry HTML and the sitemap
+from the shared locale registry and translated metadata. Every locale's head
+must be readable without JavaScript. Preserve the shared assets, static hosting,
+legacy SPA handling and current analytics integration. This task authorizes
+local build/verification and checkpoint, not push or public deployment.

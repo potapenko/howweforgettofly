@@ -1,3 +1,6 @@
+import { LanguageMenu } from "./LanguageMenu";
+import { stripLocale } from "../i18n/locales";
+import { translateCopy } from "../i18n/translate";
 import { BookOpen } from "@phosphor-icons/react/BookOpen";
 import { GithubLogo } from "@phosphor-icons/react/GithubLogo";
 import { List } from "@phosphor-icons/react/List";
@@ -23,7 +26,7 @@ import {
 
 function activeSectionForRoute(pathname: string, hash: string) {
   if (isBookRootPathname(pathname)) return sectionForHash(hash);
-  const localPath = pathname.replace(/^\/ru(?=\/|$)/, "") || "/";
+  const localPath = stripLocale(pathname);
   return sectionForHash(`#${localPath.replace(/^\//, "")}`);
 }
 
@@ -79,7 +82,7 @@ export function SiteHeader({
         patreon: "Поддержать проект на Patreon",
         github: "Посмотреть код проекта на GitHub",
       }
-    : {
+    : translateCopy({
         title: "How We Forget to Fly",
         opening: "How We Forget to Fly — opening",
         primary: "Primary",
@@ -91,7 +94,7 @@ export function SiteHeader({
         twitter: "Follow @potapenko on Twitter",
         patreon: "Support the project on Patreon",
         github: "View the project source on GitHub",
-      };
+      }, locale);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -185,9 +188,9 @@ export function SiteHeader({
         <span>
           {locale === "ru" ? (
             <>Как мы забываем<br />летать</>
-          ) : (
-            <>How We Forget<br />to Fly</>
-          )}
+          ) : translateCopy((
+            locale === "en" ? <>How We Forget<br />to Fly</> : <>{labels.title}</>
+          ), locale)}
         </span>
       </Link>
 
@@ -214,7 +217,7 @@ export function SiteHeader({
               preventScrollReset
               to={canonicalBookHref(`/${id}`, locale)}
             >
-              {locale === "ru" ? ru : en}
+              {locale === "ru" ? ru : translateCopy(en, locale)}
             </Link>
           ))}
         </nav>
@@ -256,24 +259,12 @@ export function SiteHeader({
             <span aria-hidden="true" />
             <span className="motion-toggle-label">{labels.quiet}</span>
           </button>
-          <nav className="locale-switch" aria-label={labels.language}>
-            <Link
-              aria-current={locale === "en" ? "page" : undefined}
-              preventScrollReset
-              state={readingPosition ? { readingPosition } : undefined}
-              to={canonicalBookHref(`#${readingAnchor}`, "en")}
-            >
-              EN
-            </Link>
-            <Link
-              aria-current={locale === "ru" ? "page" : undefined}
-              preventScrollReset
-              state={readingPosition ? { readingPosition } : undefined}
-              to={canonicalBookHref(`#${readingAnchor}`, "ru")}
-            >
-              RU
-            </Link>
-          </nav>
+          <LanguageMenu
+            locale={locale}
+            anchor={readingAnchor}
+            readingPosition={readingPosition}
+            onNavigate={() => setMenuOpen(false)}
+          />
         </div>
       </div>
     </header>

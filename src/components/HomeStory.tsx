@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { useCallback, useEffect, useMemo, useRef, type ReactNode } from "react";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLocale } from "../i18n/LocaleContext";
@@ -23,13 +24,13 @@ export function HomeStory({
   const locale = useLocale();
   const releasedRef = useRef(reducedMotion || inlineStory);
   const story = useMemo(() => {
-    const source = storyForMechanism("map-sky");
+    const source = storyForMechanism("map-sky", locale);
     if (locale === "en") return source;
     return {
       ...source,
       poster: "/parallax/home/background-master.png",
-      ariaLabel:
-        "Раскрытая бумажная книга: над волнами идут парусник, воздушные змеи и самолётики, а цветные ленты показывают движение ветра.",
+      ariaLabel: locale === "ru" ?
+        "Раскрытая бумажная книга: над волнами идут парусник, воздушные змеи и самолётики, а цветные ленты показывают движение ветра." : source.ariaLabel,
     };
   }, [locale]);
 
@@ -65,7 +66,7 @@ export function HomeStory({
         aria-label={
           locale === "ru"
             ? "Вступительная сцена закончена. Дальше начинается текст."
-            : "Opening story complete. Continue with the text."
+            : translateCopy("Opening story complete. Continue with the text.", locale)
         }
         className="story-release-anchor"
         ref={releaseRef}

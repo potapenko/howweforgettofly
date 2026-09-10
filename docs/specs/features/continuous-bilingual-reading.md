@@ -1,6 +1,6 @@
 # Continuous bilingual reading
 
-**Status:** Active, revision 2, 2026-09-08.
+**Status:** Active, revision 3, 2026-09-10.
 
 ## Goal
 
@@ -70,6 +70,32 @@ experience rather than a collection of products, exercises, or separate apps.
 - `src/navigation/bookNavigation.test.ts`
 - `src/navigation/readingPosition.test.ts`
 - `npm run check`; Safari desktop and mobile visual QA for changes in scope.
+
+## Ten-language extension — 2026-09-10
+
+Authority: the user approved the ten-language implementation plan in this task.
+This extension supersedes the two-locale scope above. English remains `/`;
+Spanish `/es/`, German `/de/`, French `/fr/`, Brazilian Portuguese `/pt-br/`,
+Japanese `/ja/`, Simplified Chinese `/zh-hans/`, Korean `/ko/`, Russian `/ru/`,
+and Arabic `/ar/` are complete editions of the same continuous book.
+
+- One registry owns URL prefixes, language tags, native names and direction.
+- Automatic selection runs only on initial entry to `/`: supported explicit
+  saved choice, then ordered browser languages, then English. It preserves
+  query and hash. Direct localized paths always win; slashless locale roots
+  normalize without losing URL state. Unknown paths retain not-found behavior.
+- Remember only explicit menu choices in a versioned localStorage key. Storage
+  failures must not prevent navigation. No geolocation or server is introduced.
+- Regional Portuguese preferences map to pt-BR. Only zh-Hans, zh-CN and zh-SG
+  variants map automatically to Simplified Chinese, not zh-TW or zh-Hant.
+- The persistent header exposes native language names with keyboard, touch,
+  Escape/focus restoration and a usable mobile disclosure. Switching keeps the
+  nearest semantic reading position, query and anchor. Explicit English selection
+  overrides browser preference, including when storage is unavailable.
+- Arabic text and navigation use RTL; the authored paper world and animation
+  coordinates do not mirror. CJK and long headings remain readable.
+- Acceptance covers every route and locale, initial detection, manual English,
+  blocked storage, back/forward, semantic continuity, RTL, and desktop/mobile.
 
 ## Unknowns requiring confirmation
 

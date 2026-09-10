@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { HomeCoverContent, HomeMobileIntro } from "../components/HomeCoverContent";
@@ -60,7 +61,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         closingTitle: "Достоинство существует до любого творческого поступка.",
         closingBody: "Можно читать, задерживаться у рисунков, пропускать страницы. Земля остаётся под ногами, пока мы смотрим в небо.",
       }
-    : {
+    : translateCopy({
         doorwayEyebrow: "Begin with the life in front of you",
         doorwayTitle: "Three doorways into one story.",
         doorwayIntro: "Enter as a parent responsible for conditions, as an adult who has noticed an unfinished question, or as someone deciding what AI may—and may not—do.",
@@ -81,7 +82,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
         closingEyebrow: "No one is required to fly",
         closingTitle: "Dignity comes before every act of authorship.",
         closingBody: "Read, linger over a picture, skip a page. Ground stays beneath our feet while we look at the sky.",
-      };
+      }, locale);
 
   useEffect(() => {
     if (inlineStory) setStoryReleased(true);
@@ -133,7 +134,7 @@ export function HomePage({ embedded = false }: { embedded?: boolean }) {
           <p>{copy.cycleIntro}</p>
         </div>
         <ol className="cycle-rail">
-          {cycle[locale].map(([term, meaning], index) => (
+          {(locale === "ru" ? cycle.ru : translateCopy(cycle.en, locale)).map(([term, meaning], index) => (
             <li key={term}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{term}</h3>

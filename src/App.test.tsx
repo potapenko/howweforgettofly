@@ -112,6 +112,7 @@ function moveSemanticAnchorsOffscreen(except: HTMLElement) {
 
 describe("application accessibility controls", () => {
   beforeEach(() => {
+    window.localStorage.clear();
     Object.defineProperty(window, "matchMedia", {
       configurable: true,
       value: vi.fn().mockReturnValue({
@@ -237,7 +238,7 @@ describe("application accessibility controls", () => {
     const navigation = screen.getByRole("navigation", { name: "Навигация по книге" });
     expect(navigation).toBeVisible();
     expect(within(navigation).getByRole("link", { name: "Манифест" })).toHaveAttribute("href", "/ru/#manifesto");
-    expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Русский" })).toHaveAttribute("aria-current", "page");
     expect(document.documentElement).toHaveAttribute("lang", "ru");
     expect(document.querySelector("form, input, textarea, fieldset")).toBeNull();
     expect(document.querySelector('a[href^="/atlas/"]')).toBeNull();
@@ -327,7 +328,7 @@ describe("application accessibility controls", () => {
     expect(
       screen.getByRole("navigation", { name: "Primary" }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Русский" })).toHaveAttribute(
       "href",
       "/ru/#top",
     );
@@ -407,11 +408,11 @@ describe("application accessibility controls", () => {
       name: "Manifesto",
     });
     expect(manifestoLink).toHaveAttribute("href", "/#manifesto");
-    expect(screen.getByRole("link", { name: "EN" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute(
       "aria-current",
       "page",
     );
-    expect(screen.getByRole("link", { name: "RU" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Русский" })).toHaveAttribute(
       "href",
       "/ru/#top",
     );
@@ -454,7 +455,7 @@ describe("application accessibility controls", () => {
     });
 
     fireEvent.scroll(window);
-    const russianLink = screen.getByRole("link", { name: "RU" });
+    const russianLink = screen.getByRole("link", { name: "Русский" });
     await waitFor(() => {
       expect(russianLink).toHaveAttribute(
         "href",
@@ -496,7 +497,7 @@ describe("application accessibility controls", () => {
     });
 
     fireEvent.scroll(window);
-    const russianLink = screen.getByRole("link", { name: "RU" });
+    const russianLink = screen.getByRole("link", { name: "Русский" });
     await waitFor(() => {
       expect(russianLink).toHaveAttribute(
         "href",

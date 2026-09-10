@@ -1,6 +1,6 @@
 # Editorial independence and final colophon
 
-**Status:** Active, revision 3, 2026-09-08.
+**Status:** Active, revision 4, 2026-09-10.
 
 ## Goal
 
@@ -151,3 +151,17 @@ acknowledgment at the end of the completed journey.
 
 None for preservation work. Any desired editorial re-authoring requires an
 explicitly approved new or amended spec.
+
+## Ten authored editions — 2026-09-10
+
+The user approved eight new editions (es, de, fr, pt-BR, ja, zh-Hans, ko, ar),
+with the current EN/RU editions preserved verbatim. All rendered prose, controls,
+error/loading states, accessible descriptions, scene beat words and metadata
+are localized. The ten-language registry in the reading contract owns routes.
+Use both approved editions to preserve meaning; never translate through another
+new target edition. Apply de-ai-writing to new adaptations as editorial guidance,
+not a rule to remove the poetic canon or invent factual/personal evidence.
+Native cadence may differ; chapter/paragraph meaning, ethical boundaries and
+one subordinate source colophon remain. No missing translation may silently
+publish another language. Locale heads expose reciprocal ten-language/x-default
+links and matching canonical/social metadata, including after manual switching.

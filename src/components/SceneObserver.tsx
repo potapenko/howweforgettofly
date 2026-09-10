@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import {
   type HTMLAttributes,
   type ReactNode,
@@ -125,7 +126,7 @@ export function SceneObserver({
           skipLabel={
             locale === "ru"
               ? `Пропустить иллюстрацию «${scene.title}»`
-              : `Skip ${scene.title} illustration`
+              : translateCopy("Skip {title} illustration", locale).replace("{title}", scene.title)
           }
           story={story}
         />

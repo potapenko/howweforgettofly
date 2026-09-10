@@ -1,3 +1,4 @@
+import { localeFromPathname, stripLocale } from "../i18n/locales";
 import { localeRoot, type Locale } from "../i18n/LocaleContext";
 
 export const bookSections = [
@@ -51,7 +52,8 @@ export function canonicalBookHref(href: string, locale: Locale = "en") {
   if (
     href.startsWith("/#") ||
     href.startsWith("/ru#") ||
-    href.startsWith("/ru/#")
+    href.startsWith("/ru/#") ||
+    (href.startsWith("/") && href.includes("#") && stripLocale(href.slice(0, href.indexOf("#"))) === "/")
   ) {
     return withAnchor(bookAnchorFromHash(href.slice(href.indexOf("#"))));
   }
@@ -80,10 +82,9 @@ export function sectionForHash(hash: string): BookSectionId | "home" {
 }
 
 export function legacyBookDestination(pathname: string, hash = "") {
-  const locale: Locale =
-    pathname === "/ru" || pathname.startsWith("/ru/") ? "ru" : "en";
+  const locale = localeFromPathname(pathname);
   const root = localeRoot(locale);
-  const withoutLocale = locale === "ru" ? pathname.slice(3) || "/" : pathname;
+  const withoutLocale = stripLocale(pathname);
   const normalized =
     withoutLocale.length > 1
       ? withoutLocale.replace(/\/+$/, "")

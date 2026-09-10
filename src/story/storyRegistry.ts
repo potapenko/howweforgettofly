@@ -1,3 +1,4 @@
+import { translateCopy } from "../i18n/translate";
 import type { Locale } from "../i18n/LocaleContext";
 import type { MechanismId } from "../types";
 import type { RasterLayer, RasterStory, StoryLayerState } from "./types";
@@ -1183,7 +1184,7 @@ export const storyRegistry = {
 } as const satisfies Readonly<Record<MechanismId, RasterStory>>;
 
 export function storySupportsLocale(story: RasterStory, locale: Locale) {
-  return locale === "en" || Boolean(story.beatTranslations?.[locale]);
+  return locale !== "ru" || Boolean(story.beatTranslations?.ru);
 }
 
 export function storyForMechanism(
@@ -1191,8 +1192,13 @@ export function storyForMechanism(
   locale: Locale = "en",
 ): RasterStory {
   const story = storyRegistry[mechanism];
+  if (locale === "en") return story;
   const localizedCopy = story.beatTranslations?.[locale];
-  if (!localizedCopy) return story;
+  if (!localizedCopy) return locale === "ru" ? story : {
+    ...story,
+    ariaLabel: translateCopy(story.ariaLabel, locale),
+    beats: story.beats.map(beat => ({ ...beat, label: translateCopy(beat.label, locale), narration: translateCopy(beat.narration, locale) })),
+  };
 
   return {
     ...story,

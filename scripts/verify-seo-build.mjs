@@ -1,6 +1,8 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+import { locales, localeRoot } from "../src/i18n/locales.ts";
+
 const outputRoot = resolve("dist");
 const expectedFiles = [
   "index.html",
@@ -19,23 +21,25 @@ for (const file of expectedFiles) {
   assert(existsSync(resolve(outputRoot, file)), `missing dist/${file}`);
 }
 
-const en = readFileSync(resolve(outputRoot, "index.html"), "utf8");
-const ru = readFileSync(resolve(outputRoot, "ru/index.html"), "utf8");
-assert(en.includes('<html lang="en">'), "English document language is missing");
-assert(ru.includes('<html lang="ru">'), "Russian document language is missing");
-assert(
-  en.includes('<link rel="canonical" href="https://howweforgettofly.com/"'),
-  "English canonical URL is missing",
-);
-assert(
-  ru.includes(
-    '<link rel="canonical" href="https://howweforgettofly.com/ru/"',
-  ),
-  "Russian canonical URL is missing",
-);
-assert(!en.includes('/src/main.tsx'), "English HTML contains a source entry");
-assert(!ru.includes('/src/main.tsx'), "Russian HTML contains a source entry");
-assert(en !== ru, "localized HTML documents are identical");
+for (const locale of locales) {
+  const file = resolve(outputRoot, locale.prefix, "index.html");
+  assert(existsSync(file), `missing ${locale.code} entry document`);
+  const html = readFileSync(file, "utf8");
+  assert(html.includes(`<html lang="${locale.code}" dir="${locale.dir}">`), `${locale.code} language/direction`);
+  const url = `https://howweforgettofly.com${localeRoot(locale.code)}`;
+  assert(html.includes(`<link rel="canonical" href="${url}"`), `${locale.code} canonical`);
+  assert(html.includes(`<meta property="og:url" content="${url}"`), `${locale.code} social URL`);
+  assert(html.includes(`<meta property="og:locale" content="${locale.og}"`), `${locale.code} social locale`);
+  assert(!html.includes('/src/main.tsx'), `${locale.code} contains a source entry`);
+  assert((html.match(/hreflang=/g) || []).length === 11, `${locale.code} must have ten alternates and x-default`);
+  assert((html.match(/og:locale:alternate/g) || []).length === 9, `${locale.code} must have nine social alternates`);
+  for (const alternate of locales) assert(html.includes(`hreflang="${alternate.code}" href="https://howweforgettofly.com${localeRoot(alternate.code)}"`), `${locale.code} missing ${alternate.code} alternate`);
+  if (locale.code !== 'en' && locale.code !== 'ru') {
+    const pack = JSON.parse(readFileSync(`src/i18n/messages/${locale.code}.json`, 'utf8'));
+    assert(html.includes(`<title>${pack['How We Forget to Fly — Creativity, Agency, and AI']}</title>`), `${locale.code} translated title`);
+    assert(html.includes(pack['On childhood curiosity, adult authorship, and AI that can act as wind—but never as the pilot.']), `${locale.code} translated description`);
+  }
+}
 
 const robots = readFileSync(resolve(outputRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt has no global user agent");
@@ -50,11 +54,8 @@ const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) =
 );
 assert(
   JSON.stringify(locations) ===
-    JSON.stringify([
-      "https://howweforgettofly.com/",
-      "https://howweforgettofly.com/ru/",
-    ]),
-  "sitemap does not contain exactly the two canonical locale roots",
+    JSON.stringify(locales.map(item => `https://howweforgettofly.com${localeRoot(item.code)}`)),
+  "sitemap does not contain exactly the ten canonical locale roots",
 );
 assert(!sitemap.includes("#"), "sitemap contains a fragment URL");
 
@@ -76,4 +77,4 @@ assert(
   "favicon is not square at 128x128",
 );
 
-console.log("SEO build verified: EN/RU HTML, discovery files, social assets");
+console.log("SEO build verified: ten locale documents, discovery files, social assets");
