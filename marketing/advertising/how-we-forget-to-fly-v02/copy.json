@@ -1,0 +1,72 @@
+{
+  "en": {
+    "brand": "How We Forget to Fly",
+    "headline": "AI is Wind. You choose the direction.",
+    "description": "An illustrated online book",
+    "cta": "Read the book",
+    "alt": "How We Forget to Fly — an illustrated book about creativity, human authorship and AI."
+  },
+  "ru": {
+    "brand": "How We Forget to Fly",
+    "headline": "ИИ — это Ветер. Направление выбираете вы.",
+    "description": "Иллюстрированная онлайн-книга",
+    "cta": "Читать книгу",
+    "alt": "How We Forget to Fly — иллюстрированная книга о творчестве, человеческом авторстве и ИИ."
+  },
+  "es": {
+    "brand": "How We Forget to Fly",
+    "headline": "La IA es viento. Tú eliges el rumbo.",
+    "description": "Un libro ilustrado en línea",
+    "cta": "Lee el libro",
+    "alt": "How We Forget to Fly — un libro ilustrado sobre creatividad, autoría humana e IA."
+  },
+  "de": {
+    "brand": "How We Forget to Fly",
+    "headline": "KI ist Wind. Du wählst die Richtung.",
+    "description": "Ein illustriertes Online-Buch",
+    "cta": "Buch lesen",
+    "alt": "How We Forget to Fly — ein illustriertes Buch über Kreativität, menschliche Autorschaft und KI."
+  },
+  "fr": {
+    "brand": "How We Forget to Fly",
+    "headline": "L’IA est le vent. À vous de choisir la direction.",
+    "description": "Un livre illustré en ligne",
+    "cta": "Lire le livre",
+    "alt": "How We Forget to Fly — un livre illustré sur la créativité, la création humaine et l’IA."
+  },
+  "pt-br": {
+    "brand": "How We Forget to Fly",
+    "headline": "A IA é vento. Você escolhe a direção.",
+    "description": "Um livro ilustrado online",
+    "cta": "Leia o livro",
+    "alt": "How We Forget to Fly — um livro ilustrado sobre criatividade, autoria humana e IA."
+  },
+  "ja": {
+    "brand": "How We Forget to Fly",
+    "headline": "AIは風。進む方向はあなたが選ぶ。",
+    "description": "イラスト付きのオンラインブック",
+    "cta": "本を読む",
+    "alt": "How We Forget to Fly — 創造性、人間による創作、AIをめぐるイラスト付きの本。"
+  },
+  "zh-hans": {
+    "brand": "How We Forget to Fly",
+    "headline": "AI是风。方向由你选择。",
+    "description": "一本图文并茂的在线书",
+    "cta": "阅读这本书",
+    "alt": "How We Forget to Fly — 一本关于创造力、人类创作与AI的图文书。"
+  },
+  "ko": {
+    "brand": "How We Forget to Fly",
+    "headline": "AI는 바람. 방향은 당신이 선택합니다.",
+    "description": "그림과 함께 읽는 온라인 책",
+    "cta": "책 읽기",
+    "alt": "How We Forget to Fly — 창의성, 인간의 창작, AI에 관한 그림이 있는 책."
+  },
+  "ar": {
+    "brand": "How We Forget to Fly",
+    "headline": "الذكاء الاصطناعي هو الريح. وأنت تختار الاتجاه.",
+    "description": "كتاب مصوّر على الإنترنت",
+    "cta": "اقرأ الكتاب",
+    "alt": "How We Forget to Fly — كتاب مصوّر عن الإبداع والتأليف البشري والذكاء الاصطناعي."
+  }
+}

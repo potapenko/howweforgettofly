@@ -1,0 +1,62 @@
+{
+  "en": {
+    "brand": "How We Forget to Fly",
+    "description": "A living book about creativity.",
+    "cta": "Open the book",
+    "alt": "How We Forget to Fly — an illustrated book about creativity, human authorship and AI."
+  },
+  "ru": {
+    "brand": "How We Forget to Fly",
+    "description": "Живая книга о творчестве.",
+    "cta": "Открыть книгу",
+    "alt": "How We Forget to Fly — иллюстрированная книга о творчестве, человеческом авторстве и ИИ."
+  },
+  "es": {
+    "brand": "How We Forget to Fly",
+    "description": "Un libro vivo sobre la creatividad.",
+    "cta": "Abre el libro",
+    "alt": "How We Forget to Fly — un libro ilustrado sobre creatividad, autoría humana e IA."
+  },
+  "de": {
+    "brand": "How We Forget to Fly",
+    "description": "Ein lebendiges Buch über Kreativität.",
+    "cta": "Buch öffnen",
+    "alt": "How We Forget to Fly — ein illustriertes Buch über Kreativität, menschliche Autorschaft und KI."
+  },
+  "fr": {
+    "brand": "How We Forget to Fly",
+    "description": "Un livre vivant sur la créativité.",
+    "cta": "Ouvrir le livre",
+    "alt": "How We Forget to Fly — un livre illustré sur la créativité, la création humaine et l’IA."
+  },
+  "pt-br": {
+    "brand": "How We Forget to Fly",
+    "description": "Um livro vivo sobre criatividade.",
+    "cta": "Abra o livro",
+    "alt": "How We Forget to Fly — um livro ilustrado sobre criatividade, autoria humana e IA."
+  },
+  "ja": {
+    "brand": "How We Forget to Fly",
+    "description": "創造性をめぐる、生きた本。",
+    "cta": "本を開く",
+    "alt": "How We Forget to Fly — 創造性、人間による創作、AIをめぐるイラスト付きの本。"
+  },
+  "zh-hans": {
+    "brand": "How We Forget to Fly",
+    "description": "一本关于创造力的鲜活之书。",
+    "cta": "打开这本书",
+    "alt": "How We Forget to Fly — 一本关于创造力、人类创作与AI的图文书。"
+  },
+  "ko": {
+    "brand": "How We Forget to Fly",
+    "description": "창의성에 관한 살아 있는 책.",
+    "cta": "책 펼치기",
+    "alt": "How We Forget to Fly — 창의성, 인간의 창작, AI에 관한 그림이 있는 책."
+  },
+  "ar": {
+    "brand": "How We Forget to Fly",
+    "description": "كتاب حيّ عن الإبداع.",
+    "cta": "افتح الكتاب",
+    "alt": "How We Forget to Fly — كتاب مصوّر عن الإبداع والتأليف البشري والذكاء الاصطناعي."
+  }
+}

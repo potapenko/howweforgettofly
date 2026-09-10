@@ -1,0 +1,72 @@
+{
+  "en": {
+    "brand": "How We Forget to Fly",
+    "headline": "Leave room for wonder.",
+    "description": "An illustrated book for parents.",
+    "cta": "Open the book",
+    "alt": "How We Forget to Fly — an illustrated book about creativity, human authorship and AI."
+  },
+  "ru": {
+    "brand": "How We Forget to Fly",
+    "headline": "Оставьте место для удивления.",
+    "description": "Иллюстрированная книга для родителей.",
+    "cta": "Открыть книгу",
+    "alt": "How We Forget to Fly — иллюстрированная книга о творчестве, человеческом авторстве и ИИ."
+  },
+  "es": {
+    "brand": "How We Forget to Fly",
+    "headline": "Deja espacio para el asombro.",
+    "description": "Un libro ilustrado para padres.",
+    "cta": "Abre el libro",
+    "alt": "How We Forget to Fly — un libro ilustrado sobre creatividad, autoría humana e IA."
+  },
+  "de": {
+    "brand": "How We Forget to Fly",
+    "headline": "Raum fürs Staunen lassen.",
+    "description": "Ein illustriertes Buch für Eltern.",
+    "cta": "Buch öffnen",
+    "alt": "How We Forget to Fly — ein illustriertes Buch über Kreativität, menschliche Autorschaft und KI."
+  },
+  "fr": {
+    "brand": "How We Forget to Fly",
+    "headline": "Faites place à l’émerveillement.",
+    "description": "Un livre illustré pour les parents.",
+    "cta": "Ouvrir le livre",
+    "alt": "How We Forget to Fly — un livre illustré sur la créativité, la création humaine et l’IA."
+  },
+  "pt-br": {
+    "brand": "How We Forget to Fly",
+    "headline": "Deixe espaço para se encantar.",
+    "description": "Um livro ilustrado para pais.",
+    "cta": "Abra o livro",
+    "alt": "How We Forget to Fly — um livro ilustrado sobre criatividade, autoria humana e IA."
+  },
+  "ja": {
+    "brand": "How We Forget to Fly",
+    "headline": "不思議を楽しむ余白を。",
+    "description": "親のためのイラスト付きの本。",
+    "cta": "本を開く",
+    "alt": "How We Forget to Fly — 創造性、人間による創作、AIをめぐるイラスト付きの本。"
+  },
+  "zh-hans": {
+    "brand": "How We Forget to Fly",
+    "headline": "给好奇与惊喜留点空间。",
+    "description": "一本写给父母的图文书。",
+    "cta": "打开这本书",
+    "alt": "How We Forget to Fly — 一本关于创造力、人类创作与AI的图文书。"
+  },
+  "ko": {
+    "brand": "How We Forget to Fly",
+    "headline": "놀라움을 위한 여백을 남겨요.",
+    "description": "부모를 위한 그림이 있는 책.",
+    "cta": "책 펼치기",
+    "alt": "How We Forget to Fly — 창의성, 인간의 창작, AI에 관한 그림이 있는 책."
+  },
+  "ar": {
+    "brand": "How We Forget to Fly",
+    "headline": "اترك مساحة للدهشة.",
+    "description": "كتاب مصوّر للآباء والأمهات.",
+    "cta": "افتح الكتاب",
+    "alt": "How We Forget to Fly — كتاب مصوّر عن الإبداع والتأليف البشري والذكاء الاصطناعي."
+  }
+}

@@ -1,6 +1,6 @@
 # How We Forget to Fly — English advertising concepts
 
-Stage 1 only. Campaign ID: `how-we-forget-to-fly`. Selection pending.
+Stage 1 concepts. Shared project ID: `how-we-forget-to-fly`. On 2026-09-10 the user selected all three concepts and authorized three localized sets: `how-we-forget-to-fly-v01`, `how-we-forget-to-fly-v02`, and `how-we-forget-to-fly-v03`.
 
 ## Delivered concepts and review
 
@@ -12,7 +12,7 @@ Stage 1 only. Campaign ID: `how-we-forget-to-fly`. Selection pending.
 
 Each final image was visually checked for exact English text, full brand spelling, legibility, composition and close-control clearance. A temporary local review page displayed the original files at 300 × 300 CSS px with a 32px circle inset 12px from the top and right. The in-app Browser and Safari both passed this static creative review. The overlay is not embedded in the PNGs. This is not a test of the receiving advertising flow. Copied files were byte-compared with the ImageGen originals. No image conversion occurred. No app code changed, so code test suites were not run.
 
-No variant has been selected or published. Localized assets, `copy.json`, `campaign.json` and publication packaging await the user's choice and localization authorization.
+All three variants are selected. Their localized assets, copy, prompts and draft campaign objects live in the corresponding sibling campaign directories. Nothing is published by this task.
 
 ## v03 correction prompt
 

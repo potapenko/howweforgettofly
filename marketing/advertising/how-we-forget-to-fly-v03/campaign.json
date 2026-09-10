@@ -1,0 +1,79 @@
+{
+  "id": "how-we-forget-to-fly-v03",
+  "project-id": "how-we-forget-to-fly",
+  "creative-set-id": "how-we-forget-to-fly-v03",
+  "creative-revision": "1",
+  "status": "draft",
+  "kind": "house",
+  "starts-at": 1788998400000,
+  "ends-at": 1820534400000,
+  "placements": [
+    "search",
+    "reels"
+  ],
+  "priority": 0,
+  "weight": 1,
+  "daily-cap": 3,
+  "locales": {
+    "en": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-en.png",
+      "alt": "How We Forget to Fly — an illustrated book about creativity, human authorship and AI."
+    },
+    "ru": {
+      "url": "https://howweforgettofly.com/ru/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-ru.png",
+      "alt": "How We Forget to Fly — иллюстрированная книга о творчестве, человеческом авторстве и ИИ."
+    },
+    "es": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-es.png",
+      "alt": "How We Forget to Fly — un libro ilustrado sobre creatividad, autoría humana e IA."
+    },
+    "de": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-de.png",
+      "alt": "How We Forget to Fly — ein illustriertes Buch über Kreativität, menschliche Autorschaft und KI."
+    },
+    "fr": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-fr.png",
+      "alt": "How We Forget to Fly — un livre illustré sur la créativité, la création humaine et l’IA."
+    },
+    "pt": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-pt-br.png",
+      "alt": "How We Forget to Fly — um livro ilustrado sobre criatividade, autoria humana e IA."
+    },
+    "ja": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-ja.png",
+      "alt": "How We Forget to Fly — 創造性、人間による創作、AIをめぐるイラスト付きの本。"
+    },
+    "zh": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-zh-hans.png",
+      "alt": "How We Forget to Fly — 一本关于创造力、人类创作与AI的图文书。"
+    },
+    "ko": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-ko.png",
+      "alt": "How We Forget to Fly — 창의성, 인간의 창작, AI에 관한 그림이 있는 책."
+    },
+    "ar": {
+      "url": "https://howweforgettofly.com/",
+      "type": "image",
+      "src": "/advertising/how-we-forget-to-fly-v03/how-we-forget-to-fly-v03-square-ar.png",
+      "alt": "How We Forget to Fly — كتاب مصوّر عن الإبداع والتأليف البشري والذكاء الاصطناعي."
+    }
+  }
+}
